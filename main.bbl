@@ -1,0 +1,159 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{4}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem{RivasEddy2015}
+\begin{barticle}
+\bauthor{\bsnm{Rivas}, \binits{E.}},
+\bauthor{\bsnm{Eddy}, \binits{S.R.}}:
+\batitle{{{P}arameterizing sequence alignment with an explicit evolutionary
+  model}}.
+\bjtitle{BMC Bioinformatics}
+\bvolume{16},
+\bfpage{406}
+(\byear{2015})
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem{Ezawa2016a}
+\begin{barticle}
+\bauthor{\bsnm{Ezawa}, \binits{K.}}:
+\batitle{{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: local alignment probability computation}}.
+\bjtitle{BMC Bioinformatics}
+\bvolume{17}(\bissue{1}),
+\bfpage{397}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem{Ezawa2016b}
+\begin{barticle}
+\bauthor{\bsnm{Ezawa}, \binits{K.}}:
+\batitle{{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: are alignment probabilities factorable?}}
+\bjtitle{BMC Bioinformatics}
+\bvolume{17},
+\bfpage{304}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem{Ezawa2016bErratum}
+\begin{barticle}
+\bauthor{\bsnm{Ezawa}, \binits{K.}}:
+\batitle{{{E}rratum to: {G}eneral continuous-time {M}arkov model of sequence
+  evolution via insertions/deletions: are alignment probabilities factorable?}}
+\bjtitle{BMC Bioinformatics}
+\bvolume{17}(\bissue{1}),
+\bfpage{457}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}
+
+\newcommand{\BMCxmlcomment}[1]{}
+
+\BMCxmlcomment{
+
+<refgrp>
+
+<bibl id="B1">
+  <title><p>{{P}arameterizing sequence alignment with an explicit evolutionary
+  model}</p></title>
+  <aug>
+    <au><snm>Rivas</snm><fnm>E.</fnm></au>
+    <au><snm>Eddy</snm><fnm>S. R.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2015</pubdate>
+  <volume>16</volume>
+  <fpage>406</fpage>
+</bibl>
+
+<bibl id="B2">
+  <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: local alignment probability computation}</p></title>
+  <aug>
+    <au><snm>Ezawa</snm><fnm>K.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2016</pubdate>
+  <volume>17</volume>
+  <issue>1</issue>
+  <fpage>397</fpage>
+</bibl>
+
+<bibl id="B3">
+  <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: are alignment probabilities factorable?}</p></title>
+  <aug>
+    <au><snm>Ezawa</snm><fnm>K.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2016</pubdate>
+  <volume>17</volume>
+  <fpage>304</fpage>
+</bibl>
+
+<bibl id="B4">
+  <title><p>{{E}rratum to: {G}eneral continuous-time {M}arkov model of sequence
+  evolution via insertions/deletions: are alignment probabilities
+  factorable?}</p></title>
+  <aug>
+    <au><snm>Ezawa</snm><fnm>K.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2016</pubdate>
+  <volume>17</volume>
+  <issue>1</issue>
+  <fpage>457</fpage>
+</bibl>
+
+</refgrp>
+} % end of \BMCxmlcomment

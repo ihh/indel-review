@@ -56,6 +56,8 @@
 
 %%% Put your definitions there:
 \startlocaldefs
+\newcommand{\matr}[1]{\mathbf{#1}}
+\newcommand{\eqref}[1]{Equation~\ref{#1}}
 \endlocaldefs
 
 
@@ -127,11 +129,207 @@ recent articles on the calculation of gap length distributions.
 %%
 \section*{Background}
 
+Probabilistic models of substitution are centrally important in statistical phylogenetics and bioinformatics
+
+Used to estimate evolutionary time separating pairs of species,
+construct phylogenetic trees,
+parameterize sequence alignment algorithms.
+Estimate spatial variation in evolutionary rates;
+patterns of spatial variation have been used to
+predict exon structures of protein-coding genes
+and foldback structure of non-coding RNA genes,
+as well as secondary structure of proteins.
+Reconstruct ancestral sequences for synthetic biology.
+Trees are used to classify species,
+identify novel pathogens,
+reconstruct population histories in viral epidemics,
+identify transmissione events,
+inform conservation efforts,
+among many other applications.
+
+At core, these methods are based on the continuous-time Markov chain.
+We assume there is a state space $\Phi$,
+for example the set of nucleotides $\Phi = \{ \mbox{A,C,G,T} \}$.
+There is a stochastic process $\phi(t)$ that at any given instant of time, $t$,
+takes one of the values in $\Phi$.
+We write $\vec{p}(t)$ for the vector of probabilities
+$\vec{p}_i(t) = P(\phi(t) = i)$.
+The time-evolution of this vector is governed by a {\em master equation}
+\begin{equation}
+\frac{d}{dt} \vec{p}(t) = \vec{p}(t) \matr{R}
+\label{MasterEquation}
+\end{equation}
+where, for $i,j \in \Phi$ and $i \neq j$,
+$\matr{R}_{ij}$ is the instantaneous rate of mutation from state $i$ to state $j$;
+for probabilistic normalization of \eqref{MasterEquation},
+we then require that
+\[
+\matr{R}_{ii} = -\sum_{j \in \Phi, j \neq i} \matr{R}_{ij}
+\]
+
+The probability distribution of this process at equilibrium is given by the vector $\vec{\pi}$,
+which must satisfy the equation
+\[
+\vec{\pi} \matr{R} = \vec{0}
+\]
+
+The general solution to \eqref{MasterEquation} can be expressed in terms of the matrix exponential
+\begin{eqnarray}
+\vec{p}(t) & = & \vec{p}(0) \matr{M}(t) \nonumber \\
+\matr{M}(t) & = & \exp ( \matr{R}t )
+\label{MatrixExponential}
+\end{eqnarray}
+
+The entries of this matrix, $\matr{M}_{ij}(t)$, give the conditional probability
+$P(\phi(t)=j|\phi(0)=i)$ that an ancestral state $i$ will, after time $t$, have evolved into a descendant state $j$.
+
+This pairwise probability can be converted
+into a likelihood for a set of extant taxon states $S$ related by a tree $T$,
+as follows.
+(We assume for convenience that $T$ is a binary tree, though relaxing this constraint is straightforward.)
+
+We first compute, for every node $n$ in the tree,
+the probability $\vec{F}_i(n)$
+of all observed states at leaf nodes descended from node $n$,
+conditioned on node $n$ being in state $i$.
+This is given by Felsenstein's pruning recursion:
+\begin{equation}
+\vec{F}(n) = \left\{
+\begin{array}{ll}
+\displaystyle
+\left( \matr{M}(t_{nl}) \vec{F}(l) \right)
+\otimes
+\left( \matr{M}(t_{nr}) \vec{F}(r) \right)
+& \mbox{if $n$ is an internal node with children $l,r$} \\
+\displaystyle
+\vec{\Delta}(s_n)
+& \mbox{if $n$ is a leaf node with taxon state $s_n$}
+\end{array}
+\right.
+\label{Felsenstein}
+\end{equation}
+where $t_{mn}$ denotes the length of the branch from tree node $m$ to tree node $n$.
+We have used
+$\vec{\Delta}(j)$ to denote the unit vector in direction $j$
+and
+$\otimes$ to denote the {\em Hadamard product} (also known as the {\em pointwise product}),
+defined such that for any two vectors $\vec{u},\vec{v}$ of the same size:
+$(\vec{u} \otimes \vec{v})_i = \vec{u}_i \vec{v}_i$.
+
+Supposing that node $1$ is the root node of the tree,
+and that the distribution of states at this root node is given by vector $\vec{\rho}$,
+we can write the likelihood as
+\begin{equation}
+P(S|T,\matr{R},\vec{\rho}) = \vec{\rho} \cdot \vec{F}(1)
+\label{Likelihood}
+\end{equation}
+where $\vec{u} \cdot \vec{v}$ denotes the scalar product of $\vec{u}$ and $\vec{v}$.
+It is common to assume that the root node is at equilibrium,
+so that $\vec{\rho} = \vec{\pi}$.
+
+As mentioned above, this mathematical approach is fundamental to statistical phylogenetics
+and many applications in bioinformatics.
+For small state spaces $\Phi$, \eqref{MatrixExponential} can be solved exactly
+by the technique of spectral decomposition (i.e. finding eigenvalues and eigenvectors).
+Such an approach informs the Dayhoff PAM matrix.
+It was also solved for certain specific parametric forms of $\matr{R}$
+by Jukes and Cantor in 1969, Kimura in 1980, Felsenstein in 1981, and Hasegawa {\em et al} in 1985.
+This approach is used by all likelihood-based phylogenetics tools including
+RevBayes, BEAST, RAxML, HyPhy, PAML, PHYLIP, TREE-PUZZLE, XRate.
+Many more bioinformatics tools use the Dayhoff PAM matrix or other substitution matrix
+based on an underlying master equation of the form \eqref{MasterEquation}.
+
+Question naturally arises: how to extend the model to describe the evolution of an entire sequence,
+not just individual sites?
+As long as the allowed mutations are restricted to point substitutions
+and their mutation rates are independent of flanking context,
+then extension to whole sequences is trivially easy:
+can simply multiply together probabilities of independent sites.
+
+However, some mutations violate this assumption of site independence;
+most notably context-dependent substitutions and indels.
+For these mutations the obvious approach is to extend the state space $\Phi$
+to be the set of all possible sequences over a given alphabet
+(for example, the set of all DNA or protein sequences).
+This state space is (countably) infinite;
+we can still discuss Equations~\ref{MasterEquation}-\ref{Likelihood}
+on an infinite state space,
+but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer possible.
+It is for this reason that whole-sequence models have proved quite challenging for theorists.
+
 %%%%%%%%%%%%%%%%
 %% Main text %%
 %%
 \section*{Main text}
 
+We focus only on ``local'' mutations: mostly indel events (which may include local duplications),
+also context-dependent substitutions
+
+There is an extensive literature on nonlocal events such as rearrangements,
+but these tend to defy phylogenetic reconstruction (due to the rapid proliferation of possible histories with even a few such events)
+
+Two parts:
+solving the master equation (Equations~\ref{MasterEquation}-\ref{MatrixExponential}),
+extending from pairwise probability to a phylogenetic tree (Equations~\ref{Felsenstein}-\ref{Likelihood}).
+
+\subsection*{Solving the master equation}
+
+Exactly solvable models:
+substitutions only,
+TKF91
+ - single-residue events only
+ - linear birth-death model with immigration
+ - Very appealing result: distribution of observed gap lengths is geometric
+ - joint probability $P(\phi(0),\phi(t))$ expressible as a Pair HMM \cite{HolmesBruno2001}
+ - conditional probability expressible as a weighted finite-state transducer \cite{Holmes2003,Westesson2012-zg,BouchardCote2013}
+
+Problem with extending this to longer indel events is that a single gap may be consistent with
+multiple indel ``trajectories'' (Figure)
+Summing over all such trajectories to compute the probability of a particular size of gap being observed at a finite time
+is a nontrivial problem
+
+Models where the state is not a ``pure'' DNA or protein sequence,
+but includes some extra artificial information,
+such as ghost sites or hidden boundaries:
+TKF92,
+Rivas et al
+
+Miklos and Toroczkai insertion-only model(?) \cite{MiklosEtal2001}
+
+Principled approximations that proceed systematically from Equations~\ref{MasterEquation}-\ref{MatrixExponential}
+Lunter \& Hein's context-dependent substitution model (2004)
+ - expansion of Taylor series for \eqref{MatrixExponential}
+Miklos, Lunter and Holmes' ``long indel'' model (2004)
+ - makes the intuitive claim that the existence of a conserved residue implies the alignment probability is factorable (because no indel has ever crossed that boundary)
+ - uses a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths
+
+More heuristic approaches which make less-principled single-event approximations
+Knudsen \& Miyamoto
+Rivas
+HandAlign
+BaliPhy
+ProtPal, IndelHistorian
+
+Simulation-based investigations
+Rivas \& Eddy 2015
+ - proof that an affine distribution for instantaneous indel events can't lead to an affine distribution for observed gap lengths, suggesting that HMM-like models may be fundamentally limited
+ - simulations demonstrating this result
+Ezawa 2016a,b
+ - criticizes over-reliance on HMM-like models
+ - puts the intuition of Miklos et al (2004) on a more formal footing by introducing an explicit notation (``local history set equivalence classes'') for evolutionary trajectories, and using it to prove that alignment is indeed factorable
+ - investigates by simulation and analysis the relative contribution of multiple-event trajectories to gap length distributions
+
+
+\subsection*{Extending from pairs to trees}
+
+Most principled approach is MCMC - in principle can handle any indel length distribution.
+Handel,
+BaliPhy,
+StatAlign,
+HandAlign,
+IndelHistorian
+
+Transducer approach \cite{Westesson2012-zg,BouchardCote2013,IndelHistorian}
 
 
 %%%%%%%%%%%%%%%%

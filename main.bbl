@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{4}
+\begin{thebibliography}{8}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -43,6 +43,60 @@
 \csname PreBibitemsHook\endcsname
 
 %%% 1
+\bibitem{HolmesBruno2001}
+\begin{botherref}
+\oauthor{\bsnm{Holmes}, \binits{I.}},
+\oauthor{\bsnm{Bruno}, \binits{W.J.}}:
+Evolutionary {HMM}s: a {B}ayesian approach to multiple alignment
+\textbf{17}(9),
+803--820
+(2001)
+\end{botherref}
+\endbibitem
+
+%%% 2
+\bibitem{Westesson2012-zg}
+\begin{barticle}
+\bauthor{\bsnm{Westesson}, \binits{O.}},
+\bauthor{\bsnm{Lunter}, \binits{G.}},
+\bauthor{\bsnm{Paten}, \binits{B.}},
+\bauthor{\bsnm{Holmes}, \binits{I.}}:
+\batitle{Accurate reconstruction of insertion-deletion histories by statistical
+  phylogenetics}.
+\bjtitle{PLoS One}
+\bvolume{7}(\bissue{4}),
+\bfpage{34572}
+(\byear{2012})
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem{BouchardCote2013}
+\begin{barticle}
+\bauthor{\bsnm{Bouchard-C\^{o}t\'{e}}, \binits{A.}}:
+\batitle{{{A} note on probabilistic models over strings: the linear algebra
+  approach}}.
+\bjtitle{Bulletin of Mathematical Biology}
+\bvolume{75}(\bissue{12}),
+\bfpage{2529}--\blpage{2550}
+(\byear{2013})
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem{MiklosEtal2001}
+\begin{bchapter}
+\bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
+\bauthor{\bsnm{Toroczkai}, \binits{Z.}}:
+\bctitle{An improved model for statistical alignment}.
+In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
+\bpublisher{Springer},
+\blocation{Berlin, Heidelberg}
+(\byear{2001})
+\end{bchapter}
+\endbibitem
+
+%%% 5
 \bibitem{RivasEddy2015}
 \begin{barticle}
 \bauthor{\bsnm{Rivas}, \binits{E.}},
@@ -56,7 +110,7 @@
 \end{barticle}
 \endbibitem
 
-%%% 2
+%%% 6
 \bibitem{Ezawa2016a}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -69,7 +123,7 @@
 \end{barticle}
 \endbibitem
 
-%%% 3
+%%% 7
 \bibitem{Ezawa2016b}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -82,7 +136,7 @@
 \end{barticle}
 \endbibitem
 
-%%% 4
+%%% 8
 \bibitem{Ezawa2016bErratum}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -104,6 +158,61 @@
 <refgrp>
 
 <bibl id="B1">
+  <title><p>Evolutionary {HMM}s: a {B}ayesian approach to multiple
+  alignment</p></title>
+  <aug>
+    <au><snm>Holmes</snm><fnm>I.</fnm></au>
+    <au><snm>Bruno</snm><fnm>W. J.</fnm></au>
+  </aug>
+  <pubdate>2001</pubdate>
+  <volume>17</volume>
+  <issue>9</issue>
+  <fpage>803</fpage>
+  <lpage>820</lpage>
+</bibl>
+
+<bibl id="B2">
+  <title><p>Accurate reconstruction of insertion-deletion histories by
+  statistical phylogenetics</p></title>
+  <aug>
+    <au><snm>Westesson</snm><fnm>O</fnm></au>
+    <au><snm>Lunter</snm><fnm>G</fnm></au>
+    <au><snm>Paten</snm><fnm>B</fnm></au>
+    <au><snm>Holmes</snm><fnm>I</fnm></au>
+  </aug>
+  <source>PLoS One</source>
+  <pubdate>2012</pubdate>
+  <volume>7</volume>
+  <issue>4</issue>
+  <fpage>e34572</fpage>
+</bibl>
+
+<bibl id="B3">
+  <title><p>{{A} note on probabilistic models over strings: the linear algebra
+  approach}</p></title>
+  <aug>
+    <au><snm>Bouchard C\^{o}t\'{e}</snm><fnm>A.</fnm></au>
+  </aug>
+  <source>Bulletin of Mathematical Biology</source>
+  <pubdate>2013</pubdate>
+  <volume>75</volume>
+  <issue>12</issue>
+  <fpage>2529</fpage>
+  <lpage>-2550</lpage>
+</bibl>
+
+<bibl id="B4">
+  <title><p>An Improved Model for Statistical Alignment</p></title>
+  <aug>
+    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
+    <au><snm>Toroczkai</snm><fnm>Z.</fnm></au>
+  </aug>
+  <source>First Workshop on Algorithms in Bioinformatics</source>
+  <publisher>Berlin, Heidelberg: Springer-Verlag</publisher>
+  <pubdate>2001</pubdate>
+</bibl>
+
+<bibl id="B5">
   <title><p>{{P}arameterizing sequence alignment with an explicit evolutionary
   model}</p></title>
   <aug>
@@ -116,7 +225,7 @@
   <fpage>406</fpage>
 </bibl>
 
-<bibl id="B2">
+<bibl id="B6">
   <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
   insertions/deletions: local alignment probability computation}</p></title>
   <aug>
@@ -129,7 +238,7 @@
   <fpage>397</fpage>
 </bibl>
 
-<bibl id="B3">
+<bibl id="B7">
   <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
   insertions/deletions: are alignment probabilities factorable?}</p></title>
   <aug>
@@ -141,7 +250,7 @@
   <fpage>304</fpage>
 </bibl>
 
-<bibl id="B4">
+<bibl id="B8">
   <title><p>{{E}rratum to: {G}eneral continuous-time {M}arkov model of sequence
   evolution via insertions/deletions: are alignment probabilities
   factorable?}</p></title>

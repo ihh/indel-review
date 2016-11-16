@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{8}
+\begin{thebibliography}{23}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -84,19 +84,42 @@ Evolutionary {HMM}s: a {B}ayesian approach to multiple alignment
 \endbibitem
 
 %%% 4
-\bibitem{MiklosEtal2001}
-\begin{bchapter}
-\bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
-\bauthor{\bsnm{Toroczkai}, \binits{Z.}}:
-\bctitle{An improved model for statistical alignment}.
-In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
-\bpublisher{Springer},
-\blocation{Berlin, Heidelberg}
-(\byear{2001})
-\end{bchapter}
+\bibitem{Metzler2003}
+\begin{botherref}
+\oauthor{\bsnm{Metzler}, \binits{D.}}:
+Statistical alignment based on fragment insertion and deletion models
+\textbf{19}(4),
+490--499
+(2003)
+\end{botherref}
 \endbibitem
 
 %%% 5
+\bibitem{Rivas05}
+\begin{botherref}
+\oauthor{\bsnm{Rivas}, \binits{E.}}:
+Evolutionary models for insertions and deletions in a probabilistic modeling
+  framework
+\textbf{6}(63)
+(2005)
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem{RivasEddy2008}
+\begin{barticle}
+\bauthor{\bsnm{Rivas}, \binits{E.}},
+\bauthor{\bsnm{Eddy}, \binits{S.R.}}:
+\batitle{{{P}robabilistic phylogenetic inference with insertions and
+  deletions}}.
+\bjtitle{PLoS Computational Biology}
+\bvolume{4},
+\bfpage{1000172}
+(\byear{2008})
+\end{barticle}
+\endbibitem
+
+%%% 7
 \bibitem{RivasEddy2015}
 \begin{barticle}
 \bauthor{\bsnm{Rivas}, \binits{E.}},
@@ -110,20 +133,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{barticle}
 \endbibitem
 
-%%% 6
-\bibitem{Ezawa2016a}
-\begin{barticle}
-\bauthor{\bsnm{Ezawa}, \binits{K.}}:
-\batitle{{{G}eneral continuous-time {M}arkov model of sequence evolution via
-  insertions/deletions: local alignment probability computation}}.
-\bjtitle{BMC Bioinformatics}
-\bvolume{17}(\bissue{1}),
-\bfpage{397}
-(\byear{2016})
-\end{barticle}
-\endbibitem
-
-%%% 7
+%%% 8
 \bibitem{Ezawa2016b}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -136,7 +146,202 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{barticle}
 \endbibitem
 
-%%% 8
+%%% 9
+\bibitem{MiklosEtal2001}
+\begin{bchapter}
+\bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
+\bauthor{\bsnm{Toroczkai}, \binits{Z.}}:
+\bctitle{An improved model for statistical alignment}.
+In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
+\bpublisher{Springer},
+\blocation{Berlin, Heidelberg}
+(\byear{2001})
+\end{bchapter}
+\endbibitem
+
+%%% 10
+\bibitem{Hein2001}
+\begin{bchapter}
+\bauthor{\bsnm{Hein}, \binits{J.}}:
+\bctitle{An algorithm for statistical alignment of sequences related by a
+  binary tree}.
+In: \beditor{\bsnm{Altman}, \binits{R.B.}},
+\beditor{\bsnm{Dunker}, \binits{A.K.}},
+\beditor{\bsnm{Hunter}, \binits{L.}},
+\beditor{\bsnm{Lauderdale}, \binits{K.}},
+\beditor{\bsnm{Klein}, \binits{T.E.}} (eds.)
+\bbtitle{Pacific Symposium on Biocomputing},
+pp. \bfpage{179}--\blpage{190}.
+\bpublisher{World Scientific},
+\blocation{Singapore}
+(\byear{2001})
+\end{bchapter}
+\endbibitem
+
+%%% 11
+\bibitem{LunterSongMiklosHein2003}
+\begin{botherref}
+\oauthor{\bsnm{Lunter}, \binits{G.A.}},
+\oauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
+\oauthor{\bsnm{Song}, \binits{Y.S.}},
+\oauthor{\bsnm{Hein}, \binits{J.}}:
+An efficient algorithm for statistical multiple alignment on arbitrary
+  phylogenetic trees
+\textbf{10}(6),
+869--889
+(2003)
+\end{botherref}
+\endbibitem
+
+%%% 12
+\bibitem{ThorneEtal92}
+\begin{barticle}
+\bauthor{\bsnm{Thorne}, \binits{J.L.}},
+\bauthor{\bsnm{Kishino}, \binits{H.}},
+\bauthor{\bsnm{Felsenstein}, \binits{J.}}:
+\batitle{Inching toward reality: an improved likelihood model of sequence
+  evolution}.
+\bjtitle{Journal of Molecular Evolution}
+\bvolume{34},
+\bfpage{3}--\blpage{16}
+(\byear{1992})
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem{KnudsenMiyamoto2003}
+\begin{barticle}
+\bauthor{\bsnm{Knudsen}, \binits{B.}},
+\bauthor{\bsnm{Miyamoto}, \binits{M.}}:
+\batitle{Sequence alignments and pair hidden {M}arkov models using evolutionary
+  history}.
+\bjtitle{Journal of Molecular Biology}
+\bvolume{333}(\bissue{2}),
+\bfpage{453}--\blpage{460}
+(\byear{2003})
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem{WangKeightleyJohnson2006}
+\begin{botherref}
+\oauthor{\bsnm{Wang}, \binits{J.}},
+\oauthor{\bsnm{Keightley}, \binits{P.D.}},
+\oauthor{\bsnm{Johnson}, \binits{T.}}:
+{{M}{C}{A}{L}{I}{G}{N}2: faster, accurate global pairwise alignment of
+  non-coding {D}{N}{A} sequences based on explicit models of indel evolution}
+\textbf{7},
+292
+(2006)
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem{Mealy55}
+\begin{barticle}
+\bauthor{\bsnm{Mealy}, \binits{G.H.}}:
+\batitle{A method for synthesizing sequential circuits}.
+\bjtitle{Bell System Technical Journal}
+\bvolume{34},
+\bfpage{1045}--\blpage{1079}
+(\byear{1955})
+\end{barticle}
+\endbibitem
+
+%%% 16
+\bibitem{MohriPereiraRiley2000}
+\begin{barticle}
+\bauthor{\bsnm{Mohri}, \binits{M.}},
+\bauthor{\bsnm{Pereira}, \binits{F.}},
+\bauthor{\bsnm{Riley}, \binits{M.}}:
+\batitle{Weighted finite-state transducers in speech recognition}.
+\bjtitle{Computer Speech and Language}
+\bvolume{16}(\bissue{1}),
+\bfpage{69}--\blpage{88}
+(\byear{2002})
+\end{barticle}
+\endbibitem
+
+%%% 17
+\bibitem{Sankoff85}
+\begin{barticle}
+\bauthor{\bsnm{Sankoff}, \binits{D.}}:
+\batitle{Simultaneous solution of the {RNA} folding, alignment, and
+  protosequence problems}.
+\bjtitle{SIAM Journal of Applied Mathematics}
+\bvolume{45},
+\bfpage{810}--\blpage{825}
+(\byear{1985})
+\end{barticle}
+\endbibitem
+
+%%% 18
+\bibitem{BradleyHolmes2009}
+\begin{barticle}
+\bauthor{\bsnm{Bradley}, \binits{R.K.}},
+\bauthor{\bsnm{Holmes}, \binits{I.}}:
+\batitle{{{E}volutionary triplet models of structured {R}{N}{A}}}.
+\bjtitle{PLoS Computational Biology}
+\bvolume{5}(\bissue{8}),
+\bfpage{1000483}
+(\byear{2009})
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem{RedelingsSuchard2005}
+\begin{barticle}
+\bauthor{\bsnm{Redelings}, \binits{B.D.}},
+\bauthor{\bsnm{Suchard}, \binits{M.A.}}:
+\batitle{Joint {B}ayesian estimation of alignment and phylogeny.}
+\bjtitle{Systematic Biology}
+\bvolume{54}(\bissue{3}),
+\bfpage{401}--\blpage{418}
+(\byear{2005})
+\end{barticle}
+\endbibitem
+
+%%% 20
+\bibitem{RedelingsSuchard2007}
+\begin{barticle}
+\bauthor{\bsnm{Redelings}, \binits{B.D.}},
+\bauthor{\bsnm{Suchard}, \binits{M.A.}}:
+\batitle{Incorporating indel information into phylogeny estimation for rapidly
+  emerging pathogens.}
+\bjtitle{BMC Evolutionary Biology}
+\bvolume{7},
+\bfpage{40}
+(\byear{2007})
+\end{barticle}
+\endbibitem
+
+%%% 21
+\bibitem{Redelings2014}
+\begin{barticle}
+\bauthor{\bsnm{Redelings}, \binits{B.}}:
+\batitle{{{E}rasing errors due to alignment ambiguity when estimating positive
+  selection}}.
+\bjtitle{Molecular Biology and Evolution}
+\bvolume{31}(\bissue{8}),
+\bfpage{1979}--\blpage{1993}
+(\byear{2014})
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem{Ezawa2016a}
+\begin{barticle}
+\bauthor{\bsnm{Ezawa}, \binits{K.}}:
+\batitle{{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: local alignment probability computation}}.
+\bjtitle{BMC Bioinformatics}
+\bvolume{17}(\bissue{1}),
+\bfpage{397}
+(\byear{2016})
+\end{barticle}
+\endbibitem
+
+%%% 23
 \bibitem{Ezawa2016bErratum}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -202,17 +407,43 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 </bibl>
 
 <bibl id="B4">
-  <title><p>An Improved Model for Statistical Alignment</p></title>
+  <title><p>Statistical Alignment based on fragment insertion and deletion
+  models</p></title>
   <aug>
-    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
-    <au><snm>Toroczkai</snm><fnm>Z.</fnm></au>
+    <au><snm>Metzler</snm><fnm>D.</fnm></au>
   </aug>
-  <source>First Workshop on Algorithms in Bioinformatics</source>
-  <publisher>Berlin, Heidelberg: Springer-Verlag</publisher>
-  <pubdate>2001</pubdate>
+  <pubdate>2003</pubdate>
+  <volume>19</volume>
+  <issue>4</issue>
+  <fpage>490</fpage>
+  <lpage>499</lpage>
 </bibl>
 
 <bibl id="B5">
+  <title><p>Evolutionary models for insertions and deletions in a probabilistic
+  modeling framework</p></title>
+  <aug>
+    <au><snm>Rivas</snm><fnm>E.</fnm></au>
+  </aug>
+  <pubdate>2005</pubdate>
+  <volume>6</volume>
+  <issue>63</issue>
+</bibl>
+
+<bibl id="B6">
+  <title><p>{{P}robabilistic phylogenetic inference with insertions and
+  deletions}</p></title>
+  <aug>
+    <au><snm>Rivas</snm><fnm>E.</fnm></au>
+    <au><snm>Eddy</snm><fnm>S.R.</fnm></au>
+  </aug>
+  <source>PLoS Computational Biology</source>
+  <pubdate>2008</pubdate>
+  <volume>4</volume>
+  <fpage>e1000172</fpage>
+</bibl>
+
+<bibl id="B7">
   <title><p>{{P}arameterizing sequence alignment with an explicit evolutionary
   model}</p></title>
   <aug>
@@ -225,7 +456,199 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
   <fpage>406</fpage>
 </bibl>
 
-<bibl id="B6">
+<bibl id="B8">
+  <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
+  insertions/deletions: are alignment probabilities factorable?}</p></title>
+  <aug>
+    <au><snm>Ezawa</snm><fnm>K.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2016</pubdate>
+  <volume>17</volume>
+  <fpage>304</fpage>
+</bibl>
+
+<bibl id="B9">
+  <title><p>An Improved Model for Statistical Alignment</p></title>
+  <aug>
+    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
+    <au><snm>Toroczkai</snm><fnm>Z.</fnm></au>
+  </aug>
+  <source>First Workshop on Algorithms in Bioinformatics</source>
+  <publisher>Berlin, Heidelberg: Springer-Verlag</publisher>
+  <pubdate>2001</pubdate>
+</bibl>
+
+<bibl id="B10">
+  <title><p>An Algorithm for Statistical Alignment of Sequences Related by a
+  Binary Tree</p></title>
+  <aug>
+    <au><snm>Hein</snm><fnm>J.</fnm></au>
+  </aug>
+  <source>Pacific Symposium on Biocomputing</source>
+  <publisher>Singapore: World Scientific</publisher>
+  <editor>R. B. Altman and A. K. Dunker and L. Hunter and K. Lauderdale and T.
+  E. Klein</editor>
+  <pubdate>2001</pubdate>
+  <fpage>179</fpage>
+  <lpage>190</lpage>
+</bibl>
+
+<bibl id="B11">
+  <title><p>An efficient algorithm for statistical multiple alignment on
+  arbitrary phylogenetic trees</p></title>
+  <aug>
+    <au><snm>Lunter</snm><fnm>G. A.</fnm></au>
+    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
+    <au><snm>Song</snm><fnm>Y. S.</fnm></au>
+    <au><snm>Hein</snm><fnm>J.</fnm></au>
+  </aug>
+  <pubdate>2003</pubdate>
+  <volume>10</volume>
+  <issue>6</issue>
+  <fpage>869</fpage>
+  <lpage>889</lpage>
+</bibl>
+
+<bibl id="B12">
+  <title><p>Inching Toward Reality: an Improved Likelihood Model of Sequence
+  Evolution</p></title>
+  <aug>
+    <au><snm>Thorne</snm><fnm>J. L.</fnm></au>
+    <au><snm>Kishino</snm><fnm>H.</fnm></au>
+    <au><snm>Felsenstein</snm><fnm>J.</fnm></au>
+  </aug>
+  <source>Journal of Molecular Evolution</source>
+  <pubdate>1992</pubdate>
+  <volume>34</volume>
+  <fpage>3</fpage>
+  <lpage>16</lpage>
+</bibl>
+
+<bibl id="B13">
+  <title><p>Sequence Alignments and Pair Hidden {M}arkov Models Using
+  Evolutionary History</p></title>
+  <aug>
+    <au><snm>Knudsen</snm><fnm>B.</fnm></au>
+    <au><snm>Miyamoto</snm><fnm>M.</fnm></au>
+  </aug>
+  <source>Journal of Molecular Biology</source>
+  <pubdate>2003</pubdate>
+  <volume>333</volume>
+  <issue>2</issue>
+  <fpage>453</fpage>
+  <lpage>460</lpage>
+</bibl>
+
+<bibl id="B14">
+  <title><p>{{M}{C}{A}{L}{I}{G}{N}2: faster, accurate global pairwise alignment
+  of non-coding {D}{N}{A} sequences based on explicit models of indel
+  evolution}</p></title>
+  <aug>
+    <au><snm>Wang</snm><fnm>J</fnm></au>
+    <au><snm>Keightley</snm><fnm>PD</fnm></au>
+    <au><snm>Johnson</snm><fnm>T</fnm></au>
+  </aug>
+  <pubdate>2006</pubdate>
+  <volume>7</volume>
+  <fpage>292</fpage>
+</bibl>
+
+<bibl id="B15">
+  <title><p>A Method for Synthesizing Sequential Circuits</p></title>
+  <aug>
+    <au><snm>Mealy</snm><fnm>G. H.</fnm></au>
+  </aug>
+  <source>Bell System Technical Journal</source>
+  <pubdate>1955</pubdate>
+  <volume>34</volume>
+  <fpage>1045</fpage>
+  <lpage>1079</lpage>
+</bibl>
+
+<bibl id="B16">
+  <title><p>Weighted Finite-State Transducers in Speech Recognition</p></title>
+  <aug>
+    <au><snm>Mohri</snm><fnm>M.</fnm></au>
+    <au><snm>Pereira</snm><fnm>F.</fnm></au>
+    <au><snm>Riley</snm><fnm>M.</fnm></au>
+  </aug>
+  <source>Computer Speech and Language</source>
+  <pubdate>2002</pubdate>
+  <volume>16</volume>
+  <issue>1</issue>
+  <fpage>69</fpage>
+  <lpage>88</lpage>
+</bibl>
+
+<bibl id="B17">
+  <title><p>Simultaneous solution of the {RNA} folding, alignment, and
+  protosequence problems</p></title>
+  <aug>
+    <au><snm>Sankoff</snm><fnm>D.</fnm></au>
+  </aug>
+  <source>SIAM Journal of Applied Mathematics</source>
+  <pubdate>1985</pubdate>
+  <volume>45</volume>
+  <fpage>810</fpage>
+  <lpage>825</lpage>
+</bibl>
+
+<bibl id="B18">
+  <title><p>{{E}volutionary triplet models of structured {R}{N}{A}}</p></title>
+  <aug>
+    <au><snm>Bradley</snm><fnm>R. K.</fnm></au>
+    <au><snm>Holmes</snm><fnm>I.</fnm></au>
+  </aug>
+  <source>PLoS Computational Biology</source>
+  <pubdate>2009</pubdate>
+  <volume>5</volume>
+  <issue>8</issue>
+  <fpage>e1000483</fpage>
+</bibl>
+
+<bibl id="B19">
+  <title><p>Joint {B}ayesian estimation of alignment and phylogeny.</p></title>
+  <aug>
+    <au><snm>Redelings</snm><fnm>B. D.</fnm></au>
+    <au><snm>Suchard</snm><fnm>M. A.</fnm></au>
+  </aug>
+  <source>Systematic Biology</source>
+  <pubdate>2005</pubdate>
+  <volume>54</volume>
+  <issue>3</issue>
+  <fpage>401</fpage>
+  <lpage>418</lpage>
+</bibl>
+
+<bibl id="B20">
+  <title><p>Incorporating indel information into phylogeny estimation for
+  rapidly emerging pathogens.</p></title>
+  <aug>
+    <au><snm>Redelings</snm><fnm>B. D.</fnm></au>
+    <au><snm>Suchard</snm><fnm>M. A.</fnm></au>
+  </aug>
+  <source>BMC Evolutionary Biology</source>
+  <pubdate>2007</pubdate>
+  <volume>7</volume>
+  <fpage>40</fpage>
+</bibl>
+
+<bibl id="B21">
+  <title><p>{{E}rasing errors due to alignment ambiguity when estimating
+  positive selection}</p></title>
+  <aug>
+    <au><snm>Redelings</snm><fnm>B.</fnm></au>
+  </aug>
+  <source>Molecular Biology and Evolution</source>
+  <pubdate>2014</pubdate>
+  <volume>31</volume>
+  <issue>8</issue>
+  <fpage>1979</fpage>
+  <lpage>-1993</lpage>
+</bibl>
+
+<bibl id="B22">
   <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
   insertions/deletions: local alignment probability computation}</p></title>
   <aug>
@@ -238,19 +661,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
   <fpage>397</fpage>
 </bibl>
 
-<bibl id="B7">
-  <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
-  insertions/deletions: are alignment probabilities factorable?}</p></title>
-  <aug>
-    <au><snm>Ezawa</snm><fnm>K.</fnm></au>
-  </aug>
-  <source>BMC Bioinformatics</source>
-  <pubdate>2016</pubdate>
-  <volume>17</volume>
-  <fpage>304</fpage>
-</bibl>
-
-<bibl id="B8">
+<bibl id="B23">
   <title><p>{{E}rratum to: {G}eneral continuous-time {M}arkov model of sequence
   evolution via insertions/deletions: are alignment probabilities
   factorable?}</p></title>

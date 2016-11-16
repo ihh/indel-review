@@ -57,6 +57,7 @@
 %%% Put your definitions there:
 \startlocaldefs
 \newcommand{\matr}[1]{\mathbf{#1}}
+\newcommand{\trans}[1]{{\cal #1}}
 \newcommand{\eqref}[1]{Equation~\ref{#1}}
 \endlocaldefs
 
@@ -96,8 +97,8 @@
 
 \begin{abstract} % abstract
 %\parttitle{Background} %if any
-Despite clear benefits to putting sequence alignment on a footing as solid as statistical phylogenetics,
-theorists have struggled to develop models for indel evolution that are as analytically tractable
+Despite long-recognized benefits to putting sequence alignment on the same footing as statistical phylogenetics,
+theorists have struggled to develop time-dependent evolutionary models for indels that are as tractable
 as the analogous models for substitution events.
 
 %\parttitle{} %if any
@@ -175,16 +176,37 @@ which must satisfy the equation
 
 The general solution to \eqref{MasterEquation} can be expressed in terms of the matrix exponential
 \begin{eqnarray}
-\vec{p}(t) & = & \vec{p}(0) \matr{M}(t) \nonumber \\
+\vec{p}(t) & = & \vec{p}(0) \matr{M}(t) \\
 \matr{M}(t) & = & \exp ( \matr{R}t )
 \label{MatrixExponential}
 \end{eqnarray}
 
-The entries of this matrix, $\matr{M}_{ij}(t)$, give the conditional probability
-$P(\phi(t)=j|\phi(0)=i)$ that an ancestral state $i$ will, after time $t$, have evolved into a descendant state $j$.
+The entries of the matrix \eqref{MatrixExponential} give the conditional probability
+that an ancestral state $i$ will, after time $t$, have evolved into a descendant state $j$.
+If we multiply each row of $\matr{M}(t)$ by the prior distribution of the ancestral state,
+then we obtain the time-varying matrix $\matr{Q}(t)$ describing the joint probability of ancestor and descendant:
+\begin{eqnarray}
+\matr{M}_{ij}(t) & = & P(\phi(t)=j|\phi(0)=i) \\
+\matr{Q}_{ij}(t) & = & P(\phi(0)=i) \times \matr{M}_{ij}(t) \label{JointLikelihood} \\
+& = & P(\phi(0)=i,\phi(t)=j)
+\end{eqnarray}
 
-This pairwise probability can be converted
-into a likelihood for a set of extant taxon states $S$ related by a tree $T$,
+It is worth noting that, by definition, matrix $\matr{M}(t)$ satisfies the
+Chapman-Kolmogorov forward equation:
+\begin{equation}
+\matr{M}(t) \matr{M}(u) = \matr{M}(t+u)
+\label{ChapmanKolmogorov}
+\end{equation}
+That is, if $M_{ij}(t)$ is the probability
+that sequence $i$ will after time $t$ evolve into sequence $j$,
+and $M_{jk}(u)$ is the probability that sequence $j$ will after time $u$ evolve into sequence $k$,
+then summing out sequence $j$ has the expected result:
+\[
+M_{ij}(t) M_{jk}(u) = M_{ik}(t+u)
+\]
+
+The conditional likelihood for an ancestor-descendant pair can be converted
+into a phylogenetic likelihood for a set of extant taxon states $S$ related by a tree $T$,
 as follows.
 (We assume for convenience that $T$ is a binary tree, though relaxing this constraint is straightforward.)
 
@@ -209,15 +231,15 @@ This is given by Felsenstein's pruning recursion:
 \label{Felsenstein}
 \end{equation}
 where $t_{mn}$ denotes the length of the branch from tree node $m$ to tree node $n$.
-We have used
-$\vec{\Delta}(j)$ to denote the unit vector in direction $j$
-and
+We have used the notation
+$\vec{\Delta}(j)$ for the unit vector in dimension $j$,
+and the symbol
 $\otimes$ to denote the {\em Hadamard product} (also known as the {\em pointwise product}),
 defined such that for any two vectors $\vec{u},\vec{v}$ of the same size:
 $(\vec{u} \otimes \vec{v})_i = \vec{u}_i \vec{v}_i$.
 
 Supposing that node $1$ is the root node of the tree,
-and that the distribution of states at this root node is given by vector $\vec{\rho}$,
+and that the distribution of states at this root node is given by $\vec{\rho}$,
 we can write the likelihood as
 \begin{equation}
 P(S|T,\matr{R},\vec{\rho}) = \vec{\rho} \cdot \vec{F}(1)
@@ -292,7 +314,26 @@ Models where the state is not a ``pure'' DNA or protein sequence,
 but includes some extra artificial information,
 such as ghost sites or hidden boundaries:
 TKF92,
-Rivas et al
+Metzler \cite{Metzler2003},
+Rivas \cite{Rivas05},
+Rivas \& Eddy \cite{RivasEddy2008,RivasEddy2015}
+
+Considered as time-dependent probability distributions on pairwise alignments of
+ancestor and descendant sequences,
+these do not, in general, satisfy the Chapman-Kolmogorov forward equation
+(\ref{ChapmanKolmogorov}).
+That is, the probability of evolving from $i$ to $k$ comes out differently
+depending on whether or not one conditions on an intermediate sequence $j$.
+Clearly, something about this ``seems wrong'':
+the failure to obey \eqref{ChapmanKolmogorov} illustrates the {\em ad hoc}
+nature of these approaches.
+Ezawa \cite{Ezawa2016b} describes the Chapman-Kolmogorov property as ``evolutionary consistency'';
+in fact, \eqref{ChapmanKolmogorov} is the defining property
+of any correct solution to a continuous-time Markov chain.
+The above-mentioned approaches may be evolutionarily consistent if the state space
+is allowed to include the extra information that is introduced to make the model tractable,
+uch as the fragment boundaries in TKF92
+or the ghost sites in \cite{RivasEddy2015}.
 
 Miklos and Toroczkai insertion-only model(?) \cite{MiklosEtal2001}
 
@@ -303,12 +344,22 @@ Miklos, Lunter and Holmes' ``long indel'' model (2004)
  - makes the intuitive claim that the existence of a conserved residue implies the alignment probability is factorable (because no indel has ever crossed that boundary)
  - uses a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths
 
-More heuristic approaches which make less-principled single-event approximations
+More heuristic approaches which make less-principled single-event approximations.
 Knudsen \& Miyamoto
 Rivas
 HandAlign
 BaliPhy
 ProtPal, IndelHistorian
+
+Again, these approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
+There will be some error in the probability, and in general the error will be greater
+on longer branches, as the main assumption behind the approximation
+(that there are no overlapping indels in the time interval, or that there is a finite
+limit to the number of overlapping indels)
+start to break down.
+Since these are principled approximations, it is possible to study
+how bad the error is, and this is the basis of the most exciting recent work in this area.
+
 
 Simulation-based investigations
 Rivas \& Eddy 2015
@@ -327,21 +378,77 @@ Handel,
 BaliPhy,
 StatAlign,
 HandAlign,
-IndelHistorian
+IndelHistorian.
+In practise these all use HMMs
 
-Transducer approach \cite{Westesson2012-zg,BouchardCote2013,IndelHistorian}
+TKF91 model can be exactly extended to a tree \cite{Hein2001,LunterSongMiklosHein2003}
 
+HMM-like nature of TKF91, and ubiquity of HMMs/DP in sequence analysis,
+motivated numerous approaches based on Pair HMMs
+\cite{ThorneEtal92,KnudsenMiyamoto2003,WangKeightleyJohnson2006,RivasEddy2008,RivasEddy2015}
+
+Transducer approach is a general way of extending HMM-like pairwise alignment likelihoods to trees \cite{Westesson2012-zg,BouchardCote2013,IndelHistorian}
+
+A finite-state transducer is a state machine that reads an input tape and writes to an output tape \cite{Mealy55}.
+A probabilistically weighted finite-state transducer is the same, but its behavior is stochastic \cite{MohriPereiraRiley2000}
+For the purposes of bioinformatics sequence analysis,
+a transducer can be thought of as being just like a Pair HMM,
+except where a Pair HMM's transition and emission probabilities
+have been normalized so as to describe joint probabilities
+like the entries of matrix $\matr{Q}(t)$ (\eqref{JointLikelihood}),
+a transducer's probabilities are normalized so as to describe conditional probabilities
+like the entries of matrix $\matr{M}(t)$ (\eqref{MatrixExponential}).
+More specifically, if $i$ and $j$ are sequences, then the Forward score
+for those two sequences using transducer $\trans{A}$
+can be thought of as corresponding to the matrix entry $A_{ij}$.
+Thus, the transducer is a compact encoding for a square matrix of countably infinite rank.
+
+The utility of transducers is that for many purposes they can be manipulated just like matrices.
+If $\trans{A}$ and $\trans{B}$ are transducers representing matrices $\matr{A}$ and $\matr{B}$,
+then there is a well-defined operation called {\em transducer composition}
+yielding a transducer $\trans{A}\trans{B}$ that represents the matrix $\matr{A}\matr{B}$.
+There are other well-defined transducer operations corresponding to the Hadamard product
+($\otimes$), the scalar product ($\cdot$) and the unit vector ($\Delta$),
+so that Equations~\ref{Felsenstein}-\ref{Likelihood} can be interpreted directly
+as transducer operations.
+
+This has several benefits
+Theoretical unification: \eqref{Felsenstein} is Sankoff's algorithm \cite{Sankoff85}
+(excluding RNA structure; can be included by extending the transducer
+framework to pushdown automata \cite{BradleyHolmes2009})
+Phylogenetic alignment \cite{RedelingsSuchard2005,RedelingsSuchard2007}
+Accurate parameter estimation \cite{Westesson2012-zg,Redelings2014}
+Promising increases in accuracy of multiple sequence alignment \cite{IndelHistorian}
 
 %%%%%%%%%%%%%%%%
 %% Conclusions %%
 %%
 \section*{Conclusions}
 
-\cite{RivasEddy2015}
+Promise of using continuous-time Markov chains to parameterize evolutionary models of indels
+has been partially realized by automata-theoretic approaches
+based on transducers and HMMs.
 
-\cite{Ezawa2016a}
+Recent work by Rivas and Eddy \cite{RivasEddy2015}
+and by Ezawa \cite{Ezawa2016a,Ezawa2016b,Ezawa2016bErratum}
+may be interpreted as both good and bad news for automata-theoretic approaches.
+It appears that closed-form probability distributions for observed gap lengths at finite times
+under simple evolutionary models,
+and in particular the geometric distributions that simple automata are good at modeling,
+are still out of reach and indeed (for a simple case) proven impossible \cite{RivasEddy2015}.
+Simulation results by both groups have demonstrated that geometric distributions are not
+a good fit to the observed gap length distributions when the underlying indel model
+has geometrically-distributed lengths for its instantaneous indel events.
 
-\cite{Ezawa2016b,Ezawa2016bErratum}
+However, the simulation results are mixed in the sense that the error does not appear
+{\em too} bad.
+% Ezawa results
+Given the power of automata-theoretic approaches, the best way forward
+(in the absence of a closed-form solution) may be to live with the error
+
+Whatever approach is used, the benefits of modeling alignment as an aspect of
+statistical phylogenetics are very strong
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

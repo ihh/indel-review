@@ -59,6 +59,18 @@
 \newcommand{\matr}[1]{\mathbf{#1}}
 \newcommand{\trans}[1]{{\cal #1}}
 \newcommand{\eqref}[1]{Equation~\ref{#1}}
+
+\newcommand{\statespace}{\Phi}
+\newcommand{\state}{\phi}
+\newcommand{\statevec}{\vec{p}}
+\newcommand{\ratematrix}{\matr{R}}
+\newcommand{\eqmvec}{\vec{\pi}}
+\newcommand{\condmatrix}{\matr{M}}
+\newcommand{\felsvec}{\vec{F}}
+\newcommand{\unitvec}{\vec{\Delta}}
+\newcommand{\pointprod}{\otimes}
+\newcommand{\scalarprod}{\cdot}
+\newcommand{\initvec}{\vec{\rho}}
 \endlocaldefs
 
 
@@ -69,9 +81,9 @@
 \begin{frontmatter}
 
 \begin{fmbox}
-\dochead{Research}
+\dochead{Commentary}
 
-\title{Towards Computable Models of Sequence Evolution}
+\title{Towards Realistic Evolutionary Models of Insertion and Deletion Events}
 
 \author[
    addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
@@ -97,13 +109,14 @@
 
 \begin{abstract} % abstract
 %\parttitle{Background} %if any
-Despite long-recognized benefits to putting sequence alignment on the same footing as statistical phylogenetics,
+Despite long-heralded promise of putting sequence alignment on the same footing as statistical phylogenetics,
 theorists have struggled to develop time-dependent evolutionary models for indels that are as tractable
 as the analogous models for substitution events.
 
 %\parttitle{} %if any
-We review progress in this area, with reference to
-recent articles on the calculation of gap length distributions.
+We discuss progress in this area,
+reviewing recent articles on the calculation of time-dependent gap length distributions in pairwise alignments
+and current approaches for extending these approaches from ancestor-descendant pairs to phylogenetic trees.
 \end{abstract}
 
 \begin{keyword}
@@ -144,66 +157,63 @@ Reconstruct ancestral sequences for synthetic biology.
 Trees are used to classify species,
 identify novel pathogens,
 reconstruct population histories in viral epidemics,
-identify transmissione events,
+identify transmission events,
 inform conservation efforts,
 among many other applications.
 
 At core, these methods are based on the continuous-time Markov chain.
-We assume there is a state space $\Phi$,
-for example the set of nucleotides $\Phi = \{ \mbox{A,C,G,T} \}$.
-There is a stochastic process $\phi(t)$ that at any given instant of time, $t$,
-takes one of the values in $\Phi$.
-We write $\vec{p}(t)$ for the vector of probabilities
-$\vec{p}_i(t) = P(\phi(t) = i)$.
+We assume there is a state space $\statespace$,
+for example the set of nucleotides $\statespace = \{ \mbox{A,C,G,T} \}$.
+There is a stochastic process $\state(t)$ that at any given instant of time, $t$,
+takes one of the values in $\statespace$.
+We write $\statevec(t)$ for the vector of probabilities
+$\statevec_i(t) = P(\state(t) = i)$.
 The time-evolution of this vector is governed by a {\em master equation}
 \begin{equation}
-\frac{d}{dt} \vec{p}(t) = \vec{p}(t) \matr{R}
+\frac{d}{dt} \statevec(t) = \statevec(t) \ratematrix
 \label{MasterEquation}
 \end{equation}
-where, for $i,j \in \Phi$ and $i \neq j$,
-$\matr{R}_{ij}$ is the instantaneous rate of mutation from state $i$ to state $j$;
+where, for $i,j \in \statespace$ and $i \neq j$,
+$\ratematrix_{ij}$ is the instantaneous rate of mutation from state $i$ to state $j$;
 for probabilistic normalization of \eqref{MasterEquation},
 we then require that
 \[
-\matr{R}_{ii} = -\sum_{j \in \Phi, j \neq i} \matr{R}_{ij}
+\ratematrix_{ii} = -\sum_{j \in \statespace, j \neq i} \ratematrix_{ij}
 \]
 
-The probability distribution of this process at equilibrium is given by the vector $\vec{\pi}$,
+The probability distribution of this process at equilibrium is given by the vector $\eqmvec$,
 which must satisfy the equation
 \[
-\vec{\pi} \matr{R} = \vec{0}
+\eqmvec \ratematrix = \vec{0}
 \]
 
-The general solution to \eqref{MasterEquation} can be expressed in terms of the matrix exponential
-\begin{eqnarray}
-\vec{p}(t) & = & \vec{p}(0) \matr{M}(t) \\
-\matr{M}(t) & = & \exp ( \matr{R}t )
+The general solution to \eqref{MasterEquation} can be
+written $\statevec(t) = \statevec(0) \condmatrix(t)$
+where $\condmatrix(t)$ is the {\em matrix exponential}
+\begin{equation}
+\condmatrix(t) = \exp ( \ratematrix t )
 \label{MatrixExponential}
-\end{eqnarray}
+\end{equation}
 
-The entries of the matrix \eqref{MatrixExponential} give the conditional probability
-that an ancestral state $i$ will, after time $t$, have evolved into a descendant state $j$.
-If we multiply each row of $\matr{M}(t)$ by the prior distribution of the ancestral state,
-then we obtain the time-varying matrix $\matr{Q}(t)$ describing the joint probability of ancestor and descendant:
-\begin{eqnarray}
-\matr{M}_{ij}(t) & = & P(\phi(t)=j|\phi(0)=i) \\
-\matr{Q}_{ij}(t) & = & P(\phi(0)=i) \times \matr{M}_{ij}(t) \label{JointLikelihood} \\
-& = & P(\phi(0)=i,\phi(t)=j)
-\end{eqnarray}
-
-It is worth noting that, by definition, matrix $\matr{M}(t)$ satisfies the
+Entry $\condmatrix_{ij}(t)$ of this matrix is the probability
+$P(\state(t)=j|\state(0)=i)$
+that, conditional on starting in state $i$,
+the system will after time $t$ be in state $j$.
+It follows, by definition, that this matrix satisfies the
 Chapman-Kolmogorov forward equation:
 \begin{equation}
-\matr{M}(t) \matr{M}(u) = \matr{M}(t+u)
+\condmatrix(t) \condmatrix(u) = \condmatrix(t+u)
 \label{ChapmanKolmogorov}
 \end{equation}
-That is, if $M_{ij}(t)$ is the probability
-that sequence $i$ will after time $t$ evolve into sequence $j$,
-and $M_{jk}(u)$ is the probability that sequence $j$ will after time $u$ evolve into sequence $k$,
-then summing out sequence $j$ has the expected result:
+That is, if $\condmatrix_{ij}(t)$ is the probability
+that state $i$ will, after time $t$, evolve into state $j$,
+and $\condmatrix_{jk}(u)$ is the probability that state $j$ will after time $u$ evolve into state $k$,
+then summing out $j$ has the expected result:
 \[
-M_{ij}(t) M_{jk}(u) = M_{ik}(t+u)
+\sum_{j \in \statespace} \condmatrix_{ij}(t) \condmatrix_{jk}(u) = \condmatrix_{ik}(t+u)
+\quad \forall i,k \in \statespace
 \]
+This is the defining property of a Markov chain.
 
 The conditional likelihood for an ancestor-descendant pair can be converted
 into a phylogenetic likelihood for a set of extant taxon states $S$ related by a tree $T$,
@@ -211,17 +221,17 @@ as follows.
 (We assume for convenience that $T$ is a binary tree, though relaxing this constraint is straightforward.)
 
 We first compute, for every node $n$ in the tree,
-the probability $\vec{F}_i(n)$
+the probability $\felsvec_i(n)$
 of all observed states at leaf nodes descended from node $n$,
 conditioned on node $n$ being in state $i$.
 This is given by Felsenstein's pruning recursion:
 \begin{equation}
-\vec{F}(n) = \left\{
+\felsvec(n) = \left\{
 \begin{array}{ll}
 \displaystyle
-\left( \matr{M}(t_{nl}) \vec{F}(l) \right)
-\otimes
-\left( \matr{M}(t_{nr}) \vec{F}(r) \right)
+\left( \condmatrix(t_{nl}) \felsvec(l) \right)
+\pointprod
+\left( \condmatrix(t_{nr}) \felsvec(r) \right)
 & \mbox{if $n$ is an internal node with children $l,r$} \\
 \displaystyle
 \vec{\Delta}(s_n)
@@ -232,32 +242,39 @@ This is given by Felsenstein's pruning recursion:
 \end{equation}
 where $t_{mn}$ denotes the length of the branch from tree node $m$ to tree node $n$.
 We have used the notation
-$\vec{\Delta}(j)$ for the unit vector in dimension $j$,
+$\unitvec(j)$ for the unit vector in dimension $j$,
 and the symbol
-$\otimes$ to denote the {\em Hadamard product} (also known as the {\em pointwise product}),
+$\pointprod$ to denote the {\em Hadamard product} (also known as the {\em pointwise product}),
 defined such that for any two vectors $\vec{u},\vec{v}$ of the same size:
-$(\vec{u} \otimes \vec{v})_i = \vec{u}_i \vec{v}_i$.
+$(\vec{u} \pointprod \vec{v})_i = \vec{u}_i \vec{v}_i$.
 
 Supposing that node $1$ is the root node of the tree,
-and that the distribution of states at this root node is given by $\vec{\rho}$,
+and that the distribution of states at this root node is given by $\initvec$,
 we can write the likelihood as
 \begin{equation}
-P(S|T,\matr{R},\vec{\rho}) = \vec{\rho} \cdot \vec{F}(1)
+P(S|T,\ratematrix,\initvec) = \initvec \scalarprod \felsvec(1)
 \label{Likelihood}
 \end{equation}
-where $\vec{u} \cdot \vec{v}$ denotes the scalar product of $\vec{u}$ and $\vec{v}$.
+where $\vec{u} \scalarprod \vec{v}$ denotes the scalar product of $\vec{u}$ and $\vec{v}$.
 It is common to assume that the root node is at equilibrium,
-so that $\vec{\rho} = \vec{\pi}$.
+so that $\initvec = \eqmvec$.
 
 As mentioned above, this mathematical approach is fundamental to statistical phylogenetics
 and many applications in bioinformatics.
-For small state spaces $\Phi$, \eqref{MatrixExponential} can be solved exactly
+For small state spaces $\statespace$, \eqref{MatrixExponential} can be solved exactly
 by the technique of spectral decomposition (i.e. finding eigenvalues and eigenvectors).
 Such an approach informs the Dayhoff PAM matrix.
-It was also solved for certain specific parametric forms of $\matr{R}$
+It was also solved for certain specific parametric forms of $\ratematrix$
 by Jukes and Cantor in 1969, Kimura in 1980, Felsenstein in 1981, and Hasegawa {\em et al} in 1985.
 This approach is used by all likelihood-based phylogenetics tools including
-RevBayes, BEAST, RAxML, HyPhy, PAML, PHYLIP, TREE-PUZZLE, XRate.
+RevBayes\cite{HohnaEtAl2016},
+BEAST \cite{pmid17996036},
+RAxML \cite{pmid16928733},
+HyPhy \cite{pmid15509596},
+PAML \cite{pmid17483113},
+PHYLIP \cite{Felsenstein1989},
+TREE-PUZZLE \cite{pmid11934758},
+and XRate \cite{pmid22693624}.
 Many more bioinformatics tools use the Dayhoff PAM matrix or other substitution matrix
 based on an underlying master equation of the form \eqref{MasterEquation}.
 
@@ -270,11 +287,11 @@ can simply multiply together probabilities of independent sites.
 
 However, some mutations violate this assumption of site independence;
 most notably context-dependent substitutions and indels.
-For these mutations the obvious approach is to extend the state space $\Phi$
+For these mutations the obvious approach is to extend the state space $\statespace$
 to be the set of all possible sequences over a given alphabet
 (for example, the set of all DNA or protein sequences).
 This state space is (countably) infinite;
-we can still discuss Equations~\ref{MasterEquation}-\ref{Likelihood}
+we can still discuss Equations~\ref{MasterEquation}-\ref{Felsenstein}
 on an infinite state space,
 but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer possible.
 It is for this reason that whole-sequence models have proved quite challenging for theorists.
@@ -282,7 +299,7 @@ It is for this reason that whole-sequence models have proved quite challenging f
 %%%%%%%%%%%%%%%%
 %% Main text %%
 %%
-\section*{Main text}
+\section*{Discussion}
 
 We focus only on ``local'' mutations: mostly indel events (which may include local duplications),
 also context-dependent substitutions
@@ -292,35 +309,54 @@ but these tend to defy phylogenetic reconstruction (due to the rapid proliferati
 
 Two parts:
 solving the master equation (Equations~\ref{MasterEquation}-\ref{MatrixExponential}),
-extending from pairwise probability to a phylogenetic tree (Equations~\ref{Felsenstein}-\ref{Likelihood}).
+extending from pairwise probability to a phylogenetic tree (\eqref{Felsenstein}).
 
 \subsection*{Solving the master equation}
 
-Exactly solvable models:
-substitutions only,
+We first begin with various approaches to finding the time-dependent probability distribution
+of gap lengths in a pairwise alignment,
+under assorted evolutionary models.
+
+\subsubsection*{Exactly solved models on strings}
+
+To date, the only exactly solved model where the state space $\statespace$
+is the set of all strings over a finite alphabet
+is the TKF91 model \cite{ThorneEtal91}
+
 TKF91
- - single-residue events only
+ - single-residue events only, context-independent
  - linear birth-death model with immigration
+ - ancestral sequence can be split into independently evolving zones, one for each ancestral residue (``links'')
  - Very appealing result: distribution of observed gap lengths is geometric
- - joint probability $P(\phi(0),\phi(t))$ expressible as a Pair HMM \cite{HolmesBruno2001}
- - conditional probability expressible as a weighted finite-state transducer \cite{Holmes2003,Westesson2012-zg,BouchardCote2013}
+ - joint probability $P(\state(0),\state(t))$ expressible as a Pair HMM \cite{HolmesBruno2001}
+ - conditional probability expressible as a weighted finite-state transducer \cite{Holmes2003,WestessonEtAl2012,BouchardCote2013}
 
-Problem with extending this to longer indel events is that a single gap may be consistent with
-multiple indel ``trajectories'' (Figure)
-Summing over all such trajectories to compute the probability of a particular size of gap being observed at a finite time
-is a nontrivial problem
+The case where there are no indels at all, only substitutions, can be viewed as a special case of TKF91,
+and can be solved exactly, as is well known
 
-Models where the state is not a ``pure'' DNA or protein sequence,
-but includes some extra artificial information,
-such as ghost sites or hidden boundaries:
-TKF92,
-Metzler \cite{Metzler2003},
-Rivas \cite{Rivas05},
-Rivas \& Eddy \cite{RivasEddy2008,RivasEddy2015}
+A variation on the TKF91 model constrains the total indel rate to be independent of sequence
+length \cite{BouchardCoteJordan2013}
 
-Considered as time-dependent probability distributions on pairwise alignments of
-ancestor and descendant sequences,
-these do not, in general, satisfy the Chapman-Kolmogorov forward equation
+\subsubsection*{Exactly solved models on state spaces other than strings}
+
+It is difficult to extend TKF91 to more realistic models wherein indels (or substitutions)
+can affect multiple residues at once.
+The fate of adjacent residues is no longer independent, since a single event can span multiple sites.
+
+As a way around this difficulty, several researchers have developed
+evolutionary models where the state is not a pure DNA or protein sequence,
+but includes some extra ``hidden'' information,
+such as boundaries, markers or other latent structure.
+In some of these models the sequence of residues is replaced by a sequence of indivisible fragments,
+each of which can contain more than one residue\cite{ThorneEtal92,Metzler2003,RivasEddy2015}.
+These includes the TKF92 model\cite{ThorneEtal92} which is, essentially, TKF91 with residues replaced by
+fragments.
+Other models approximate indels as a kind of substitution that temporarily hides a residue,
+by augmenting the DNA or protein alphabet with an additional gap character \cite{Rivas05,RivasEddy2008}.
+
+These models can be used to calculate some form of likelihood for a pairwise alignment of two sequences,
+but since this likelihood is not derived from an underlying instantaneous model of indels,
+the equations do not, in general, satisfy the Chapman-Kolmogorov forward equation
 (\ref{ChapmanKolmogorov}).
 That is, the probability of evolving from $i$ to $k$ comes out differently
 depending on whether or not one conditions on an intermediate sequence $j$.
@@ -332,26 +368,46 @@ in fact, \eqref{ChapmanKolmogorov} is the defining property
 of any correct solution to a continuous-time Markov chain.
 The above-mentioned approaches may be evolutionarily consistent if the state space
 is allowed to include the extra information that is introduced to make the model tractable,
-uch as the fragment boundaries in TKF92
-or the ghost sites in \cite{RivasEddy2015}.
+such as fragment boundaries.
 
-Miklos and Toroczkai insertion-only model(?) \cite{MiklosEtal2001}
+Models which allow for heterogeneity of indel and substitution rates along the sequence
+fall into this category. The usual way of allowing for such spatial variation
+in substitution models is to assume a latent parameterization associated with each site \cite{Yang93,Yang94}.
+For indel models this must be extended to include hidden site boundaries \cite{RivasEddy2015}.
 
-Principled approximations that proceed systematically from Equations~\ref{MasterEquation}-\ref{MatrixExponential}
-Lunter \& Hein's context-dependent substitution model (2004)
- - expansion of Taylor series for \eqref{MatrixExponential}
-Miklos, Lunter and Holmes' ``long indel'' model (2004)
- - makes the intuitive claim that the existence of a conserved residue implies the alignment probability is factorable (because no indel has ever crossed that boundary)
- - uses a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths
+\subsubsection*{Finite-event trajectory approximations}
 
-More heuristic approaches which make less-principled single-event approximations.
-Knudsen \& Miyamoto
-Rivas
-HandAlign
-BaliPhy
-ProtPal, IndelHistorian
+In tackling indel models where the indel events can insert or delete multiple residues at once,
+several authors have used the approximation that indels never overlap,
+so that any observed gap corresponds to a single indel event.
+This approximation, which is justified if one is considering evolutionary timespans $t \ll 1/\delta$
+where $\delta$ is the indel rate per site,
+considerably simplifies the task of calculating gap probabilities
+\cite{KnudsenMiyamoto2003,RedelingsSuchard2005,SuchardRedelings2006,RedelingsSuchard2007,WestessonEtAlArxiv2011,WestessonEtAl2012,WestessonBarquistHolmes2012}
 
-Again, these approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
+At longer timescales, one must consider multiple-event trajectories, but can still truncate the trajectory
+at a finite number of events.
+Problem with this approach is that many different trajectories will generally be consistent with an observed mutation.
+Summing over all such trajectories to compute the probability of observing a particular mutation after finite time
+(e.g. a given gap length)
+is a nontrivial problem
+
+In analyzing the {\em long indel} model, Mikl\'{o}s {\em et al} \cite{MiklosLunterHolmes2004}
+ - make the claim that the existence of a conserved residue implies the alignment probability is factorable (because no indel has ever crossed that boundary)
+ - use a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths
+This builds on earlier work for the analogous insertion-only model \cite{MiklosEtal2001}
+
+Recent work by Ezawa has put these finite-event approximations on a more solid footing
+by developing a rigorous algebraic definition of equivalence classes for event trajectories.
+
+For context-dependent substitution processes,
+such as models that include methylation-induced CpG-deamination,
+a clever approach was developed in \cite{LunterHein04}.
+Rather than truncating an event trajectory, they develop an explicit Taylor series for the matrix exponential
+(\eqref{MatrixExponential}) and then truncate this Taylor series.
+It remains to be seen if such an approach can be used for indel models.
+
+Again, solutions obtained using these approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
 There will be some error in the probability, and in general the error will be greater
 on longer branches, as the main assumption behind the approximation
 (that there are no overlapping indels in the time interval, or that there is a finite
@@ -360,12 +416,17 @@ start to break down.
 Since these are principled approximations, it is possible to study
 how bad the error is, and this is the basis of the most exciting recent work in this area.
 
+\subsubsection*{Simulation studies}
 
-Simulation-based investigations
-Rivas \& Eddy 2015
- - proof that an affine distribution for instantaneous indel events can't lead to an affine distribution for observed gap lengths, suggesting that HMM-like models may be fundamentally limited
- - simulations demonstrating this result
-Ezawa 2016a,b
+Such is the difficulty of solving long indel models that several authors have performed simulations
+to investigate the empirical gap length distributions that are obtained at finite times
+
+Rivas and Eddy \cite{RivasEddy2015}
+ - prove that an affine distribution for instantaneous indel events can't lead to an affine distribution for observed gap lengths, suggesting that HMM-like models may be fundamentally limited
+ - report simulation studies confirming this result
+ - propose several hidden-information models (e.g. TKF92-like fragment models) working backwards from Pair HMMs
+
+Ezawa \cite{Ezawa2016a,Ezawa2016b,Ezawa2016bErratum}
  - criticizes over-reliance on HMM-like models
  - puts the intuition of Miklos et al (2004) on a more formal footing by introducing an explicit notation (``local history set equivalence classes'') for evolutionary trajectories, and using it to prove that alignment is indeed factorable
  - investigates by simulation and analysis the relative contribution of multiple-event trajectories to gap length distributions
@@ -373,31 +434,42 @@ Ezawa 2016a,b
 
 \subsection*{Extending from pairs to trees}
 
-Most principled approach is MCMC - in principle can handle any indel length distribution.
-Handel,
-BaliPhy,
-StatAlign,
-HandAlign,
-IndelHistorian.
-In practise these all use HMMs
+In considering the extension of these models from pairwise alignments
+to multiple alignments (with phylogenies),
+we can divide the approaches into two classes:
+those that use Markov Chain Monte Carlo (MCMC), and those that do not.
 
-TKF91 model can be exactly extended to a tree \cite{Hein2001,LunterSongMiklosHein2003}
+\subsubsection*{Markov Chain Monte Carlo}
 
-HMM-like nature of TKF91, and ubiquity of HMMs/DP in sequence analysis,
-motivated numerous approaches based on Pair HMMs
-\cite{ThorneEtal92,KnudsenMiyamoto2003,WangKeightleyJohnson2006,RivasEddy2008,RivasEddy2015}
+MCMC is the most principled approach to integrating phylogeny with multiple alignment.
+In principle an MCMC algorithm for phylogenetic alignment can yield the posterior distribution of
+alignments, trees, and parameters for any indel length distribution that can be computed.
+It can also, in principle, handle other effects such as context-dependent substitution
 
-Transducer approach is a general way of extending HMM-like pairwise alignment likelihoods to trees \cite{Westesson2012-zg,BouchardCote2013,IndelHistorian}
+Some of these methods just focus on alignment and ancestral sequence reconstruction \cite{HolmesBruno2001};
+some on simultaneous alignment and phylogenetic reconstruction
+\cite{RedelingsSuchard2005,SuchardRedelings2006,RedelingsSuchard2007,NovakEtAl2008,BouchardCoteEtAl2009,WestessonBarquistHolmes2012};
+some also include estimation of evolutionary parameters such as $dN/dS$ \cite{Redelings2014};
+and some (focused on RNA sequences) attempt prediction of secondary structure \cite{ArunapuramEtAl2013,MeyerMiklos2007}.
 
+In practise these all use HMMs, or dynamic programming of some form
+
+\subsubsection*{Approaches using automata theory and/or dynamic programming}
+
+TKF91 dynamic programming recursion for pairwise alignment can be exactly extended to alignment of multiple sequences given a tree \cite{Hein2001,LunterSongMiklosHein2003}
+This approach essentially works because the TKF91 joint distribution over ancestor and descendant sequences
+can be represented as a Pair HMM,
+and the multiple-sequence version is a multiple-sequence HMM \cite{HolmesBruno2001}.
+
+This approach can be generalized, using transducer theory, a general way of extending HMM-like pairwise alignment likelihoods to trees \cite{WestessonEtAl2012,BouchardCote2013,IndelHistorian}
 A finite-state transducer is a state machine that reads an input tape and writes to an output tape \cite{Mealy55}.
 A probabilistically weighted finite-state transducer is the same, but its behavior is stochastic \cite{MohriPereiraRiley2000}
 For the purposes of bioinformatics sequence analysis,
 a transducer can be thought of as being just like a Pair HMM,
 except where a Pair HMM's transition and emission probabilities
-have been normalized so as to describe joint probabilities
-like the entries of matrix $\matr{Q}(t)$ (\eqref{JointLikelihood}),
+have been normalized so as to describe joint probabilities,
 a transducer's probabilities are normalized so as to describe conditional probabilities
-like the entries of matrix $\matr{M}(t)$ (\eqref{MatrixExponential}).
+like the entries of matrix $\condmatrix(t)$ (\eqref{MatrixExponential}).
 More specifically, if $i$ and $j$ are sequences, then the Forward score
 for those two sequences using transducer $\trans{A}$
 can be thought of as corresponding to the matrix entry $A_{ij}$.
@@ -408,17 +480,21 @@ If $\trans{A}$ and $\trans{B}$ are transducers representing matrices $\matr{A}$ 
 then there is a well-defined operation called {\em transducer composition}
 yielding a transducer $\trans{A}\trans{B}$ that represents the matrix $\matr{A}\matr{B}$.
 There are other well-defined transducer operations corresponding to the Hadamard product
-($\otimes$), the scalar product ($\cdot$) and the unit vector ($\Delta$),
-so that Equations~\ref{Felsenstein}-\ref{Likelihood} can be interpreted directly
-as transducer operations.
+($\pointprod$), the scalar product ($\scalarprod$) and the unit vector ($\unitvec$),
+so that \eqref{Felsenstein} can be interpreted directly
+as a transducer operation recipe.
 
 This has several benefits
 Theoretical unification: \eqref{Felsenstein} is Sankoff's algorithm \cite{Sankoff85}
 (excluding RNA structure; can be included by extending the transducer
 framework to pushdown automata \cite{BradleyHolmes2009})
 Phylogenetic alignment \cite{RedelingsSuchard2005,RedelingsSuchard2007}
-Accurate parameter estimation \cite{Westesson2012-zg,Redelings2014}
+Accurate parameter estimation \cite{WestessonEtAl2012,Redelings2014}
 Promising increases in accuracy of multiple sequence alignment \cite{IndelHistorian}
+
+HMM-like nature of TKF91, and ubiquity of HMMs/DP in sequence analysis,
+motivated numerous approaches based on Pair HMMs
+\cite{ThorneEtal92,KnudsenMiyamoto2003,WangKeightleyJohnson2006,RivasEddy2008,RivasEddy2015}
 
 %%%%%%%%%%%%%%%%
 %% Conclusions %%
@@ -440,14 +516,28 @@ Simulation results by both groups have demonstrated that geometric distributions
 a good fit to the observed gap length distributions when the underlying indel model
 has geometrically-distributed lengths for its instantaneous indel events.
 
-However, the simulation results are mixed in the sense that the error does not appear
-{\em too} bad.
-% Ezawa results
+That is the bad news. The good news is that the simulation results also suggest that,
+for short branches, the error may not be too bad to live with \cite{RivasEddy2015,Ezawa2016a}.
+Approximate-fit approaches that are common in Pair HMM modeling and pairwise sequence alignment - such as using a mixture
+of geometric distributions to approximate a gap length distribution (yielding a longer tail than can be modeled
+using a pure geometric distribution) - may help bridge the accuracy gap \cite{DoEtAl2005}.
 Given the power of automata-theoretic approaches, the best way forward
 (in the absence of a closed-form solution) may be to live with the error
 
-Whatever approach is used, the benefits of modeling alignment as an aspect of
-statistical phylogenetics are very strong
+Interestingly, the authors of the two recent simulation studies that prompted this commentary
+come to different conclusions about the viability of dynamic programming approaches.
+Ezawa \cite{Ezawa2016a,Ezawa2016b}, arguing that realism is paramount, and advocates deeper study of the
+gap length distributions obtained from simple instantaneous models - while acknowledging that such gap length distributions
+may be more difficult to use in practice than the simple geometric distributions offered by HMM-like models.
+Rivas and Eddy \cite{RivasEddy2015}, arguing from the position that applications (particularly such as profile HMMs)
+should be what drives this work, work backward from HMM-like models toward evolutionary models with embedded
+hidden information that may be more contrived mathematically, and thus (from a certain point of view) less realistic,
+but capture more empirically observed phenomena.
+
+Whichever approach is used, the potential benefits of modeling alignment as an aspect of
+statistical phylogenetics are very strong. It is good to see that theoretical work in this area
+is advancing, and one hopes that it will increasingly inform both bioinformatics and statistical phylogenetics -
+and that alignment and phylogeny will come to be recognized as essentially the same field.
 
 
 
@@ -510,17 +600,17 @@ statistical phylogenetics are very strong
 %%
 %% Do not use \listoffigures as most will included as separate files
 
-\section*{Figures}
-  \begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      A short description of the figure content
-      should go here.}
-      \end{figure}
-
-\begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      Figure legend text.}
-      \end{figure}
+%\section*{Figures}
+%  \begin{figure}[h!]
+%  \caption{\csentence{Sample figure title.}
+%      A short description of the figure content
+%      should go here.}
+%      \end{figure}
+%
+%\begin{figure}[h!]
+%  \caption{\csentence{Sample figure title.}
+%      Figure legend text.}
+%      \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -530,17 +620,17 @@ statistical phylogenetics are very strong
 
 %% Use of \listoftables is discouraged.
 %%
-\section*{Tables}
-\begin{table}[h!]
-\caption{Sample table title. This is where the description of the table should go.}
-      \begin{tabular}{cccc}
-        \hline
-           & B1  &B2   & B3\\ \hline
-        A1 & 0.1 & 0.2 & 0.3\\
-        A2 & ... & ..  & .\\
-        A3 & ..  & .   & .\\ \hline
-      \end{tabular}
-\end{table}
+%\section*{Tables}
+%\begin{table}[h!]
+%\caption{Sample table title. This is where the description of the table should go.}
+%      \begin{tabular}{cccc}
+%        \hline
+%           & B1  &B2   & B3\\ \hline
+%        A1 & 0.1 & 0.2 & 0.3\\
+%        A2 & ... & ..  & .\\
+%        A3 & ..  & .   & .\\ \hline
+%      \end{tabular}
+%\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -548,14 +638,14 @@ statistical phylogenetics are very strong
 %%                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Additional Files}
-  \subsection*{Additional file 1 --- Sample additional file title}
-    Additional file descriptions text (including details of how to
-    view the file, if it is in a non-standard format or the file extension).  This might
-    refer to a multi-page table or a figure.
-
-  \subsection*{Additional file 2 --- Sample additional file title}
-    Additional file descriptions text.
+%\section*{Additional Files}
+%  \subsection*{Additional file 1 --- Sample additional file title}
+%    Additional file descriptions text (including details of how to
+%    view the file, if it is in a non-standard format or the file extension).  This might
+%    refer to a multi-page table or a figure.
+%
+%  \subsection*{Additional file 2 --- Sample additional file title}
+%    Additional file descriptions text.
 
 
 \end{backmatter}

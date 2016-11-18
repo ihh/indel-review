@@ -83,7 +83,7 @@
 \begin{fmbox}
 \dochead{Commentary}
 
-\title{Towards Realistic Evolutionary Models of Insertion and Deletion Events}
+\title{Solving the Master Equation for Indels}
 
 \author[
    addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
@@ -162,11 +162,15 @@ They are widely used to reconstruct ancestral sequences \cite{BlanchetteEtAl2004
 a method that is finding increasing application in synthetic biology \cite{Liberles2007,AlcolombriEtAl2011,SantiagoOrtizEtAl2015,ZakasEtAl2016}.
 Trees built using substitution models used to classify species \cite{pmid26385966},
 predict protein function \cite{EngelhardtEtAl2005},
-identify novel pathogens \cite{pmid12690091},
-reconstruct population histories \cite{pmid15703244} and transmission dynamics in viral epidemics \cite{pmid22927414},
-identify viral transmission events \cite{pmid27783600} and predict future evolution \cite{pmid27774306},
-and inform conservation efforts \cite{pmid25561668},
-among many other applications.
+inform conservation efforts \cite{pmid25561668},
+or identify novel pathogens \cite{pmid12690091}.
+In the analysis of rapidly evolving pathogens, these methods are used to
+uncover population histories \cite{pmid15703244},
+analyze transmission dynamics \cite{pmid22927414},
+reconstruct key transmission events \cite{pmid27783600},
+and predict future evolution \cite{pmid27774306}.
+There are many other applications;
+the ones listed here are intended to give a flavor of how influential these models have been.
 
 Continuous-time Markov chains describe evolution in a state space $\statespace$,
 for example the set of nucleotides $\statespace = \{ \mbox{A,C,G,T} \}$.
@@ -220,7 +224,9 @@ then summing out $j$ has the expected result:
 \sum_{j \in \statespace} \condmatrix_{ij}(t) \condmatrix_{jk}(u) = \condmatrix_{ik}(t+u)
 \quad \forall i,k \in \statespace
 \]
-This is the defining property of a Markov chain.
+This is one way of stating the defining memory-less property of a Markov chain.
+\eqref{MasterEquation} is just an instantaneous version of this equation,
+and \eqref{ChapmanKolmogorov} is the same equation in matrix form.
 
 The conditional likelihood for an ancestor-descendant pair can be converted
 into a phylogenetic likelihood for a set of extant taxon states $S$ related by a tree $T$,
@@ -231,7 +237,7 @@ We first compute, for every node $n$ in the tree,
 the probability $\felsvec_i(n)$
 of all observed states at leaf nodes descended from node $n$,
 conditioned on node $n$ being in state $i$.
-This is given by Felsenstein's pruning recursion:
+This is given by Felsenstein's {\em pruning recursion}:
 \begin{equation}
 \felsvec(n) = \left\{
 \begin{array}{ll}
@@ -273,7 +279,8 @@ the matrix exponential $\condmatrix(t)$ in \eqref{MatrixExponential} can be solv
 by the technique of spectral decomposition (i.e. finding eigenvalues and eigenvectors).
 Such an approach informs the Dayhoff PAM matrix.
 It was also solved for certain specific parametric forms of the rate matrix $\ratematrix$
-by Jukes and Cantor in 1969, Kimura in 1980, Felsenstein in 1981, and Hasegawa {\em et al} in 1985.
+by Jukes and Cantor \cite{JukesCantor69}, Kimura \cite{Kimura80}, Felsenstein \cite{Felsenstein81},
+and Hasegawa {\em et al} \cite{HasegawaEtal85}, among others.
 This approach is used by all likelihood-based phylogenetics tools including
 RevBayes \cite{HohnaEtAl2016},
 BEAST \cite{pmid17996036},
@@ -405,9 +412,8 @@ Models which allow for heterogeneity of indel and substitution rates along the s
 fall into this category. The usual way of allowing for such spatial variation
 in substitution models is to assume a latent parameterization associated with each site \cite{Yang93,Yang94}.
 For indel models, this latent information must be extended to include hidden site boundaries \cite{RivasEddy2015}.
-
 Another variation on TKF91 is the TKF Structure Tree, which describes the evolutionary behavior
-of an RNA structure \cite{Holmes2004}.
+of RNA structures with stem and loop regions \cite{Holmes2004}.
 
 \subsubsection*{Finite-event trajectory approximations}
 

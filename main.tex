@@ -143,30 +143,37 @@ and current approaches for extending these approaches from ancestor-descendant p
 %%
 \section*{Background}
 
-Probabilistic models of substitution are centrally important in statistical phylogenetics and bioinformatics
-
-Used to estimate evolutionary time separating pairs of species,
-construct phylogenetic trees,
-parameterize sequence alignment algorithms.
-Estimate spatial variation in evolutionary rates;
-patterns of spatial variation have been used to
-predict exon structures of protein-coding genes
-and foldback structure of non-coding RNA genes,
-as well as secondary structure of proteins.
-Reconstruct ancestral sequences for synthetic biology.
-Trees are used to classify species,
-identify novel pathogens,
-reconstruct population histories in viral epidemics,
-identify transmission events,
-inform conservation efforts,
+Models of sequence evolution, formulated as continuous-time discrete-state Markov chains,
+are central to statistical phylogenetics and bioinformatics.
+As descriptions of the process of nucleotide or amino acid substitution,
+their earliest uses were to estimate evolutionary distances \cite{JukesCantor69},
+parameterize sequence alignment algorithms \cite{DayhoffEtal72},
+and construct phylogenetic trees \cite{Felsenstein81}.
+Variations on these models, including extra latent variables,
+have been used to estimate spatial variation in evolutionary rates \cite{Yang93,Yang94};
+these patterns of spatial variation have been used to
+predict exon structures of protein-coding genes \cite{PedersenHein2003,SiepelHaussler04b},
+foldback structure of non-coding RNA genes \cite{PollardEtAl2006},
+regulatory elements \cite{PedersenEtAl04},
+ultra-conserved elements \cite{SiepelEtAl2005},
+protein secondary structures \cite{GoldmanEtAl96},
+and transmembrane structures \cite{LioGoldman99}.
+They are widely used to reconstruct ancestral sequences \cite{BlanchetteEtAl2004,UgaldeEtAl2004,Liberles2007,OrtlundEtAl2007,GaucherEtAl2008,AshkenazyEtAl2012,AlcolombriEtAl2011,SantiagoOrtizEtAl2015,ZakasEtAl2016},
+a method that is finding increasing application in synthetic biology \cite{Liberles2007,AlcolombriEtAl2011,SantiagoOrtizEtAl2015,ZakasEtAl2016}.
+Trees built using substitution models used to classify species \cite{pmid26385966},
+predict protein function \cite{EngelhardtEtAl2005},
+identify novel pathogens \cite{pmid12690091},
+reconstruct population histories \cite{pmid15703244} and transmission dynamics in viral epidemics \cite{pmid22927414},
+identify viral transmission events \cite{pmid27783600} and predict future evolution \cite{pmid27774306},
+and inform conservation efforts \cite{pmid25561668},
 among many other applications.
 
-At core, these methods are based on the continuous-time Markov chain.
-We assume there is a state space $\statespace$,
+Continuous-time Markov chains describe evolution in a state space $\statespace$,
 for example the set of nucleotides $\statespace = \{ \mbox{A,C,G,T} \}$.
-There is a stochastic process $\state(t)$ that at any given instant of time, $t$,
+The stochastic process $\state(t)$ at any given instant of time, $t$,
 takes one of the values in $\statespace$.
-We write $\statevec(t)$ for the vector of probabilities
+We write $\statevec(t)$ for the vector describing the marginal probability distribution of the process
+at a single point in time:
 $\statevec_i(t) = P(\state(t) = i)$.
 The time-evolution of this vector is governed by a {\em master equation}
 \begin{equation}
@@ -261,10 +268,11 @@ so that $\initvec = \eqmvec$.
 
 As mentioned above, this mathematical approach is fundamental to statistical phylogenetics
 and many applications in bioinformatics.
-For small state spaces $\statespace$, \eqref{MatrixExponential} can be solved exactly
+For small state spaces $\statespace$, such as (for example) the 20 amino acids or 61 sense codons,
+the matrix exponential $\condmatrix(t)$ in \eqref{MatrixExponential} can be solved exactly and practically
 by the technique of spectral decomposition (i.e. finding eigenvalues and eigenvectors).
 Such an approach informs the Dayhoff PAM matrix.
-It was also solved for certain specific parametric forms of $\ratematrix$
+It was also solved for certain specific parametric forms of the rate matrix $\ratematrix$
 by Jukes and Cantor in 1969, Kimura in 1980, Felsenstein in 1981, and Hasegawa {\em et al} in 1985.
 This approach is used by all likelihood-based phylogenetics tools including
 RevBayes\cite{HohnaEtAl2016},
@@ -278,23 +286,26 @@ and XRate \cite{pmid22693624}.
 Many more bioinformatics tools use the Dayhoff PAM matrix or other substitution matrix
 based on an underlying master equation of the form \eqref{MasterEquation}.
 
-Question naturally arises: how to extend the model to describe the evolution of an entire sequence,
+The question naturally arises: how to extend the model to describe the evolution of an entire sequence,
 not just individual sites?
 As long as the allowed mutations are restricted to point substitutions
 and their mutation rates are independent of flanking context,
-then extension to whole sequences is trivially easy:
-can simply multiply together probabilities of independent sites.
+then the extension to whole sequences is trivially easy:
+one can simply multiply together probabilities of independent sites.
 
-However, some mutations violate this assumption of site independence;
+However, many kinds of mutation violate this assumption of site independence;
 most notably context-dependent substitutions and indels.
-For these mutations the obvious approach is to extend the state space $\statespace$
+For these mutations the natural approach is to extend the state space $\statespace$
 to be the set of all possible sequences over a given alphabet
 (for example, the set of all DNA or protein sequences).
 This state space is (countably) infinite;
 we can still discuss Equations~\ref{MasterEquation}-\ref{Felsenstein}
 on an infinite state space,
 but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer possible.
+
 It is for this reason that whole-sequence models have proved quite challenging for theorists.
+This is despite extensive evidence suggesting that indels can be profoundly informative to phylogenetic studies,
+and to applications of phylogenetics in sequence analysis \cite{pmid8445636,pmid15276848,pmid18578882,pmid23475937,pmid19958081,pmid16354754}.
 
 %%%%%%%%%%%%%%%%
 %% Main text %%
@@ -302,20 +313,24 @@ It is for this reason that whole-sequence models have proved quite challenging f
 \section*{Discussion}
 
 We focus only on ``local'' mutations: mostly indel events (which may include local duplications),
-also context-dependent substitutions
+but also context-dependent substitutions.
+This is not because ``nonlocal'' events (such as rearrangements) are unimportant,
+but rather that they tend to defy phylogenetic reconstruction due to the rapid proliferation of possible histories
+after even a few such events \cite{pmid9773350}.
 
-There is an extensive literature on nonlocal events such as rearrangements,
-but these tend to defy phylogenetic reconstruction (due to the rapid proliferation of possible histories with even a few such events)
-
-Two parts:
-solving the master equation (Equations~\ref{MasterEquation}-\ref{MatrixExponential}),
-extending from pairwise probability to a phylogenetic tree (\eqref{Felsenstein}).
+The discussion here is separated into two parts.
+In the first part, we discuss solutions (exact and approximate)
+to the master equation (Equations~\ref{MasterEquation}-\ref{MatrixExponential}),
+an area in which recent progress has been reported in this journal.
+In the second part, we review
+the extension from pairwise probability distributions
+to phylogenetic likelihoods of multiple sequences (\eqref{Felsenstein}).
 
 \subsection*{Solving the master equation}
 
 We first begin with various approaches to finding the time-dependent probability distribution
 of gap lengths in a pairwise alignment,
-under assorted evolutionary models.
+under several evolutionary models.
 
 \subsubsection*{Exactly solved models on strings}
 

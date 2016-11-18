@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{81}
+\begin{thebibliography}{89}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -141,6 +141,27 @@ pp. \bfpage{89}--\blpage{99}.
 \endbibitem
 
 %%% 8
+\bibitem{PedersenEtAl2006}
+\begin{barticle}
+\bauthor{\bsnm{Pedersen}, \binits{J.S.}},
+\bauthor{\bsnm{Bejerano}, \binits{G.}},
+\bauthor{\bsnm{Siepel}, \binits{A.}},
+\bauthor{\bsnm{Rosenbloom}, \binits{K.}},
+\bauthor{\bsnm{Lindblad-Toh}, \binits{K.}},
+\bauthor{\bsnm{Lander}, \binits{E.S.}},
+\bauthor{\bsnm{Kent}, \binits{J.}},
+\bauthor{\bsnm{Miller}, \binits{W.}},
+\bauthor{\bsnm{Haussler}, \binits{D.}}:
+\batitle{{Identification and classification of conserved {RNA} secondary
+  structures in the human genome}}.
+\bjtitle{PLoS Computational Biology}
+\bvolume{2}(\bissue{4}),
+\bfpage{33}
+(\byear{2006})
+\end{barticle}
+\endbibitem
+
+%%% 9
 \bibitem{PollardEtAl2006}
 \begin{barticle}
 \bauthor{\bsnm{Pollard}, \binits{K.S.}},
@@ -168,7 +189,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 9
+%%% 10
 \bibitem{PedersenEtAl04}
 \begin{barticle}
 \bauthor{\bsnm{Pedersen}, \binits{J.S.}},
@@ -185,7 +206,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 10
+%%% 11
 \bibitem{SiepelEtAl2005}
 \begin{barticle}
 \bauthor{\bsnm{Siepel}, \binits{A.}},
@@ -213,7 +234,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 11
+%%% 12
 \bibitem{GoldmanEtAl96}
 \begin{barticle}
 \bauthor{\bsnm{Goldman}, \binits{N.}},
@@ -228,7 +249,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 12
+%%% 13
 \bibitem{LioGoldman99}
 \begin{barticle}
 \bauthor{\bsnm{Li\`{o}}, \binits{P.}},
@@ -242,7 +263,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 13
+%%% 14
 \bibitem{BlanchetteEtAl2004}
 \begin{barticle}
 \bauthor{\bsnm{Blanchette}, \binits{M.}},
@@ -259,7 +280,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 14
+%%% 15
 \bibitem{UgaldeEtAl2004}
 \begin{barticle}
 \bauthor{\bsnm{Ugalde}, \binits{J.A.}},
@@ -273,7 +294,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 15
+%%% 16
 \bibitem{Liberles2007}
 \begin{bbook}
 \beditor{\bsnm{Liberles}, \binits{D.A.}} (ed.):
@@ -285,7 +306,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{bbook}
 \endbibitem
 
-%%% 16
+%%% 17
 \bibitem{OrtlundEtAl2007}
 \begin{barticle}
 \bauthor{\bsnm{Ortlund}, \binits{E.A.}},
@@ -301,7 +322,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 17
+%%% 18
 \bibitem{GaucherEtAl2008}
 \begin{barticle}
 \bauthor{\bsnm{Gaucher}, \binits{E.A.}},
@@ -316,7 +337,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 18
+%%% 19
 \bibitem{AshkenazyEtAl2012}
 \begin{barticle}
 \bauthor{\bsnm{Ashkenazy}, \binits{H.}},
@@ -335,7 +356,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 19
+%%% 20
 \bibitem{AlcolombriEtAl2011}
 \begin{barticle}
 \bauthor{\bsnm{Alcolombri}, \binits{U.}},
@@ -350,7 +371,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 20
+%%% 21
 \bibitem{SantiagoOrtizEtAl2015}
 \begin{barticle}
 \bauthor{\bsnm{Santiago-Ortiz}, \binits{J.}},
@@ -371,7 +392,7 @@ pp. \bfpage{89}--\blpage{99}.
 \end{barticle}
 \endbibitem
 
-%%% 21
+%%% 22
 \bibitem{ZakasEtAl2016}
 \begin{botherref}
 \oauthor{\bsnm{Zakas}, \binits{P.M.}},
@@ -388,7 +409,7 @@ Nat. Biotechnol.
 \end{botherref}
 \endbibitem
 
-%%% 22
+%%% 23
 \bibitem{pmid26385966}
 \begin{barticle}
 \bauthor{\bsnm{Hinchliff}, \binits{C.E.}},
@@ -422,7 +443,7 @@ Nat. Biotechnol.
 \end{barticle}
 \endbibitem
 
-%%% 23
+%%% 24
 \bibitem{EngelhardtEtAl2005}
 \begin{botherref}
 \oauthor{\bsnm{Engelhardt}, \binits{B.E.}},
@@ -436,7 +457,7 @@ PLoS Computational Biology
 \end{botherref}
 \endbibitem
 
-%%% 24
+%%% 25
 \bibitem{pmid12690091}
 \begin{barticle}
 \bauthor{\bsnm{Drosten}, \binits{C.}},
@@ -474,7 +495,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 25
+%%% 26
 \bibitem{pmid15703244}
 \begin{barticle}
 \bauthor{\bsnm{Drummond}, \binits{A.J.}},
@@ -490,7 +511,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 26
+%%% 27
 \bibitem{pmid22927414}
 \begin{barticle}
 \bauthor{\bsnm{Pybus}, \binits{O.G.}},
@@ -513,7 +534,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 27
+%%% 28
 \bibitem{pmid27783600}
 \begin{barticle}
 \bauthor{\bsnm{Worobey}, \binits{M.}},
@@ -535,7 +556,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 28
+%%% 29
 \bibitem{pmid27774306}
 \begin{barticle}
 \bauthor{\bsnm{Bielejec}, \binits{F.}},
@@ -552,7 +573,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 29
+%%% 30
 \bibitem{pmid25561668}
 \begin{barticle}
 \bauthor{\bsnm{Pollock}, \binits{L.J.}},
@@ -571,7 +592,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 30
+%%% 31
 \bibitem{HohnaEtAl2016}
 \begin{barticle}
 \bauthor{\bsnm{Hohna}, \binits{S.}},
@@ -592,7 +613,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 31
+%%% 32
 \bibitem{pmid17996036}
 \begin{barticle}
 \bauthor{\bsnm{Drummond}, \binits{A.J.}},
@@ -606,7 +627,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 32
+%%% 33
 \bibitem{pmid16928733}
 \begin{barticle}
 \bauthor{\bsnm{Stamatakis}, \binits{A.}}:
@@ -619,7 +640,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 33
+%%% 34
 \bibitem{pmid15509596}
 \begin{barticle}
 \bauthor{\bsnm{Pond}, \binits{S.L.}},
@@ -633,7 +654,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 34
+%%% 35
 \bibitem{pmid17483113}
 \begin{barticle}
 \bauthor{\bsnm{Yang}, \binits{Z.}}:
@@ -645,7 +666,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 35
+%%% 36
 \bibitem{Felsenstein1989}
 \begin{barticle}
 \bauthor{\bsnm{Felsenstein}, \binits{J.}}:
@@ -657,7 +678,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 36
+%%% 37
 \bibitem{pmid11934758}
 \begin{barticle}
 \bauthor{\bsnm{Schmidt}, \binits{H.A.}},
@@ -673,7 +694,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 37
+%%% 38
 \bibitem{pmid22693624}
 \begin{barticle}
 \bauthor{\bsnm{Westesson}, \binits{O.}},
@@ -687,7 +708,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 38
+%%% 39
 \bibitem{pmid8445636}
 \begin{barticle}
 \bauthor{\bsnm{Benner}, \binits{S.A.}},
@@ -702,7 +723,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 39
+%%% 40
 \bibitem{pmid15276848}
 \begin{barticle}
 \bauthor{\bsnm{Chang}, \binits{M.S.}},
@@ -717,7 +738,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 40
+%%% 41
 \bibitem{pmid18578882}
 \begin{barticle}
 \bauthor{\bsnm{Hsing}, \binits{M.}},
@@ -731,7 +752,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 41
+%%% 42
 \bibitem{pmid23475937}
 \begin{barticle}
 \bauthor{\bsnm{Williams}, \binits{L.E.}},
@@ -745,7 +766,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 42
+%%% 43
 \bibitem{pmid19958081}
 \begin{barticle}
 \bauthor{\bsnm{McCrow}, \binits{J.P.}}:
@@ -757,7 +778,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 43
+%%% 44
 \bibitem{pmid16354754}
 \begin{barticle}
 \bauthor{\bsnm{Caspi}, \binits{A.}},
@@ -771,7 +792,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 44
+%%% 45
 \bibitem{pmid9773350}
 \begin{barticle}
 \bauthor{\bsnm{Sankoff}, \binits{D.}},
@@ -784,7 +805,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 45
+%%% 46
 \bibitem{ThorneEtal91}
 \begin{barticle}
 \bauthor{\bsnm{Thorne}, \binits{J.L.}},
@@ -799,7 +820,18 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 46
+%%% 47
+\bibitem{Feller71}
+\begin{bbook}
+\bauthor{\bsnm{Feller}, \binits{W.}}:
+\bbtitle{An Introduction to Probability Theory and Its Applications, Vol II.}
+\bpublisher{John Wiley and Sons},
+\blocation{New York}
+(\byear{1971})
+\end{bbook}
+\endbibitem
+
+%%% 48
 \bibitem{HolmesBruno2001}
 \begin{barticle}
 \bauthor{\bsnm{Holmes}, \binits{I.}},
@@ -812,7 +844,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 47
+%%% 49
 \bibitem{Holmes2003}
 \begin{barticle}
 \bauthor{\bsnm{Holmes}, \binits{I.}}:
@@ -824,7 +856,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 48
+%%% 50
 \bibitem{WestessonEtAl2012}
 \begin{barticle}
 \bauthor{\bsnm{Westesson}, \binits{O.}},
@@ -840,7 +872,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 49
+%%% 51
 \bibitem{BouchardCote2013}
 \begin{barticle}
 \bauthor{\bsnm{Bouchard-C\^{o}t\'{e}}, \binits{A.}}:
@@ -853,7 +885,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 50
+%%% 52
 \bibitem{BouchardCoteJordan2013}
 \begin{barticle}
 \bauthor{\bsnm{Bouchard-Cote}, \binits{A.}},
@@ -866,7 +898,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 51
+%%% 53
 \bibitem{ThorneEtal92}
 \begin{barticle}
 \bauthor{\bsnm{Thorne}, \binits{J.L.}},
@@ -881,7 +913,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 52
+%%% 54
 \bibitem{Metzler2003}
 \begin{barticle}
 \bauthor{\bsnm{Metzler}, \binits{D.}}:
@@ -894,7 +926,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 53
+%%% 55
 \bibitem{RivasEddy2015}
 \begin{barticle}
 \bauthor{\bsnm{Rivas}, \binits{E.}},
@@ -908,7 +940,7 @@ PLoS Computational Biology
 \end{barticle}
 \endbibitem
 
-%%% 54
+%%% 56
 \bibitem{Rivas05}
 \begin{botherref}
 \oauthor{\bsnm{Rivas}, \binits{E.}}:
@@ -920,7 +952,7 @@ BMC Bioinformatics
 \end{botherref}
 \endbibitem
 
-%%% 55
+%%% 57
 \bibitem{RivasEddy2008}
 \begin{barticle}
 \bauthor{\bsnm{Rivas}, \binits{E.}},
@@ -934,7 +966,7 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 56
+%%% 58
 \bibitem{Ezawa2016b}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -947,7 +979,18 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 57
+%%% 59
+\bibitem{Holmes2004}
+\begin{botherref}
+\oauthor{\bsnm{Holmes}, \binits{I.}}:
+A probabilistic model for the evolution of {RNA} structure.
+BMC Bioinformatics
+\textbf{5}(166)
+(2004)
+\end{botherref}
+\endbibitem
+
+%%% 60
 \bibitem{KnudsenMiyamoto2003}
 \begin{barticle}
 \bauthor{\bsnm{Knudsen}, \binits{B.}},
@@ -961,7 +1004,7 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 58
+%%% 61
 \bibitem{RedelingsSuchard2005}
 \begin{barticle}
 \bauthor{\bsnm{Redelings}, \binits{B.D.}},
@@ -974,7 +1017,7 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 59
+%%% 62
 \bibitem{SuchardRedelings2006}
 \begin{barticle}
 \bauthor{\bsnm{Suchard}, \binits{M.A.}},
@@ -988,7 +1031,7 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 60
+%%% 63
 \bibitem{RedelingsSuchard2007}
 \begin{barticle}
 \bauthor{\bsnm{Redelings}, \binits{B.D.}},
@@ -1002,7 +1045,7 @@ BMC Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 61
+%%% 64
 \bibitem{WestessonEtAlArxiv2011}
 \begin{botherref}
 \oauthor{\bsnm{Westesson}, \binits{O.}},
@@ -1016,7 +1059,7 @@ arXiv:1103.4347
 \end{botherref}
 \endbibitem
 
-%%% 62
+%%% 65
 \bibitem{WestessonBarquistHolmes2012}
 \begin{botherref}
 \oauthor{\bsnm{Westesson}, \binits{O.}},
@@ -1029,7 +1072,7 @@ Bioinformatics
 \end{botherref}
 \endbibitem
 
-%%% 63
+%%% 66
 \bibitem{MiklosLunterHolmes2004}
 \begin{barticle}
 \bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
@@ -1043,7 +1086,7 @@ Bioinformatics
 \end{barticle}
 \endbibitem
 
-%%% 64
+%%% 67
 \bibitem{MiklosEtal2001}
 \begin{bchapter}
 \bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
@@ -1056,20 +1099,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{bchapter}
 \endbibitem
 
-%%% 65
-\bibitem{LunterHein04}
-\begin{barticle}
-\bauthor{\bsnm{Lunter}, \binits{G.A.}},
-\bauthor{\bsnm{Hein}, \binits{J.}}:
-\batitle{A nucleotide substitution model with nearest-neighbour interactions}.
-\bjtitle{Bioinformatics}
-\bvolume{20 Suppl 1},
-\bfpage{216}--\blpage{223}
-(\byear{2004})
-\end{barticle}
-\endbibitem
-
-%%% 66
+%%% 68
 \bibitem{Ezawa2016a}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -1082,7 +1112,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{barticle}
 \endbibitem
 
-%%% 67
+%%% 69
 \bibitem{Ezawa2016bErratum}
 \begin{barticle}
 \bauthor{\bsnm{Ezawa}, \binits{K.}}:
@@ -1095,7 +1125,33 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{barticle}
 \endbibitem
 
-%%% 68
+%%% 70
+\bibitem{LunterHein04}
+\begin{barticle}
+\bauthor{\bsnm{Lunter}, \binits{G.A.}},
+\bauthor{\bsnm{Hein}, \binits{J.}}:
+\batitle{A nucleotide substitution model with nearest-neighbour interactions}.
+\bjtitle{Bioinformatics}
+\bvolume{20 Suppl 1},
+\bfpage{216}--\blpage{223}
+(\byear{2004})
+\end{barticle}
+\endbibitem
+
+%%% 71
+\bibitem{BurgeKarlin97}
+\begin{barticle}
+\bauthor{\bsnm{Burge}, \binits{C.}},
+\bauthor{\bsnm{Karlin}, \binits{S.}}:
+\batitle{Prediction of complete gene structures in human genomic {DNA}}.
+\bjtitle{Journal of Molecular Biology}
+\bvolume{268}(\bissue{1}),
+\bfpage{78}--\blpage{94}
+(\byear{1997})
+\end{barticle}
+\endbibitem
+
+%%% 72
 \bibitem{NovakEtAl2008}
 \begin{barticle}
 \bauthor{\bsnm{Novak}, \binits{A.}},
@@ -1111,7 +1167,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \end{barticle}
 \endbibitem
 
-%%% 69
+%%% 73
 \bibitem{BouchardCoteEtAl2009}
 \begin{bchapter}
 \bauthor{\bsnm{Bouchard-c\^{o}t\'{e}}, \binits{A.}},
@@ -1130,7 +1186,7 @@ pp. \bfpage{177}--\blpage{184}.
 \end{bchapter}
 \endbibitem
 
-%%% 70
+%%% 74
 \bibitem{Redelings2014}
 \begin{barticle}
 \bauthor{\bsnm{Redelings}, \binits{B.}}:
@@ -1143,7 +1199,7 @@ pp. \bfpage{177}--\blpage{184}.
 \end{barticle}
 \endbibitem
 
-%%% 71
+%%% 75
 \bibitem{ArunapuramEtAl2013}
 \begin{barticle}
 \bauthor{\bsnm{Arunapuram}, \binits{P.}},
@@ -1162,7 +1218,7 @@ pp. \bfpage{177}--\blpage{184}.
 \end{barticle}
 \endbibitem
 
-%%% 72
+%%% 76
 \bibitem{MeyerMiklos2007}
 \begin{barticle}
 \bauthor{\bsnm{Meyer}, \binits{I.M.}},
@@ -1177,7 +1233,7 @@ pp. \bfpage{177}--\blpage{184}.
 \end{barticle}
 \endbibitem
 
-%%% 73
+%%% 77
 \bibitem{Hein2001}
 \begin{bchapter}
 \bauthor{\bsnm{Hein}, \binits{J.}}:
@@ -1196,7 +1252,7 @@ pp. \bfpage{179}--\blpage{190}.
 \end{bchapter}
 \endbibitem
 
-%%% 74
+%%% 78
 \bibitem{LunterSongMiklosHein2003}
 \begin{barticle}
 \bauthor{\bsnm{Lunter}, \binits{G.A.}},
@@ -1212,28 +1268,7 @@ pp. \bfpage{179}--\blpage{190}.
 \end{barticle}
 \endbibitem
 
-%%% 75
-\bibitem{IndelHistorian}
-\begin{botherref}
-\oauthor{\bsnm{Holmes}, \binits{I.H.}}:
-Historian: accurate reconstruction of sequences and rates.
-\url{https://github.com/ihh/indelhistorian}
-\end{botherref}
-\endbibitem
-
-%%% 76
-\bibitem{Mealy55}
-\begin{barticle}
-\bauthor{\bsnm{Mealy}, \binits{G.H.}}:
-\batitle{A method for synthesizing sequential circuits}.
-\bjtitle{Bell System Technical Journal}
-\bvolume{34},
-\bfpage{1045}--\blpage{1079}
-(\byear{1955})
-\end{barticle}
-\endbibitem
-
-%%% 77
+%%% 79
 \bibitem{MohriPereiraRiley2000}
 \begin{barticle}
 \bauthor{\bsnm{Mohri}, \binits{M.}},
@@ -1247,7 +1282,28 @@ Historian: accurate reconstruction of sequences and rates.
 \end{barticle}
 \endbibitem
 
-%%% 78
+%%% 80
+\bibitem{IndelHistorian}
+\begin{botherref}
+\oauthor{\bsnm{Holmes}, \binits{I.H.}}:
+Historian: accurate reconstruction of sequences and rates.
+\url{https://github.com/ihh/indelhistorian}
+\end{botherref}
+\endbibitem
+
+%%% 81
+\bibitem{Mealy55}
+\begin{barticle}
+\bauthor{\bsnm{Mealy}, \binits{G.H.}}:
+\batitle{A method for synthesizing sequential circuits}.
+\bjtitle{Bell System Technical Journal}
+\bvolume{34},
+\bfpage{1045}--\blpage{1079}
+(\byear{1955})
+\end{barticle}
+\endbibitem
+
+%%% 82
 \bibitem{Sankoff85}
 \begin{barticle}
 \bauthor{\bsnm{Sankoff}, \binits{D.}}:
@@ -1260,7 +1316,7 @@ Historian: accurate reconstruction of sequences and rates.
 \end{barticle}
 \endbibitem
 
-%%% 79
+%%% 83
 \bibitem{BradleyHolmes2009}
 \begin{barticle}
 \bauthor{\bsnm{Bradley}, \binits{R.K.}},
@@ -1273,7 +1329,7 @@ Historian: accurate reconstruction of sequences and rates.
 \end{barticle}
 \endbibitem
 
-%%% 80
+%%% 84
 \bibitem{WangKeightleyJohnson2006}
 \begin{barticle}
 \bauthor{\bsnm{Wang}, \binits{J.}},
@@ -1288,7 +1344,68 @@ Historian: accurate reconstruction of sequences and rates.
 \end{barticle}
 \endbibitem
 
-%%% 81
+%%% 85
+\bibitem{SiepelHaussler04}
+\begin{barticle}
+\bauthor{\bsnm{Siepel}, \binits{A.}},
+\bauthor{\bsnm{Haussler}, \binits{D.}}:
+\batitle{Phylogenetic estimation of context-dependent substitution rates by
+  maximum likelihood}.
+\bjtitle{Molecular Biology and Evolution}
+\bvolume{21}(\bissue{3}),
+\bfpage{468}--\blpage{488}
+(\byear{2004})
+\end{barticle}
+\endbibitem
+
+%%% 86
+\bibitem{KnudsenHein99}
+\begin{barticle}
+\bauthor{\bsnm{Knudsen}, \binits{B.}},
+\bauthor{\bsnm{Hein}, \binits{J.}}:
+\batitle{{RNA} secondary structure prediction using stochastic context-free
+  grammars and evolutionary history}.
+\bjtitle{Bioinformatics}
+\bvolume{15}(\bissue{6}),
+\bfpage{446}--\blpage{454}
+(\byear{1999})
+\end{barticle}
+\endbibitem
+
+%%% 87
+\bibitem{KnudsenHein2003}
+\begin{barticle}
+\bauthor{\bsnm{Knudsen}, \binits{B.}},
+\bauthor{\bsnm{Hein}, \binits{J.}}:
+\batitle{{Pfold: {RNA} secondary structure prediction using stochastic
+  context-free grammars}}.
+\bjtitle{Nucleic Acids Research}
+\bvolume{31}(\bissue{13}),
+\bfpage{3423}--\blpage{3428}
+(\byear{2003}).
+\bcomment{Evaluation Studies}
+\end{barticle}
+\endbibitem
+
+%%% 88
+\bibitem{KlostermanEtAl2006}
+\begin{botherref}
+\oauthor{\bsnm{Klosterman}, \binits{P.S.}},
+\oauthor{\bsnm{Uzilov}, \binits{A.V.}},
+\oauthor{\bsnm{Bendana}, \binits{Y.R.}},
+\oauthor{\bsnm{Bradley}, \binits{R.K.}},
+\oauthor{\bsnm{Chao}, \binits{S.}},
+\oauthor{\bsnm{Kosiol}, \binits{C.}},
+\oauthor{\bsnm{Goldman}, \binits{N.}},
+\oauthor{\bsnm{Holmes}, \binits{I.}}:
+{XRate}: a fast prototyping, training and annotation tool for phylo-grammars.
+BMC Bioinformatics
+\textbf{7}(428)
+(2006)
+\end{botherref}
+\endbibitem
+
+%%% 89
 \bibitem{DoEtAl2005}
 \begin{barticle}
 \bauthor{\bsnm{Do}, \binits{C.B.}},
@@ -1413,6 +1530,27 @@ Historian: accurate reconstruction of sequences and rates.
 </bibl>
 
 <bibl id="B8">
+  <title><p>{Identification and classification of conserved {RNA} secondary
+  structures in the human genome}</p></title>
+  <aug>
+    <au><snm>Pedersen</snm><fnm>J. S.</fnm></au>
+    <au><snm>Bejerano</snm><fnm>G.</fnm></au>
+    <au><snm>Siepel</snm><fnm>A.</fnm></au>
+    <au><snm>Rosenbloom</snm><fnm>K.</fnm></au>
+    <au><snm>Lindblad Toh</snm><fnm>K.</fnm></au>
+    <au><snm>Lander</snm><fnm>E. S.</fnm></au>
+    <au><snm>Kent</snm><fnm>J.</fnm></au>
+    <au><snm>Miller</snm><fnm>W.</fnm></au>
+    <au><snm>Haussler</snm><fnm>D.</fnm></au>
+  </aug>
+  <source>PLoS Computational Biology</source>
+  <pubdate>2006</pubdate>
+  <volume>2</volume>
+  <issue>4</issue>
+  <fpage>e33</fpage>
+</bibl>
+
+<bibl id="B9">
   <title><p>{{A}n {R}{N}{A} gene expressed during cortical development evolved
   rapidly in humans}</p></title>
   <aug>
@@ -1441,7 +1579,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-172</lpage>
 </bibl>
 
-<bibl id="B9">
+<bibl id="B10">
   <title><p>A comparative method for finding and folding {RNA} secondary
   structures within protein-coding regions</p></title>
   <aug>
@@ -1459,7 +1597,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>4923</lpage>
 </bibl>
 
-<bibl id="B10">
+<bibl id="B11">
   <title><p>Evolutionarily conserved elements in vertebrate, insect, worm, and
   yeast genomes</p></title>
   <aug>
@@ -1488,7 +1626,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>1050</lpage>
 </bibl>
 
-<bibl id="B11">
+<bibl id="B12">
   <title><p>{Using evolutionary trees in protein secondary structure prediction
   and other comparative sequence analyses}</p></title>
   <aug>
@@ -1504,7 +1642,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>208</lpage>
 </bibl>
 
-<bibl id="B12">
+<bibl id="B13">
   <title><p>Using protein structural information in evolutionary inference:
   transmembrane proteins</p></title>
   <aug>
@@ -1518,7 +1656,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>1710</lpage>
 </bibl>
 
-<bibl id="B13">
+<bibl id="B14">
   <title><p>{{R}econstructing large regions of an ancestral mammalian genome in
   silico}</p></title>
   <aug>
@@ -1536,7 +1674,7 @@ Historian: accurate reconstruction of sequences and rates.
   <note>Comparative Study</note>
 </bibl>
 
-<bibl id="B14">
+<bibl id="B15">
   <title><p>{{E}volution of coral pigments recreated}</p></title>
   <aug>
     <au><snm>Ugalde</snm><fnm>J. A.</fnm></au>
@@ -1550,7 +1688,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>1433</fpage>
 </bibl>
 
-<bibl id="B15">
+<bibl id="B16">
   <title><p>Ancestral Sequence Reconstruction</p></title>
   <publisher>OUP Oxford</publisher>
   <editor>Liberles, D.A.</editor>
@@ -1559,7 +1697,7 @@ Historian: accurate reconstruction of sequences and rates.
   <url>https://books.google.com/books?id=1\_uPZWm1nSYC</url>
 </bibl>
 
-<bibl id="B16">
+<bibl id="B17">
   <title><p>{{C}rystal structure of an ancient protein: evolution by
   conformational epistasis}</p></title>
   <aug>
@@ -1576,7 +1714,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1548</lpage>
 </bibl>
 
-<bibl id="B17">
+<bibl id="B18">
   <title><p>{{P}alaeotemperature trend for {P}recambrian life inferred from
   resurrected proteins}</p></title>
   <aug>
@@ -1592,7 +1730,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-707</lpage>
 </bibl>
 
-<bibl id="B18">
+<bibl id="B19">
   <title><p>{{F}ast{M}{L}: a web server for probabilistic reconstruction of
   ancestral sequences}</p></title>
   <aug>
@@ -1612,7 +1750,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-584</lpage>
 </bibl>
 
-<bibl id="B19">
+<bibl id="B20">
   <title><p>{{D}irected evolution of sulfotransferases and paraoxonases by
   ancestral libraries}</p></title>
   <aug>
@@ -1628,7 +1766,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-853</lpage>
 </bibl>
 
-<bibl id="B20">
+<bibl id="B21">
   <title><p>{{A}{A}{V} ancestral reconstruction library enables selection of
   broadly infectious viral variants}</p></title>
   <aug>
@@ -1650,7 +1788,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-946</lpage>
 </bibl>
 
-<bibl id="B21">
+<bibl id="B22">
   <title><p>{{E}nhancing the pharmaceutical properties of protein drugs by
   ancestral sequence reconstruction}</p></title>
   <aug>
@@ -1666,7 +1804,7 @@ Historian: accurate reconstruction of sequences and rates.
   <pubdate>2016</pubdate>
 </bibl>
 
-<bibl id="B22">
+<bibl id="B23">
   <title><p>{{S}ynthesis of phylogeny and taxonomy into a comprehensive tree of
   life}</p></title>
   <aug>
@@ -1701,7 +1839,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-12769</lpage>
 </bibl>
 
-<bibl id="B23">
+<bibl id="B24">
   <title><p>Protein Molecular Function Prediction by {B}ayesian
   Phylogenomics</p></title>
   <aug>
@@ -1716,7 +1854,7 @@ Historian: accurate reconstruction of sequences and rates.
   <issue>5</issue>
 </bibl>
 
-<bibl id="B24">
+<bibl id="B25">
   <title><p>{{I}dentification of a novel coronavirus in patients with severe
   acute respiratory syndrome}</p></title>
   <aug>
@@ -1755,7 +1893,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1976</lpage>
 </bibl>
 
-<bibl id="B25">
+<bibl id="B26">
   <title><p>{{B}ayesian coalescent inference of past population dynamics from
   molecular sequences}</p></title>
   <aug>
@@ -1772,7 +1910,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1192</lpage>
 </bibl>
 
-<bibl id="B26">
+<bibl id="B27">
   <title><p>{{U}nifying the spatial epidemiology and molecular evolution of
   emerging epidemics}</p></title>
   <aug>
@@ -1796,7 +1934,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-15071</lpage>
 </bibl>
 
-<bibl id="B27">
+<bibl id="B28">
   <title><p>{1970s and '{P}atient 0' {H}{I}{V}-1 genomes illuminate early
   {H}{I}{V}/{A}{I}{D}{S} history in {N}orth {A}merica}</p></title>
   <aug>
@@ -1819,7 +1957,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-101</lpage>
 </bibl>
 
-<bibl id="B28">
+<bibl id="B29">
   <title><p>{{I}dentifying predictors of time-inhomogeneous viral evolutionary
   processes}</p></title>
   <aug>
@@ -1836,7 +1974,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>vew023</fpage>
 </bibl>
 
-<bibl id="B29">
+<bibl id="B30">
   <title><p>{{P}hylogenetic diversity meets conservation policy: small areas
   are key to preserving eucalypt lineages}</p></title>
   <aug>
@@ -1855,7 +1993,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>20140007</fpage>
 </bibl>
 
-<bibl id="B30">
+<bibl id="B31">
   <title><p>{{R}ev{B}ayes: {B}ayesian {P}hylogenetic {I}nference {U}sing
   {G}raphical {M}odels and an {I}nteractive {M}odel-{S}pecification
   {L}anguage}</p></title>
@@ -1877,7 +2015,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-736</lpage>
 </bibl>
 
-<bibl id="B31">
+<bibl id="B32">
   <title><p>{{B}{E}{A}{S}{T}: {B}ayesian evolutionary analysis by sampling
   trees}</p></title>
   <aug>
@@ -1890,7 +2028,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>214</fpage>
 </bibl>
 
-<bibl id="B32">
+<bibl id="B33">
   <title><p>{{R}{A}x{M}{L}-{V}{I}-{H}{P}{C}: maximum likelihood-based
   phylogenetic analyses with thousands of taxa and mixed models}</p></title>
   <aug>
@@ -1904,7 +2042,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-2690</lpage>
 </bibl>
 
-<bibl id="B33">
+<bibl id="B34">
   <title><p>{{H}y{P}hy: hypothesis testing using phylogenies}</p></title>
   <aug>
     <au><snm>Pond</snm><fnm>S. L.</fnm></au>
@@ -1919,7 +2057,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-679</lpage>
 </bibl>
 
-<bibl id="B34">
+<bibl id="B35">
   <title><p>{{P}{A}{M}{L} 4: phylogenetic analysis by maximum
   likelihood}</p></title>
   <aug>
@@ -1933,7 +2071,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1591</lpage>
 </bibl>
 
-<bibl id="B35">
+<bibl id="B36">
   <title><p>{PHYLIP} - Phylogeny Inference Package (Version 3.2)</p></title>
   <aug>
     <au><snm>Felsenstein</snm><fnm>J.</fnm></au>
@@ -1945,7 +2083,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>166</lpage>
 </bibl>
 
-<bibl id="B36">
+<bibl id="B37">
   <title><p>{{T}{R}{E}{E}-{P}{U}{Z}{Z}{L}{E}: maximum likelihood phylogenetic
   analysis using quartets and parallel computing}</p></title>
   <aug>
@@ -1962,7 +2100,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-504</lpage>
 </bibl>
 
-<bibl id="B37">
+<bibl id="B38">
   <title><p>{{D}eveloping and applying heterogeneous phylogenetic models with
   {X}{R}ate}</p></title>
   <aug>
@@ -1976,7 +2114,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>e36898</fpage>
 </bibl>
 
-<bibl id="B38">
+<bibl id="B39">
   <title><p>{{E}mpirical and structural models for insertions and deletions in
   the divergent evolution of proteins}</p></title>
   <aug>
@@ -1992,7 +2130,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1082</lpage>
 </bibl>
 
-<bibl id="B39">
+<bibl id="B40">
   <title><p>{{E}mpirical analysis of protein insertions and deletions
   determining parameters for the correct placement of gaps in protein sequence
   alignments}</p></title>
@@ -2008,7 +2146,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-631</lpage>
 </bibl>
 
-<bibl id="B40">
+<bibl id="B41">
   <title><p>{{I}ndel {P}{D}{B}: a database of structural insertions and
   deletions derived from sequence alignments of closely related
   proteins}</p></title>
@@ -2022,7 +2160,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>293</fpage>
 </bibl>
 
-<bibl id="B41">
+<bibl id="B42">
   <title><p>{{S}equence context of indel mutations and their effect on protein
   evolution in a bacterial endosymbiont}</p></title>
   <aug>
@@ -2037,7 +2175,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-605</lpage>
 </bibl>
 
-<bibl id="B42">
+<bibl id="B43">
   <title><p>{{A}lignment of phylogenetically unambiguous indels in
   {S}hewanella}</p></title>
   <aug>
@@ -2051,7 +2189,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1528</lpage>
 </bibl>
 
-<bibl id="B43">
+<bibl id="B44">
   <title><p>{{I}dentification of transposable elements using multiple
   alignments of related genomes}</p></title>
   <aug>
@@ -2066,7 +2204,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-270</lpage>
 </bibl>
 
-<bibl id="B44">
+<bibl id="B45">
   <title><p>{{M}ultiple genome rearrangement and breakpoint
   phylogeny}</p></title>
   <aug>
@@ -2081,7 +2219,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-570</lpage>
 </bibl>
 
-<bibl id="B45">
+<bibl id="B46">
   <title><p>An Evolutionary Model for Maximum Likelihood Alignment of {DNA}
   Sequences</p></title>
   <aug>
@@ -2096,7 +2234,17 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>124</lpage>
 </bibl>
 
-<bibl id="B46">
+<bibl id="B47">
+  <title><p>An Introduction to Probability Theory and its Applications, Vol
+  II.</p></title>
+  <aug>
+    <au><snm>Feller</snm><fnm>W.</fnm></au>
+  </aug>
+  <publisher>New York: John Wiley and Sons</publisher>
+  <pubdate>1971</pubdate>
+</bibl>
+
+<bibl id="B48">
   <title><p>Evolutionary {HMM}s: a {B}ayesian approach to multiple
   alignment</p></title>
   <aug>
@@ -2111,7 +2259,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>820</lpage>
 </bibl>
 
-<bibl id="B47">
+<bibl id="B49">
   <title><p>Using guide trees to construct multiple-sequence evolutionary
   {HMM}s</p></title>
   <aug>
@@ -2124,7 +2272,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>157</lpage>
 </bibl>
 
-<bibl id="B48">
+<bibl id="B50">
   <title><p>Accurate reconstruction of insertion-deletion histories by
   statistical phylogenetics</p></title>
   <aug>
@@ -2140,7 +2288,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>e34572</fpage>
 </bibl>
 
-<bibl id="B49">
+<bibl id="B51">
   <title><p>{{A} note on probabilistic models over strings: the linear algebra
   approach}</p></title>
   <aug>
@@ -2154,7 +2302,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-2550</lpage>
 </bibl>
 
-<bibl id="B50">
+<bibl id="B52">
   <title><p>{{E}volutionary inference via the {P}oisson {I}ndel
   {P}rocess}</p></title>
   <aug>
@@ -2169,7 +2317,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1166</lpage>
 </bibl>
 
-<bibl id="B51">
+<bibl id="B53">
   <title><p>Inching Toward Reality: an Improved Likelihood Model of Sequence
   Evolution</p></title>
   <aug>
@@ -2184,7 +2332,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>16</lpage>
 </bibl>
 
-<bibl id="B52">
+<bibl id="B54">
   <title><p>Statistical Alignment based on fragment insertion and deletion
   models</p></title>
   <aug>
@@ -2198,7 +2346,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>499</lpage>
 </bibl>
 
-<bibl id="B53">
+<bibl id="B55">
   <title><p>{{P}arameterizing sequence alignment with an explicit evolutionary
   model}</p></title>
   <aug>
@@ -2211,7 +2359,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>406</fpage>
 </bibl>
 
-<bibl id="B54">
+<bibl id="B56">
   <title><p>Evolutionary models for insertions and deletions in a probabilistic
   modeling framework</p></title>
   <aug>
@@ -2223,7 +2371,7 @@ Historian: accurate reconstruction of sequences and rates.
   <issue>63</issue>
 </bibl>
 
-<bibl id="B55">
+<bibl id="B57">
   <title><p>{{P}robabilistic phylogenetic inference with insertions and
   deletions}</p></title>
   <aug>
@@ -2236,7 +2384,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>e1000172</fpage>
 </bibl>
 
-<bibl id="B56">
+<bibl id="B58">
   <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
   insertions/deletions: are alignment probabilities factorable?}</p></title>
   <aug>
@@ -2248,7 +2396,19 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>304</fpage>
 </bibl>
 
-<bibl id="B57">
+<bibl id="B59">
+  <title><p>A probabilistic model for the evolution of {RNA}
+  structure</p></title>
+  <aug>
+    <au><snm>Holmes</snm><fnm>I.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2004</pubdate>
+  <volume>5</volume>
+  <issue>166</issue>
+</bibl>
+
+<bibl id="B60">
   <title><p>Sequence Alignments and Pair Hidden {M}arkov Models Using
   Evolutionary History</p></title>
   <aug>
@@ -2263,7 +2423,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>460</lpage>
 </bibl>
 
-<bibl id="B58">
+<bibl id="B61">
   <title><p>Joint {B}ayesian estimation of alignment and phylogeny.</p></title>
   <aug>
     <au><snm>Redelings</snm><fnm>B. D.</fnm></au>
@@ -2277,7 +2437,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>418</lpage>
 </bibl>
 
-<bibl id="B59">
+<bibl id="B62">
   <title><p>{{B}{A}li-{P}hy: simultaneous {B}ayesian inference of alignment and
   phylogeny}</p></title>
   <aug>
@@ -2292,7 +2452,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-2048</lpage>
 </bibl>
 
-<bibl id="B60">
+<bibl id="B63">
   <title><p>Incorporating indel information into phylogeny estimation for
   rapidly emerging pathogens.</p></title>
   <aug>
@@ -2305,7 +2465,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>40</fpage>
 </bibl>
 
-<bibl id="B61">
+<bibl id="B64">
   <title><p>Phylogenetic automata, pruning, and multiple alignment</p></title>
   <aug>
     <au><snm>Westesson</snm><fnm>O.</fnm></au>
@@ -2318,7 +2478,7 @@ Historian: accurate reconstruction of sequences and rates.
   <note>arXiv:1103.4347</note>
 </bibl>
 
-<bibl id="B62">
+<bibl id="B65">
   <title><p>{{H}and{A}lign: {B}ayesian multiple sequence alignment, phylogeny,
   and ancestral reconstruction}</p></title>
   <aug>
@@ -2330,7 +2490,7 @@ Historian: accurate reconstruction of sequences and rates.
   <pubdate>2012</pubdate>
 </bibl>
 
-<bibl id="B63">
+<bibl id="B66">
   <title><p>A long indel model for evolutionary sequence alignment</p></title>
   <aug>
     <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
@@ -2345,7 +2505,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>540</lpage>
 </bibl>
 
-<bibl id="B64">
+<bibl id="B67">
   <title><p>An Improved Model for Statistical Alignment</p></title>
   <aug>
     <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
@@ -2356,21 +2516,7 @@ Historian: accurate reconstruction of sequences and rates.
   <pubdate>2001</pubdate>
 </bibl>
 
-<bibl id="B65">
-  <title><p>A nucleotide substitution model with nearest-neighbour
-  interactions</p></title>
-  <aug>
-    <au><snm>Lunter</snm><fnm>G.A.</fnm></au>
-    <au><snm>Hein</snm><fnm>J.</fnm></au>
-  </aug>
-  <source>Bioinformatics</source>
-  <pubdate>2004</pubdate>
-  <volume>20 Suppl 1</volume>
-  <fpage>I216</fpage>
-  <lpage>I223</lpage>
-</bibl>
-
-<bibl id="B66">
+<bibl id="B68">
   <title><p>{{G}eneral continuous-time {M}arkov model of sequence evolution via
   insertions/deletions: local alignment probability computation}</p></title>
   <aug>
@@ -2383,7 +2529,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>397</fpage>
 </bibl>
 
-<bibl id="B67">
+<bibl id="B69">
   <title><p>{{E}rratum to: {G}eneral continuous-time {M}arkov model of sequence
   evolution via insertions/deletions: are alignment probabilities
   factorable?}</p></title>
@@ -2397,7 +2543,36 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>457</fpage>
 </bibl>
 
-<bibl id="B68">
+<bibl id="B70">
+  <title><p>A nucleotide substitution model with nearest-neighbour
+  interactions</p></title>
+  <aug>
+    <au><snm>Lunter</snm><fnm>G.A.</fnm></au>
+    <au><snm>Hein</snm><fnm>J.</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2004</pubdate>
+  <volume>20 Suppl 1</volume>
+  <fpage>I216</fpage>
+  <lpage>I223</lpage>
+</bibl>
+
+<bibl id="B71">
+  <title><p>Prediction of Complete Gene Structures in Human Genomic
+  {DNA}</p></title>
+  <aug>
+    <au><snm>Burge</snm><fnm>C.</fnm></au>
+    <au><snm>Karlin</snm><fnm>S.</fnm></au>
+  </aug>
+  <source>Journal of Molecular Biology</source>
+  <pubdate>1997</pubdate>
+  <volume>268</volume>
+  <issue>1</issue>
+  <fpage>78</fpage>
+  <lpage>94</lpage>
+</bibl>
+
+<bibl id="B72">
   <title><p>{{S}tat{A}lign: an extendable software package for joint {B}ayesian
   estimation of alignments and evolutionary trees}</p></title>
   <aug>
@@ -2414,7 +2589,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-2404</lpage>
 </bibl>
 
-<bibl id="B69">
+<bibl id="B73">
   <title><p>Efficient Inference in Phylogenetic InDel Trees</p></title>
   <aug>
     <au><snm>Bouchard c\^{o}t\'{e}</snm><fnm>A</fnm></au>
@@ -2430,7 +2605,7 @@ Historian: accurate reconstruction of sequences and rates.
   <url>http://papers.nips.cc/paper/3406-efficient-inference-in-phylogenetic-indel-trees.pdf</url>
 </bibl>
 
-<bibl id="B70">
+<bibl id="B74">
   <title><p>{{E}rasing errors due to alignment ambiguity when estimating
   positive selection}</p></title>
   <aug>
@@ -2444,7 +2619,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-1993</lpage>
 </bibl>
 
-<bibl id="B71">
+<bibl id="B75">
   <title><p>{{S}tat{A}lign 2.0: combining statistical alignment with {R}{N}{A}
   secondary structure prediction}</p></title>
   <aug>
@@ -2464,7 +2639,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>-655</lpage>
 </bibl>
 
-<bibl id="B72">
+<bibl id="B76">
   <title><p>{{S}imul{F}old: simultaneously inferring {R}{N}{A} structures
   including pseudoknots, alignments, and trees using a {B}ayesian {M}{C}{M}{C}
   framework}</p></title>
@@ -2479,7 +2654,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>e149</fpage>
 </bibl>
 
-<bibl id="B73">
+<bibl id="B77">
   <title><p>An Algorithm for Statistical Alignment of Sequences Related by a
   Binary Tree</p></title>
   <aug>
@@ -2494,7 +2669,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>190</lpage>
 </bibl>
 
-<bibl id="B74">
+<bibl id="B78">
   <title><p>An efficient algorithm for statistical multiple alignment on
   arbitrary phylogenetic trees</p></title>
   <aug>
@@ -2511,28 +2686,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>889</lpage>
 </bibl>
 
-<bibl id="B75">
-  <title><p>Historian: accurate reconstruction of sequences and
-  rates</p></title>
-  <aug>
-    <au><snm>Holmes</snm><fnm>I. H.</fnm></au>
-  </aug>
-  <note>\url{https://github.com/ihh/indelhistorian}</note>
-</bibl>
-
-<bibl id="B76">
-  <title><p>A Method for Synthesizing Sequential Circuits</p></title>
-  <aug>
-    <au><snm>Mealy</snm><fnm>G. H.</fnm></au>
-  </aug>
-  <source>Bell System Technical Journal</source>
-  <pubdate>1955</pubdate>
-  <volume>34</volume>
-  <fpage>1045</fpage>
-  <lpage>1079</lpage>
-</bibl>
-
-<bibl id="B77">
+<bibl id="B79">
   <title><p>Weighted Finite-State Transducers in Speech Recognition</p></title>
   <aug>
     <au><snm>Mohri</snm><fnm>M.</fnm></au>
@@ -2547,7 +2701,28 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>88</lpage>
 </bibl>
 
-<bibl id="B78">
+<bibl id="B80">
+  <title><p>Historian: accurate reconstruction of sequences and
+  rates</p></title>
+  <aug>
+    <au><snm>Holmes</snm><fnm>I. H.</fnm></au>
+  </aug>
+  <note>\url{https://github.com/ihh/indelhistorian}</note>
+</bibl>
+
+<bibl id="B81">
+  <title><p>A Method for Synthesizing Sequential Circuits</p></title>
+  <aug>
+    <au><snm>Mealy</snm><fnm>G. H.</fnm></au>
+  </aug>
+  <source>Bell System Technical Journal</source>
+  <pubdate>1955</pubdate>
+  <volume>34</volume>
+  <fpage>1045</fpage>
+  <lpage>1079</lpage>
+</bibl>
+
+<bibl id="B82">
   <title><p>Simultaneous solution of the {RNA} folding, alignment, and
   protosequence problems</p></title>
   <aug>
@@ -2560,7 +2735,7 @@ Historian: accurate reconstruction of sequences and rates.
   <lpage>825</lpage>
 </bibl>
 
-<bibl id="B79">
+<bibl id="B83">
   <title><p>{{E}volutionary triplet models of structured {R}{N}{A}}</p></title>
   <aug>
     <au><snm>Bradley</snm><fnm>R. K.</fnm></au>
@@ -2573,7 +2748,7 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>e1000483</fpage>
 </bibl>
 
-<bibl id="B80">
+<bibl id="B84">
   <title><p>{{M}{C}{A}{L}{I}{G}{N}2: faster, accurate global pairwise alignment
   of non-coding {D}{N}{A} sequences based on explicit models of indel
   evolution}</p></title>
@@ -2588,7 +2763,72 @@ Historian: accurate reconstruction of sequences and rates.
   <fpage>292</fpage>
 </bibl>
 
-<bibl id="B81">
+<bibl id="B85">
+  <title><p>Phylogenetic estimation of context-dependent substitution rates by
+  maximum likelihood</p></title>
+  <aug>
+    <au><snm>Siepel</snm><fnm>A.</fnm></au>
+    <au><snm>Haussler</snm><fnm>D.</fnm></au>
+  </aug>
+  <source>Molecular Biology and Evolution</source>
+  <pubdate>2004</pubdate>
+  <volume>21</volume>
+  <issue>3</issue>
+  <fpage>468</fpage>
+  <lpage>488</lpage>
+</bibl>
+
+<bibl id="B86">
+  <title><p>{RNA} secondary structure prediction using stochastic context-free
+  grammars and evolutionary history</p></title>
+  <aug>
+    <au><snm>Knudsen</snm><fnm>B.</fnm></au>
+    <au><snm>Hein</snm><fnm>J.</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>1999</pubdate>
+  <volume>15</volume>
+  <issue>6</issue>
+  <fpage>446</fpage>
+  <lpage>454</lpage>
+</bibl>
+
+<bibl id="B87">
+  <title><p>{Pfold: {RNA} secondary structure prediction using stochastic
+  context-free grammars}</p></title>
+  <aug>
+    <au><snm>Knudsen</snm><fnm>B.</fnm></au>
+    <au><snm>Hein</snm><fnm>J.</fnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2003</pubdate>
+  <volume>31</volume>
+  <issue>13</issue>
+  <fpage>3423</fpage>
+  <lpage>3428</lpage>
+  <note>Evaluation Studies</note>
+</bibl>
+
+<bibl id="B88">
+  <title><p>{XRate}: a fast prototyping, training and annotation tool for
+  phylo-grammars</p></title>
+  <aug>
+    <au><snm>Klosterman</snm><fnm>P. S.</fnm></au>
+    <au><snm>Uzilov</snm><fnm>A. V.</fnm></au>
+    <au><snm>Bendana</snm><fnm>Y. R.</fnm></au>
+    <au><snm>Bradley</snm><fnm>R. K.</fnm></au>
+    <au><snm>Chao</snm><fnm>S.</fnm></au>
+    <au><snm>Kosiol</snm><fnm>C.</fnm></au>
+    <au><snm>Goldman</snm><fnm>N.</fnm></au>
+    <au><snm>Holmes</snm><fnm>I.</fnm></au>
+  </aug>
+  <source>BMC Bioinformatics</source>
+  <pubdate>2006</pubdate>
+  <volume>7</volume>
+  <issue>428</issue>
+</bibl>
+
+<bibl id="B89">
   <title><p>{{P}rob{C}ons: {P}robabilistic consistency-based multiple sequence
   alignment}</p></title>
   <aug>

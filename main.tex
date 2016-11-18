@@ -115,7 +115,7 @@ as the analogous models for substitution events.
 
 %\parttitle{} %if any
 We discuss progress in this area,
-reviewing recent articles on the calculation of time-dependent gap length distributions in pairwise alignments
+in view of recent articles on the calculation of time-dependent gap length distributions in pairwise alignments
 and current approaches for extending these approaches from ancestor-descendant pairs to phylogenetic trees.
 \end{abstract}
 
@@ -168,7 +168,7 @@ In the analysis of rapidly evolving pathogens, these methods are used to
 uncover population histories \cite{pmid15703244},
 analyze transmission dynamics \cite{pmid22927414},
 reconstruct key transmission events \cite{pmid27783600},
-and predict future evolution \cite{pmid27774306}.
+and predict future evolutionary trends \cite{pmid27774306}.
 There are many other applications;
 the ones listed above were selected to give some idea of how influential these models have been.
 
@@ -224,7 +224,8 @@ then summing out $j$ has the expected result:
 \sum_{j \in \statespace} \condmatrix_{ij}(t) \condmatrix_{jk}(u) = \condmatrix_{ik}(t+u)
 \quad \forall i,k \in \statespace
 \]
-This is one way of stating the defining memory-less property of a Markov chain.
+This is one way of stating the defining property of a Markov chain:
+its lack of historical memory previous to its current state.
 \eqref{MasterEquation} is just an instantaneous version of this equation,
 and \eqref{ChapmanKolmogorov} is the same equation in matrix form.
 
@@ -281,7 +282,7 @@ Such an approach informs the Dayhoff PAM matrix.
 It was also solved for certain specific parametric forms of the rate matrix $\ratematrix$
 by Jukes and Cantor \cite{JukesCantor69}, Kimura \cite{Kimura80}, Felsenstein \cite{Felsenstein81},
 and Hasegawa {\em et al} \cite{HasegawaEtal85}, among others.
-This approach is used by all likelihood-based phylogenetics tools including
+This approach is used by all likelihood-based phylogenetics tools, such as
 RevBayes \cite{HohnaEtAl2016},
 BEAST \cite{pmid17996036},
 RAxML \cite{pmid16928733},
@@ -308,15 +309,15 @@ to be the set of all possible sequences over a given alphabet
 This state space is (countably) infinite;
 we can still discuss Equations~\ref{MasterEquation}-\ref{Felsenstein}
 on an infinite state space,
-but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer possible.
+but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer feasible.
 
 It has turned out that whole-sequence evolutionary models have proved quite challenging for theorists.
 There is extensive evidence suggesting that indels, in particular, can be profoundly informative to phylogenetic studies,
 and to applications of phylogenetics in sequence analysis \cite{pmid8445636,pmid15276848,pmid18578882,pmid23475937,pmid19958081,pmid16354754}.
 The field of efforts to unify alignment and phylogeny,
-and to build a theoretical framework for the evolutionary study of indels,
-has been labeled as
-{\em statistical alignment} \cite{HeinEtal2000}.
+and to build a theoretical framework for the evolutionary analysis of indels,
+has been dubbed
+{\em statistical alignment} by Hein, one of its pioneers \cite{HeinEtal2000}.
 
 %%%%%%%%%%%%%%%%
 %% Main text %%
@@ -330,12 +331,15 @@ but rather that they tend to defy phylogenetic reconstruction due to the rapid p
 after even a few such events \cite{pmid9773350}.
 
 The discussion here is separated into two parts.
-In the first part, we discuss solutions (exact and approximate)
-to the master equation (Equations~\ref{MasterEquation}-\ref{MatrixExponential}),
-an area in which recent progress has been reported in this journal.
+In the first part, we discuss
+the master equation (\eqref{MasterEquation})
+and exact solutions thereof (Equations~\ref{MatrixExponential}),
+along with various approximations and their departure from the Chapman-Kolmogorov ideal (\eqref{ChapmanKolmogorov}).
+This is an area in which recent progress has been reported in this journal.
 In the second part, we review
 the extension from pairwise probability distributions
-to phylogenetic likelihoods of multiple sequences (\eqref{Felsenstein}).
+to phylogenetic likelihoods of multiple sequences,
+using analogs of Felsenstein's pruning recursion (\eqref{Felsenstein}).
 
 \subsection*{Solving the master equation}
 
@@ -352,15 +356,22 @@ of this seminal paper \cite{ThorneEtal91}.
 While there has been progress in developing approximate models in the 25 years since the publication of this paper,
 and in extending it from pairwise to multiple sequence alignment,
 it remains the only model for which
-the state space $\statespace$ is the set of all sequences (strings) over a finite alphabet,
-the state space is ergodically explored by substitutions and indels
+\begin{enumerate}
+\item the state space $\statespace$ is the set of all sequences (strings) over a finite alphabet,
+\item the state space is ergodically explored by substitutions and indels
 (so there is a valid alignment and evolutionary trajectory between any two sequences $\state(0)$ and $\state(t)$),
-and \eqref{MatrixExponential} can be solved in closed form (or, more precisely, expressed as a sum over alignments,
-where the individual alignment likelihoods can be written in closed form).
+\item \eqref{MatrixExponential} can be calculated exactly
+ (specifically, as a sum over alignments,
+  where the individual alignment likelihoods can be written in closed form).
+\end{enumerate}
 
-The TKF91 model allows single-residue context-independent events only:
-point substitutions, single-residue insertions (with the inserted residue drawn from the equilibrium distribution
-of the substitution process), and single-residue deletions (whose rates are independent of the residue being deleted).
+The TKF91 model allows single-residue context-independent events only.
+These include (i) single-residue substitutions,
+(ii) single-residue insertions (with the inserted residue drawn from the equilibrium distribution
+of the substitution process), and
+(iii) single-residue deletions (whose rates are independent of the residue being deleted).
+The rates of all these mutation events are independent of the flanking sequence.
+
 This process is equivalent to a linear birth-death model with constant immigration
 \cite{Feller71}.
 Thorne {\em et al} showed that 
@@ -377,7 +388,7 @@ The case where there are no indels at all, only substitutions, can be viewed as 
 and can of course be solved exactly, as is well known.
 Another variation on the TKF91 model constrains the total indel rate to be independent of sequence
 length \cite{BouchardCoteJordan2013}.
-In the following section we cover some variants that use a different state space.
+In the following section we cover some variants that use different state spaces.
 
 \subsubsection*{Exactly solved models on state spaces other than strings}
 
@@ -405,8 +416,9 @@ depending on whether or not one conditions on an intermediate sequence $j$.
 Clearly, something about this ``seems wrong'':
 the failure to obey \eqref{ChapmanKolmogorov} illustrates the {\em ad hoc}
 nature of these approaches.
-Ezawa \cite{Ezawa2016b} describes the Chapman-Kolmogorov property as {\em evolutionary consistency};
-in fact, \eqref{ChapmanKolmogorov} is the defining property
+Ezawa \cite{Ezawa2016b} describes the Chapman-Kolmogorov property
+(\eqref{ChapmanKolmogorov}) as {\em evolutionary consistency};
+it can also be regarded as being the defining property
 of any correct solution to a continuous-time Markov chain.
 The above-mentioned approaches may be evolutionarily consistent if the state space
 is allowed to include the extra information that is introduced to make the model tractable,
@@ -417,7 +429,7 @@ fall into this category. The usual way of allowing for such spatial variation
 in substitution models is to assume a latent parameterization associated with each site \cite{Yang93,Yang94}.
 For indel models, this latent information must be extended to include hidden site boundaries \cite{RivasEddy2015}.
 Another variation on TKF91 is the TKF Structure Tree, which describes the evolutionary behavior
-of RNA structures with stem and loop regions \cite{Holmes2004}.
+of RNA structures with stem and loop regions which are subject to insertion and deletion \cite{Holmes2004}.
 
 \subsubsection*{Finite-event trajectory approximations}
 
@@ -555,7 +567,7 @@ yielding a transducer $\trans{A}\trans{B}$ that represents the matrix $\matr{A}\
 There are other well-defined transducer operations corresponding to the Hadamard product
 ($\pointprod$), the scalar product ($\scalarprod$) and the unit vector ($\unitvec$),
 so that \eqref{Felsenstein} can be interpreted directly
-as a transducer operation recipe.
+in terms of transducers \cite{WestessonEtAlArxiv2011,WestessonEtAl2012,BouchardCote2013}.
 
 This has several benefits.
 One is theoretical unification: \eqref{Felsenstein}, using the above

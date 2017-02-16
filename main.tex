@@ -68,7 +68,7 @@
 \newcommand{\condmatrix}{\matr{M}}
 \newcommand{\felsvec}{\vec{F}}
 \newcommand{\unitvec}{\vec{\Delta}}
-\newcommand{\pointprod}{\otimes}
+\newcommand{\pointprod}{\circ}
 \newcommand{\scalarprod}{\cdot}
 \newcommand{\initvec}{\vec{\rho}}
 \endlocaldefs
@@ -294,6 +294,11 @@ and XRate \cite{pmid22693624}.
 Many more bioinformatics tools use the Dayhoff PAM matrix or other substitution matrix
 based on an underlying master equation of the form \eqref{MasterEquation}.
 
+
+% TODO: subsection on pros and cons drawbacks of reversible and stationary models.
+
+% TODO: new subsection here: whole-sequence models
+
 The question naturally arises: how to extend the model to describe the evolution of an entire sequence,
 not just individual sites?
 As long as the allowed mutations are restricted to point substitutions
@@ -310,6 +315,7 @@ This state space is (countably) infinite;
 we can still discuss Equations~\ref{MasterEquation}-\ref{Felsenstein}
 on an infinite state space,
 but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer feasible.
+% TODO: ``except in special cases where there is explicit structure to the rate matrix that allows identification of the eigensystem by algebraic approaches''
 
 It has turned out that whole-sequence evolutionary models have proved quite challenging for theorists.
 There is extensive evidence suggesting that indels, in particular, can be profoundly informative to phylogenetic studies,
@@ -347,7 +353,10 @@ We first begin with various approaches to finding the time-dependent probability
 of gap lengths in a pairwise alignment,
 under several evolutionary models.
 
-\subsubsection*{Exactly solved models on strings}
+% TODO: exactly solved models on k-mers
+% As an approach to models on strings of unbounded length, we can consider...
+
+\subsubsection*{Exactly solved models on strings of unbounded length}
 
 It is a remarkable reflection on the extremely challenging nature of this problem
 that, to date, the only exactly solved indel model on strings
@@ -382,6 +391,8 @@ which conveniently allows the joint probability $P(\state(0),\state(t))$ to be e
 as a paired-sequence Hidden Markov Model or ``Pair HMM'' \cite{HolmesBruno2001}.
 The conditional probability $P(\state(t)|\state(0))$
 can similarly be expressed as a weighted finite-state transducer \cite{Holmes2003,WestessonEtAl2012,BouchardCote2013}.
+
+% TODO: Independent work by Metzler et al and Michel et al offer insight into why the TKF91 model works
 
 There are several variations on the TKF91 model.
 The case where there are no indels at all, only substitutions, can be viewed as a special case of TKF91,
@@ -431,7 +442,7 @@ For indel models, this latent information must be extended to include hidden sit
 Another variation on TKF91 is the TKF Structure Tree, which describes the evolutionary behavior
 of RNA structures with stem and loop regions which are subject to insertion and deletion \cite{Holmes2004}.
 
-\subsubsection*{Finite-event trajectory approximations}
+\subsubsection*{Finite-event trajectories and other truncated approximations}
 
 In tackling indel models where the indel events can insert or delete multiple residues at once,
 several authors have used the approximation that indels never overlap,
@@ -448,6 +459,8 @@ Summing over all such trajectories, to compute the probability of observing a pa
 (e.g. the observed gap length distribution),
 is a nontrivial problem.
 
+% TODO: figure showing a finite-event trajectory
+
 In analyzing the {\em long indel} model,
 a generalization of TKF91 with arbitrary length distributions for instantaneous indel events,
 Mikl\'{o}s {\em et al} \cite{MiklosLunterHolmes2004}
@@ -455,14 +468,17 @@ make the claim that the existence of a conserved residue implies the alignment p
  (since no indel has ever crossed the boundary).
 They use a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths.
 This builds on an earlier model which allows long insertions, but only single-residue deletions \cite{MiklosEtal2001}.
-Recent work by Ezawa has put these finite-event approximations on a more solid footing
+Recent work by Ezawa has put this finite-event approximation on a more solid footing
 by developing a rigorous algebraic definition of equivalence classes for event trajectories \cite{Ezawa2016a,Ezawa2016b,Ezawa2016bErratum}.
+
+% TODO: Although Miklos et al use a reversible model, nothing about their approach requires this
 
 For context-dependent substitution processes,
 such as models that include methylation-induced CpG-deamination,
 a clever approach was developed in \cite{LunterHein04}.
 Rather than truncating an event trajectory, they develop an explicit Taylor series for the matrix exponential
 (\eqref{MatrixExponential}) and then truncate this Taylor series.
+% TODO: Explain this uses the Kronecker sum/product. Cite Michel paper
 It remains to be seen if such an approach can be used for indel models.
 
 Again, solutions obtained using these approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
@@ -492,7 +508,8 @@ which are most efficient at modeling geometric length distributions
 may be fundamentally limited in their ability to fully describe indels.
 However, generalized HMMs, which can model arbitrary length distributions at the cost of some
 computational efficiency \cite{BurgeKarlin97}, may be up to the task.
-Rivas and Eddy report simulation studies confirming this result,
+% TODO: comment that Miklos et al 2004 uses a generalized HMM
+Rivas and Eddy report simulation studies supporting this result,
 and go on to propose several models incorporating hidden information
 (such as fragment boundaries, {\em a la} TKF92)
 which have the advantage of being good fits to HMMs for their finite-time distributions.
@@ -532,7 +549,11 @@ and some (focused on RNA sequences) attempt prediction of secondary structure \c
 In practise these all use HMMs, or dynamic programming of some form,
 in common with the methods of the following section.
 
-\subsubsection*{Approaches not based on MCMC}
+\subsubsection*{Approaches based on automata theory}
+
+% TODO: figure showing a Mealy transducer for TKF91 rate matrix (left) and matrix exponential (right)
+% Rate matrix is R=Q-diag(QV) where V_x=1 \forall x (QV referred to as ``input projection of Q'' in automata theory)
+% TODO: briefly review notation of transducer theory
 
 The dynamic programming recursion for pairwise alignment reported for the TKF91 model \cite{ThorneEtal91}
 can be exactly extended to alignment of multiple sequences given a tree \cite{Hein2001,LunterSongMiklosHein2003}.
@@ -545,7 +566,8 @@ Transducers were originally developed as modular representations of sequence-tra
 for use in speech recognition \cite{MohriPereiraRiley2000}.
 In bioinformatics, they offer (among other things)
 a systematic way of extending HMM-like pairwise alignment likelihoods to trees
-\cite{WestessonEtAl2012,BouchardCote2013,IndelHistorian}
+\cite{WestessonEtAl2012,BouchardCote2013,IndelHistorian}.   % TODO: UPDATE INDELHISTORIAN REF TO PUBLISHED CITE
+% TODO: Cite some other purposes of transducers
 
 A finite-state transducer is a state machine that reads an input tape and writes to an output tape \cite{Mealy55}.
 A probabilistically weighted finite-state transducer is the same, but its behavior is stochastic \cite{MohriPereiraRiley2000}.
@@ -585,12 +607,18 @@ with promising results for improved accuracy in multiple sequence alignment \cit
 More broadly, we can think of the transducer as being in a family of methods
 that combine phylogenetic trees (modeling the temporal structure of evolution)
 with automata theory, grammars, and dynamic programming on sequences (modeling the spatial structure of evolution).
+% TODO: the TKF Structure Tree can be viewed as a context-free grammar or pushdown transducer
+% Generalization to graph grammars such as pair TAGS (Sakakibara et al, Hickey & Blanchette)
+
 The HMM-like nature of TKF91, and the ubiquity of HMMs and dynamic programming in sequence analysis,
 has motivated numerous approaches to indel analysis based on Pair HMMs
 \cite{ThorneEtal92,KnudsenMiyamoto2003,WangKeightleyJohnson2006,RivasEddy2008,RivasEddy2015},
 as well as many other applications of 
 phylogenetic HMMs \cite{GoldmanEtAl96,PedersenHein2003,SiepelHaussler04,SiepelHaussler04b}
 and phylogenetic grammars \cite{KnudsenHein99,KnudsenHein2003,PedersenEtAl04,PedersenEtAl2006,KlostermanEtAl2006,pmid22693624}.
+% TODO: in most of these models, an alignment is assumed fixed and the HMM or grammar used to partition it
+% However, in principle, can combine the ability of HMMs/grammars to model indels (and thus specify alignments)
+% with the ability to partition sequences into differently evolving regions
 
 %%%%%%%%%%%%%%%%
 %% Conclusions %%
@@ -633,10 +661,11 @@ These models may be somewhat mathematically contrived, and thus (from a certain 
 but they capture more empirically observed phenomena.
 
 Whichever approach is used, these results are unambiguously good news for the theoretical study of indel processes.
-The potential benefits of modeling alignment as an aspect of
-statistical phylogenetics are significant. It is good to see that theoretical work in this area
-is advancing. One hopes that it will continue to inform both bioinformatics and statistical phylogenetics -
-and that sequence alignment and phylogeny will come to be recognized, increasingly, as aspects of one underlying field.
+The potential benefits of modeling alignment as an aspect of statistical phylogenetics are significant.
+One can reasonably hope that the advance of theoretical work in this area 
+will continue to inform advances in both bioinformatics and statistical phylogenetics.
+After all, and in spite of the Cambrian explosion in bioinformatics sub-disciplines,
+sequence alignment and phylogeny truly are closely related aspects of mathematical biology.
 
 
 

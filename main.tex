@@ -189,13 +189,12 @@ The time-evolution of this vector is governed by a {\em master equation}
 \label{MasterEquation}
 \end{equation}
 where, for $i,j \in \statespace$ and $i \neq j$,
-$\ratematrix_{ij}$ is the instantaneous rate of mutation from state $i$ to state $j$;
+$\ratematrix_{i,j}$ is the instantaneous rate of mutation from state $i$ to state $j$;
 for probabilistic normalization of \eqref{MasterEquation},
 we then require that
-\begin{equation*}
-\ratematrix_{ii} = -\sum_{j \in \statespace, j \neq i} \ratematrix_{ij}
-\label{DiagonalRates}
-\end{equation*}
+\[
+\ratematrix_{i,i} = -\sum_{j \in \statespace, j \neq i} \ratematrix_{i,j}
+\]
 
 The probability distribution of this process at equilibrium is given by the vector $\eqmvec$,
 which must satisfy the equation
@@ -211,7 +210,7 @@ where $\condmatrix(t)$ is the {\em matrix exponential}
 \label{MatrixExponential}
 \end{equation}
 
-Entry $\condmatrix_{ij}(t)$ of this matrix is the probability
+Entry $\condmatrix_{i,j}(t)$ of this matrix is the probability
 $P(\state(t)=j|\state(0)=i)$
 that, conditional on starting in state $i$,
 the system will after time $t$ be in state $j$.
@@ -221,12 +220,12 @@ Chapman-Kolmogorov forward equation:
 \condmatrix(t) \condmatrix(u) = \condmatrix(t+u)
 \label{ChapmanKolmogorov}
 \end{equation}
-That is, if $\condmatrix_{ij}(t)$ is the probability
+That is, if $\condmatrix_{i,j}(t)$ is the probability
 that state $i$ will, after a finite time interval $t$, have evolved into state $j$,
-and $\condmatrix_{jk}(u)$ is the analogous probability that state $j$ will after time $u$ evolve into state $k$,
+and $\condmatrix_{j,k}(u)$ is the analogous probability that state $j$ will after time $u$ evolve into state $k$,
 then summing out $j$ has the expected result:
 \[
-\sum_{j \in \statespace} \condmatrix_{ij}(t) \condmatrix_{jk}(u) = \condmatrix_{ik}(t+u)
+\sum_{j \in \statespace} \condmatrix_{i,j}(t) \condmatrix_{j,k}(u) = \condmatrix_{i,k}(t+u)
 \quad \forall i,k \in \statespace
 \]
 This is one way of stating the defining property of a Markov chain:
@@ -319,11 +318,11 @@ then the likelihood in \eqref{MatrixExponential} is unchanged.
 For some models, the rate is allowed to vary between sites \cite{Yang93,Yang94}.
 
 A Markov chain is {\em reversible} if it satisfies the instantaneous {\em detailed balance} condition
-$\eqmvec_i \ratematrix_{ij} = \eqmvec_j \ratematrix_{ji}$,
+$\eqmvec_i \ratematrix_{i,j} = \eqmvec_j \ratematrix_{j,i}$,
 or its finite-time equivalent
-$\eqmvec_i \condmatrix_{ij} = \eqmvec_j \condmatrix_{ji}$.
+$\eqmvec_i \condmatrix_{i,j} = \eqmvec_j \condmatrix_{j,i}$.
 This amounts to a symmetry constraint on the parameter space of the chain
-(specifically, the matrix with elements $S_{ij} = \sqrt{\eqmvec_i / \eqmvec_j} \ratematrix_{ij}$ is symmetric)
+(specifically, the matrix with elements $S_{i,j} = \sqrt{\eqmvec_i / \eqmvec_j} \ratematrix_{i,j}$ is symmetric)
 which has several convenient advantages: it effectively halves the number of parameters that must be
 determined, it eases some of the matrix manipulations (symmetric matrices have real eigenvalues
 and the algorithms to find them are generally more stable),
@@ -354,7 +353,7 @@ For examples, see \cite{pmid9600890,pmid22644340,pmid15210317,pmid27774306}.
 The question naturally arises: how to extend the model to describe the evolution of an entire sequence,
 not just individual sites?
 \color{red}
-In such cases, when we talk about $\condmatrix(t)_{ij}$ ``the likelihood of an ancestor-descendant pair $(i,j)$''
+In such cases, when we talk about $\condmatrix(t)_{i,j}$ ``the likelihood of an ancestor-descendant pair $(i,j)$''
 (or, more precisely, the probability that---given the system starts in ancestral state $i$---it will after time $t$ have evolved into descendant state $j$)
 the states $i$ and $j$ now represent not just individual residues, but entire sequences.
 \color{black}
@@ -514,7 +513,7 @@ The above-mentioned approaches may be evolutionarily consistent if the state spa
 is allowed to include the extra information that is introduced to make the model tractable,
 such as fragment boundaries.
 \color{red}
-Lèbre and Michel have criticized other aspects of the Rivas-Eddy 2005 and 2008 models \cite{Rivas05,RivasEddy2008};
+L\`{e}bre and Michel have criticized other aspects of the Rivas-Eddy 2005 and 2008 models \cite{Rivas05,RivasEddy2008};
 in particular, incomplete separation of the indel and substitution processes \cite{pmid22644340}.
 \color{black}
 
@@ -583,27 +582,27 @@ Specifically, the rate matrix for a finite-length sequence is constructed
 as a sum of rate matrices operating locally on the sequence, using the Kronecker sum $\oplus$
 and Kronecker product $\otimes$ to concatenate rate matrices.
 These operators may be understood as follows, for an alphabet of $N$ symbols:
-suppose that ${\cal K}_m$ is the set of all matrices indexed by $m$-mers,
-so that if $\matr{A} \in {\cal K}_m$, then $\matr{A}$ is an $N^m \times N^m$ matrix.
+suppose that ${\cal M}_m$ is the set of all matrices indexed by $m$-mers,
+so that if $\matr{A} \in {\cal M}_m$, then $\matr{A}$ is an $N^m \times N^m$ matrix.
 Let $i,j$ be $m$-mers, $k,l$ be $n$-mers, and $ik, jl$ the concatenated $m+n$-mers.
-If $\matr{A} \in {\cal K}_m$ and $\matr{B} \in {\cal K}_n$
-then $\matr{A} \oplus \matr{B}$ and $\matr{A} \otimes \matr{B}$ are both in ${\cal K}_{m+n}$
+If $\matr{A} \in {\cal M}_m$ and $\matr{B} \in {\cal M}_n$
+then $\matr{A} \oplus \matr{B}$ and $\matr{A} \otimes \matr{B}$ are both in ${\cal M}_{m+n}$
 and are specified by
 \begin{eqnarray}
   \left( \matr{A} \otimes \matr{B} \right)_{ik,jl} & = & \matr{A}_{i,j} \matr{B}_{k,l} \\
   \left( \matr{A} \oplus \matr{B} \right)_{ik,jl} & = & \delta(k=l) \matr{A}_{i,j} + \delta(i=j) \matr{B}_{k,l}
 \end{eqnarray}
-Furthermore, suppose $\matr{O}_n \in {\cal K}_n$ is the $N^k \times N^k$ null matrix containing only zeroes.
+Furthermore, suppose $\matr{O}_n \in {\cal M}_n$ is the $N^k \times N^k$ null matrix containing only zeroes.
 Then $\matr{O}_m \oplus \matr{B}$ commutes with $\matr{A} \oplus \matr{O}_n$,
 and $\exp(\matr{A} \oplus \matr{B}) = \exp(\matr{A}) \otimes \exp(\matr{B})$.
-The rate matrix $\ratematrix$ for a length-$L$ sequence operated on locally by a context-sensitive rate matrix $\matr{A} \in {\cal K}_m$ can be written as a sum of the form
+The rate matrix $\ratematrix$ for a length-$L$ sequence operated on locally by a context-sensitive rate matrix $\matr{A} \in {\cal M}_m$ can be written as a sum of the form
 \[
 \ratematrix = \sum_{n=0}^{L-m} \matr{O}_n \oplus \matr{A} \oplus \matr{O}_{L-m-n}
 \]
-Commuting terms in the Taylor series for $\exp(\ratematrix t)$ can be systematically rearranged into an explicit dynamic programming recursion.
+Commuting terms in the Taylor series for $\exp(\ratematrix t)$ can then be systematically rearranged into an explicit dynamic programming recursion.
 This approach was first used by \cite{LunterHein04} and further developed, with more in-depth discussion of the associated eigensystem, by \cite{pmid21827770,pmid26135206}.
 \color{black}
-It remains to be seen if such an approach can be used for indel models.
+It remains to be seen to what extent such an approach offers a practical solution for general indel models.
 
 \subsubsection*{Simulation studies}
 
@@ -691,15 +690,16 @@ except where a Pair HMM's transition and emission probabilities
 have been normalized so as to describe joint probabilities,
 a transducer's probabilities are normalized so as to describe conditional probabilities
 like the entries of matrix $\condmatrix(t)$ (\eqref{MatrixExponential}).
-More specifically, if $i$ and $j$ are sequences, then we can define the matrix entry $A_{ij}$
+More specifically, if $i$ and $j$ are sequences, then we can define the matrix entry $A_{i,j}$
 to be the Forward score for those two sequences using transducer $\trans{A}$.
 Thus, the transducer is a compact encoding for a square matrix of countably infinite rank,
 indexed by sequence states (rather than nucleotide or amino acid states).
 
-The utility of transducers is that for many purposes they can be manipulated just like matrices.
-If $\trans{A}$ and $\trans{B}$ are transducers representing matrices $\matr{A}$ and $\matr{B}$,
+The utility of transducers arises since for many purposes they can be manipulated analogously to matrices,
+while being more compact than the corresponding matrix (as noted above, matrices describing evolution of arbitrary-length sequences are impractically---or even infinitely---large).
+If $\trans{A}$ and $\trans{B}$ are finite transducers encoding (potentially infinite) matrices $\matr{A}$ and $\matr{B}$,
 then there is a well-defined operation called {\em transducer composition}
-yielding a transducer $\trans{A}\trans{B}$ that represents the matrix $\matr{A}\matr{B}$.
+yielding a finite transducer $\trans{A}\trans{B}$ that represents the matrix product $\matr{A}\matr{B}$.
 There are other well-defined transducer operations corresponding to the various other linear algebra
 operations used in this paper:
 the Hadamard product ($\pointprod$) corresponds to {\em transducer intersection},
@@ -760,16 +760,16 @@ has geometrically-distributed lengths for its instantaneous indel events \cite{R
 That is the bad news (at least for automata).
 The good news is that the simulation results also suggest that,
 for short branches, the error may not be too bad to live with.
-Approximate-fit approaches that are common in Pair HMM modeling and pairwise sequence alignment - such as using a mixture
+Approximate-fit approaches that are common in Pair HMM modeling and pairwise sequence alignment---such as using a mixture
 of geometric distributions to approximate a gap length distribution (yielding a longer tail than can be modeled
-using a pure geometric distribution) - may help bridge the accuracy gap \cite{DoEtAl2005}.
+using a pure geometric distribution)---may help bridge the accuracy gap \cite{DoEtAl2005}.
 Given the power of automata-theoretic approaches, the best way forward
 (in the absence of a closed-form solution) may be to embrace such approximations and live with the ensuing error.
 
 Interestingly, the authors of the two recent simulation studies that prompted this commentary
 come to different conclusions about the viability of automata-based dynamic programming approaches.
 Ezawa \cite{Ezawa2016a,Ezawa2016b}, arguing that realism is paramount, advocates deeper study of the
-gap length distributions obtained from simple instantaneous models - while acknowledging that such gap length distributions
+gap length distributions obtained from simple instantaneous models---while acknowledging that such gap length distributions
 may be more difficult to use in practice than the simple geometric distributions offered by HMM-like models.
 Rivas and Eddy \cite{RivasEddy2015}, clearly targeting applications (particularly those such as profile HMMs),
 work backward from HMM-like models toward evolutionary models with embedded

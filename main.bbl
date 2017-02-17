@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{109}
+\begin{thebibliography}{110}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -754,7 +754,7 @@ PLoS Computational Biology
 %%% 42
 \bibitem{pmid22644340}
 \begin{barticle}
-\bauthor{\bsnm{Lebre}, \binits{S.}},
+\bauthor{\bsnm{L\`{e}bre}, \binits{S.}},
 \bauthor{\bsnm{Michel}, \binits{C.J.}}:
 \batitle{{{A}n evolution model for sequence length based on residue
   insertion-deletion independent of substitution: an application to the {G}{C}
@@ -810,7 +810,7 @@ PLoS Computational Biology
 \bibitem{pmid26135206}
 \begin{barticle}
 \bauthor{\bsnm{Benard}, \binits{E.}},
-\bauthor{\bsnm{Lebre}, \binits{S.}},
+\bauthor{\bsnm{L\`{e}bre}, \binits{S.}},
 \bauthor{\bsnm{Michel}, \binits{C.J.}}:
 \batitle{{{G}enome evolution by transformation, expansion and contraction
   ({G}{E}{T}{E}{C})}}.
@@ -938,7 +938,7 @@ PLoS Computational Biology
 %%% 55
 \bibitem{pmid8281128}
 \begin{barticle}
-\bauthor{\bsnm{Arques}, \binits{D.G.}},
+\bauthor{\bsnm{Arqu\`{e}s}, \binits{D.G.}},
 \bauthor{\bsnm{Michel}, \binits{C.J.}}:
 \batitle{{{A}nalytical expression of the purine/pyrimidine codon probability
   after and before random mutations}}.
@@ -966,7 +966,7 @@ PLoS Computational Biology
 %%% 57
 \bibitem{pmid7475089}
 \begin{barticle}
-\bauthor{\bsnm{Arques}, \binits{D.G.}},
+\bauthor{\bsnm{Arqu\`{e}s}, \binits{D.G.}},
 \bauthor{\bsnm{Michel}, \binits{C.J.}}:
 \batitle{{{A}nalytical solutions of the dinucleotide probability after and
   before random mutations}}.
@@ -1385,7 +1385,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \bibitem{NovakEtAl2008}
 \begin{barticle}
 \bauthor{\bsnm{Novak}, \binits{A.}},
-\bauthor{\bsnm{Miklos}, \binits{I.}},
+\bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}},
 \bauthor{\bsnm{Lyngsoe}, \binits{R.}},
 \bauthor{\bsnm{Hein}, \binits{J.}}:
 \batitle{{{S}tat{A}lign: an extendable software package for joint {B}ayesian
@@ -1453,7 +1453,7 @@ pp. \bfpage{177}--\blpage{184}.
 \bibitem{MeyerMiklos2007}
 \begin{barticle}
 \bauthor{\bsnm{Meyer}, \binits{I.M.}},
-\bauthor{\bsnm{Miklos}, \binits{I.}}:
+\bauthor{\bsnm{Mikl\'{o}s}, \binits{I.}}:
 \batitle{{{S}imul{F}old: simultaneously inferring {R}{N}{A} structures
   including pseudoknots, alignments, and trees using a {B}ayesian {M}{C}{M}{C}
   framework}}.
@@ -1648,6 +1648,20 @@ arXiv:1606.01799
 \endbibitem
 
 %%% 106
+\bibitem{FelsensteinChurchill96}
+\begin{barticle}
+\bauthor{\bsnm{Felsenstein}, \binits{J.}},
+\bauthor{\bsnm{Churchill}, \binits{G.A.}}:
+\batitle{A hidden {M}arkov model approach to variation among sites in rate of
+  evolution}.
+\bjtitle{Molecular Biology and Evolution}
+\bvolume{13},
+\bfpage{93}--\blpage{104}
+(\byear{1996})
+\end{barticle}
+\endbibitem
+
+%%% 107
 \bibitem{SiepelHaussler04}
 \begin{barticle}
 \bauthor{\bsnm{Siepel}, \binits{A.}},
@@ -1661,7 +1675,7 @@ arXiv:1606.01799
 \end{barticle}
 \endbibitem
 
-%%% 107
+%%% 108
 \bibitem{KnudsenHein2003}
 \begin{barticle}
 \bauthor{\bsnm{Knudsen}, \binits{B.}},
@@ -1675,7 +1689,7 @@ arXiv:1606.01799
 \end{barticle}
 \endbibitem
 
-%%% 108
+%%% 109
 \bibitem{KlostermanEtAl2006}
 \begin{botherref}
 \oauthor{\bsnm{Klosterman}, \binits{P.S.}},
@@ -1693,7 +1707,7 @@ BMC Bioinformatics
 \end{botherref}
 \endbibitem
 
-%%% 109
+%%% 110
 \bibitem{DoEtAl2005}
 \begin{barticle}
 \bauthor{\bsnm{Do}, \binits{C.B.}},
@@ -2450,7 +2464,7 @@ BMC Bioinformatics
   insertion-deletion independent of substitution: an application to the {G}{C}
   content in bacterial genomes}</p></title>
   <aug>
-    <au><snm>Lebre</snm><fnm>S.</fnm></au>
+    <au><snm>L\`{e}bre</snm><fnm>S.</fnm></au>
     <au><snm>Michel</snm><fnm>C. J.</fnm></au>
   </aug>
   <source>Bull. Math. Biol.</source>
@@ -2509,7 +2523,7 @@ BMC Bioinformatics
   ({G}{E}{T}{E}{C})}</p></title>
   <aug>
     <au><snm>Benard</snm><fnm>E.</fnm></au>
-    <au><snm>Lebre</snm><fnm>S.</fnm></au>
+    <au><snm>L\`{e}bre</snm><fnm>S.</fnm></au>
     <au><snm>Michel</snm><fnm>C. J.</fnm></au>
   </aug>
   <source>BioSystems</source>
@@ -2645,7 +2659,7 @@ BMC Bioinformatics
   <title><p>{{A}nalytical expression of the purine/pyrimidine codon probability
   after and before random mutations}</p></title>
   <aug>
-    <au><snm>Arques</snm><fnm>D. G.</fnm></au>
+    <au><snm>Arqu\`{e}s</snm><fnm>D. G.</fnm></au>
     <au><snm>Michel</snm><fnm>C. J.</fnm></au>
   </aug>
   <source>Bull. Math. Biol.</source>
@@ -2675,7 +2689,7 @@ BMC Bioinformatics
   <title><p>{{A}nalytical solutions of the dinucleotide probability after and
   before random mutations}</p></title>
   <aug>
-    <au><snm>Arques</snm><fnm>D. G.</fnm></au>
+    <au><snm>Arqu\`{e}s</snm><fnm>D. G.</fnm></au>
     <au><snm>Michel</snm><fnm>C. J.</fnm></au>
   </aug>
   <source>J. Theor. Biol.</source>
@@ -3105,7 +3119,7 @@ BMC Bioinformatics
   estimation of alignments and evolutionary trees}</p></title>
   <aug>
     <au><snm>Novak</snm><fnm>A.</fnm></au>
-    <au><snm>Miklos</snm><fnm>I.</fnm></au>
+    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
     <au><snm>Lyngsoe</snm><fnm>R.</fnm></au>
     <au><snm>Hein</snm><fnm>J.</fnm></au>
   </aug>
@@ -3175,7 +3189,7 @@ BMC Bioinformatics
   framework}</p></title>
   <aug>
     <au><snm>Meyer</snm><fnm>I. M.</fnm></au>
-    <au><snm>Miklos</snm><fnm>I.</fnm></au>
+    <au><snm>Mikl\'{o}s</snm><fnm>I.</fnm></au>
   </aug>
   <source>PLoS Comput. Biol.</source>
   <pubdate>2007</pubdate>
@@ -3369,6 +3383,20 @@ BMC Bioinformatics
 </bibl>
 
 <bibl id="B106">
+  <title><p>A hidden {M}arkov model approach to variation among sites in rate
+  of evolution</p></title>
+  <aug>
+    <au><snm>Felsenstein</snm><fnm>J.</fnm></au>
+    <au><snm>Churchill</snm><fnm>G. A.</fnm></au>
+  </aug>
+  <source>Molecular Biology and Evolution</source>
+  <pubdate>1996</pubdate>
+  <volume>13</volume>
+  <fpage>93</fpage>
+  <lpage>104</lpage>
+</bibl>
+
+<bibl id="B107">
   <title><p>Phylogenetic estimation of context-dependent substitution rates by
   maximum likelihood</p></title>
   <aug>
@@ -3383,7 +3411,7 @@ BMC Bioinformatics
   <lpage>488</lpage>
 </bibl>
 
-<bibl id="B107">
+<bibl id="B108">
   <title><p>{Pfold: {RNA} secondary structure prediction using stochastic
   context-free grammars}</p></title>
   <aug>
@@ -3398,7 +3426,7 @@ BMC Bioinformatics
   <lpage>3428</lpage>
 </bibl>
 
-<bibl id="B108">
+<bibl id="B109">
   <title><p>{XRate}: a fast prototyping, training and annotation tool for
   phylo-grammars</p></title>
   <aug>
@@ -3417,7 +3445,7 @@ BMC Bioinformatics
   <issue>428</issue>
 </bibl>
 
-<bibl id="B109">
+<bibl id="B110">
   <title><p>{{P}rob{C}ons: {P}robabilistic consistency-based multiple sequence
   alignment}</p></title>
   <aug>

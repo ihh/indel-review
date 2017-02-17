@@ -550,20 +550,36 @@ by developing a rigorous algebraic definition of equivalence classes for event t
 For context-dependent substitution processes,
 such as models that include methylation-induced CpG-deamination,
 a clever approach was developed in \cite{LunterHein04}.
-Rather than truncating an event trajectory, they develop an explicit Taylor series for the matrix exponential
+Rather than considering a finite-event trajectory, they develop an explicit Taylor series for the matrix exponential
 (\eqref{MatrixExponential}) and then truncate this Taylor series.
 \color{red}
 Specifically, the rate matrix for a finite-length sequence is constructed
-as a sum of rate matrices operating at individual sites, using the Kronecker sum $\oplus$
-and Kronecker product $\otimes$ to concatenate rate matrices for $k$-mers.
-% TODO: more detail here
-Commuting terms in the matrix exponential can then be reordered systematically.
-A similar approach was later used for more general motif evolution models \cite{pmid21827770,pmid26135206}.
+as a sum of rate matrices operating locally on the sequence, using the Kronecker sum $\oplus$
+and Kronecker product $\otimes$ to concatenate rate matrices.
+These operators may be understood as follows, for an alphabet $\Omega$ of $N$ symbols:
+suppose that ${\cal K}_m$ is the set of all matrices indexed by $m$-mers,
+so that if $\matr{A} \in {\cal K}_m$, then $\matr{A}$ is an $N^m \times N^m$ matrix.
+Let $i,j$ be $m$-mers, $k,l$ be $n$-mers, and $ik, jl$ the concatenated $m+n$-mers.
+If $\matr{A} \in {\cal K}_m$ and $\matr{B} \in {\cal K}_n$
+then $\matr{A} \oplus \matr{B}$ and $\matr{A} \otimes \matr{B}$ are both in ${\cal K}_{m+n}$
+and are specified by
+\begin{eqnarray}
+  \left( \matr{A} \otimes \matr{B} \right)_{ik,jl} & = & \matr{A}_{i,j} \matr{B}_{k,l} \\
+  \left( \matr{A} \oplus \matr{B} \right)_{ik,jl} & = & \delta(k=l) \matr{A}_{i,j} + \delta(i=j) \matr{B}_{k,l}
+\end{eqnarray}
+Furthermore, $\exp(\matr{A} \oplus \matr{B}) = \exp(\matr{A}) \otimes \exp(\matr{B})$.
+If $\matr{O}_n \in {\cal K}_n$ is the $N^k \times N^k$ null matrix containing only zeroes,
+then the rate matrix $\ratematrix$ for a length-$L$ sequence operated on locally by a context-sensitive rate matrix $\matr{A} \in {\cal K}_m$ can be written as a sum of the form
+\[
+\ratematrix = \sum_{n=0}^{L-m} \matr{O}_n \oplus \matr{A} \oplus \matr{O}_{L-m-n}
+\]
+Since $\matr{O}_m \oplus \matr{B}$ commutes with $\matr{A} \oplus \matr{O}_n$,
+commuting terms in the Taylor series for $\exp(\ratematrix t)$ can be systematically rearranged into an explicit dynamic programming recursion.
+This approach was first used by \cite{LunterHein04} and developed more explicitly, with more in-depth discussion of the associated eigensystem, by \cite{pmid21827770,pmid26135206}.
 \color{black}
-It remains to be seen if such an approach can be used for indel models;
-such algebraic approaches are certainly very appealing.
+It remains to be seen if such an approach can be used for indel models.
 
-Again, solutions obtained using these approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
+Again, solutions obtained using truncated approximations will not exactly satisfy \eqref{ChapmanKolmogorov}.
 There will be some error in the probability, and in general the error will be greater
 on longer branches, as the main assumption behind the approximation
 (that there are no overlapping indels in the time interval, or that there is a finite
@@ -571,7 +587,8 @@ limit to the number of overlapping indels)
 starts to break down.
 However, since these are principled approximations, it should be possible to form some conclusions
 as to the severity of the error, and its dependence on model parameters.
-Simulation studies have been of some help here.
+In the case of the Kronecker sum expansion of the context-dependent rate matrix, the precision is very good \cite{LunterHein04}.
+Simulation studies have also been of some help in assessing the error of these approximations.
 
 \subsubsection*{Simulation studies}
 

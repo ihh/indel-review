@@ -192,10 +192,10 @@ where, for $i,j \in \statespace$ and $i \neq j$,
 $\ratematrix_{ij}$ is the instantaneous rate of mutation from state $i$ to state $j$;
 for probabilistic normalization of \eqref{MasterEquation},
 we then require that
-\begin{equation}
+\begin{equation*}
 \ratematrix_{ii} = -\sum_{j \in \statespace, j \neq i} \ratematrix_{ij}
 \label{DiagonalRates}
-\end{equation}
+\end{equation*}
 
 The probability distribution of this process at equilibrium is given by the vector $\eqmvec$,
 which must satisfy the equation
@@ -312,6 +312,12 @@ for example $\statevec(0) = \eqmvec$,
 then (absent any other constraints) it will be in equilibrium at all times;
 such a chain is referred to as being {\em stationary}.
 
+The time-scaling of these models is somewhat arbitrary:
+if the time parameter $t$ is replaced by a scaled version $t/\kappa$,
+while the rate matrix $\ratematrix$ is replaced by $\ratematrix \kappa$,
+then the likelihood in \eqref{MatrixExponential} is unchanged.
+For some models, the rate is allowed to vary between sites \cite{Yang93,Yang94}.
+
 A Markov chain is {\em reversible} if it satisfies the instantaneous {\em detailed balance} condition
 $\eqmvec_i \ratematrix_{ij} = \eqmvec_j \ratematrix_{ji}$,
 or its finite-time equivalent
@@ -340,13 +346,19 @@ and combinations of the above \cite{HasegawaEtal85}.
 These models are all, however, reversible.
 A good deal of subsequent research has gone into the problem, in various guises, of generalizing results obtained
 for reversible, homogeneous and/or stationary models to the analogous irreversible, nonhomogeneous and nonstationary models.
-For examples, see \cite{pmid9600890,pmid22644340,pmid15210317}.
+For examples, see \cite{pmid9600890,pmid22644340,pmid15210317,pmid27774306}.
 \color{black}
 
 \subsubsection*{From individual residues to whole sequences}
 
 The question naturally arises: how to extend the model to describe the evolution of an entire sequence,
 not just individual sites?
+\color{red}
+In such cases, when we talk about $\condmatrix(t)_{ij}$ ``the likelihood of an ancestor-descendant pair $(i,j)$''
+(or, more precisely, the probability that---given the system starts in ancestral state $i$---it will after time $t$ have evolved into descendant state $j$)
+the states $i$ and $j$ now represent not just individual residues, but entire sequences.
+\color{black}
+
 As long as the allowed mutations are restricted to point substitutions
 and their mutation rates are independent of flanking context,
 then the extension to whole sequences is trivially easy:
@@ -501,10 +513,14 @@ of any correct solution to a continuous-time Markov chain.
 The above-mentioned approaches may be evolutionarily consistent if the state space
 is allowed to include the extra information that is introduced to make the model tractable,
 such as fragment boundaries.
+\color{red}
+Lèbre and Michel have criticized other aspects of the Rivas-Eddy 2005 and 2008 models \cite{Rivas05,RivasEddy2008};
+in particular, incomplete separation of the indel and substitution processes \cite{pmid22644340}.
+\color{black}
 
 Models which allow for heterogeneity of indel and substitution rates along the sequence
-fall into this category. The usual way of allowing for such spatial variation
-in substitution models is to assume a latent parameterization associated with each site \cite{Yang93,Yang94}.
+also fall into this category of latent variable models. The usual way of allowing for such spatial variation
+in substitution models is to assume a latent rate-scaling parameter associated with each site \cite{Yang93,Yang94}.
 For indel models, this latent information must be extended to include hidden site boundaries \cite{RivasEddy2015}.
 
 \subsubsection*{Exactly solved models on graphs}
@@ -566,7 +582,7 @@ Rather than considering a finite-event trajectory, they develop an explicit Tayl
 Specifically, the rate matrix for a finite-length sequence is constructed
 as a sum of rate matrices operating locally on the sequence, using the Kronecker sum $\oplus$
 and Kronecker product $\otimes$ to concatenate rate matrices.
-These operators may be understood as follows, for an alphabet $\Omega$ of $N$ symbols:
+These operators may be understood as follows, for an alphabet of $N$ symbols:
 suppose that ${\cal K}_m$ is the set of all matrices indexed by $m$-mers,
 so that if $\matr{A} \in {\cal K}_m$, then $\matr{A}$ is an $N^m \times N^m$ matrix.
 Let $i,j$ be $m$-mers, $k,l$ be $n$-mers, and $ik, jl$ the concatenated $m+n$-mers.
@@ -687,7 +703,7 @@ yielding a transducer $\trans{A}\trans{B}$ that represents the matrix $\matr{A}\
 There are other well-defined transducer operations corresponding to the various other linear algebra
 operations used in this paper:
 the Hadamard product ($\pointprod$) corresponds to {\em transducer intersection},
-the Kronecker product ($\otimes$) to {\em transducer concatenation},
+the Kronecker product ($\otimes$) corresponds to {\em transducer concatenation},
 and the scalar product ($\scalarprod$) and the unit vector ($\unitvec$) can also readily be constructed using transducers.
 Consequently, \eqref{Felsenstein} can be interpreted directly
 in terms of transducers \cite{WestessonEtAlArxiv2011,WestessonEtAl2012,BouchardCote2013}.
@@ -715,7 +731,7 @@ The HMM-like nature of TKF91, and the ubiquity of HMMs and dynamic programming i
 has motivated numerous approaches to indel analysis based on Pair HMMs
 \cite{ThorneEtal92,KnudsenMiyamoto2003,WangKeightleyJohnson2006,RivasEddy2008,RivasEddy2015},
 as well as many other applications of 
-phylogenetic HMMs \cite{GoldmanEtAl96,PedersenHein2003,SiepelHaussler04,SiepelHaussler04b}
+phylogenetic HMMs \cite{FelsensteinChurchill96,GoldmanEtAl96,PedersenHein2003,SiepelHaussler04,SiepelHaussler04b}
 and phylogenetic grammars \cite{KnudsenHein99,KnudsenHein2003,PedersenEtAl04,PedersenEtAl2006,KlostermanEtAl2006,pmid22693624}.
 In most of these models, an alignment is assumed fixed and the HMM or grammar used to partition it;
 however, in principle, one can combine the ability of HMMs/grammars to model indels (and thus impute alignments)

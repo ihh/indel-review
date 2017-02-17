@@ -300,7 +300,8 @@ pp. \bfpage{89}--\blpage{99}.
 \beditor{\bsnm{Liberles}, \binits{D.A.}} (ed.):
 \bbtitle{Ancestral Sequence Reconstruction}.
 \bsertitle{Oxford biosciences}.
-\bpublisher{OUP Oxford}, \blocation{???}
+\bpublisher{OUP},
+\blocation{Oxford, UK.}
 (\byear{2007}).
 \burl{https://books.google.com/books?id=1\_uPZWm1nSYC}
 \end{bbook}
@@ -1385,7 +1386,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \begin{barticle}
 \bauthor{\bsnm{Novak}, \binits{A.}},
 \bauthor{\bsnm{Miklos}, \binits{I.}},
-\bauthor{\bsnm{Lyngs?}, \binits{R.}},
+\bauthor{\bsnm{Lyngsoe}, \binits{R.}},
 \bauthor{\bsnm{Hein}, \binits{J.}}:
 \batitle{{{S}tat{A}lign: an extendable software package for joint {B}ayesian
   estimation of alignments and evolutionary trees}}.
@@ -1402,14 +1403,15 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \bauthor{\bsnm{Bouchard-c\^{o}t\'{e}}, \binits{A.}},
 \bauthor{\bsnm{Klein}, \binits{D.}},
 \bauthor{\bsnm{Jordan}, \binits{M.I.}}:
-\bctitle{Efficient inference in phylogenetic indel trees}.
+\bctitle{{E}fficient {I}nference in {P}hylogenetic {I}n{D}el {T}rees}.
 In: \beditor{\bsnm{Koller}, \binits{D.}},
 \beditor{\bsnm{Schuurmans}, \binits{D.}},
 \beditor{\bsnm{Bengio}, \binits{Y.}},
 \beditor{\bsnm{Bottou}, \binits{L.}} (eds.)
 \bbtitle{Advances in Neural Information Processing Systems 21},
 pp. \bfpage{177}--\blpage{184}.
-\bpublisher{Curran Associates, Inc.}, \blocation{???}
+\bpublisher{Curran Associates, Inc.},
+\blocation{Vancouver, British Columbia, Canada}
 (\byear{2009}).
 \burl{http://papers.nips.cc/paper/3406-efficient-inference-in-phylogenetic-indel-trees.pdf}
 \end{bchapter}
@@ -1558,7 +1560,7 @@ Bioinformatics
 \bauthor{\bsnm{Eskin}, \binits{E.}},
 \bauthor{\bsnm{Noble}, \binits{W.S.}},
 \bauthor{\bsnm{Singer}, \binits{Y.}}:
-\batitle{{{P}rotein family classification using sparse markov transducers}}.
+\batitle{{{P}rotein family classification using sparse {M}arkov transducers}}.
 \bjtitle{J. Comput. Biol.}
 \bvolume{10}(\bissue{2}),
 \bfpage{187}--\blpage{213}
@@ -1585,9 +1587,10 @@ Bioinformatics
 \begin{botherref}
 \oauthor{\bsnm{Holmes}, \binits{I.}}:
 Modular non-repeating codes for {DNA} storage.
-CoRR
+arXiv
 \textbf{abs/1606.01799}
-(2016)
+(2016).
+arXiv:1606.01799
 \end{botherref}
 \endbibitem
 
@@ -1668,8 +1671,7 @@ CoRR
 \bjtitle{Nucleic Acids Research}
 \bvolume{31}(\bissue{13}),
 \bfpage{3423}--\blpage{3428}
-(\byear{2003}).
-\bcomment{Evaluation Studies}
+(\byear{2003})
 \end{barticle}
 \endbibitem
 
@@ -1976,7 +1978,7 @@ BMC Bioinformatics
 
 <bibl id="B16">
   <title><p>Ancestral Sequence Reconstruction</p></title>
-  <publisher>OUP Oxford</publisher>
+  <publisher>Oxford, UK.: OUP</publisher>
   <editor>Liberles, D.A.</editor>
   <series><title><p>Oxford biosciences</p></title></series>
   <pubdate>2007</pubdate>
@@ -3104,7 +3106,7 @@ BMC Bioinformatics
   <aug>
     <au><snm>Novak</snm><fnm>A.</fnm></au>
     <au><snm>Miklos</snm><fnm>I.</fnm></au>
-    <au><snm>Lyngs?</snm><fnm>R.</fnm></au>
+    <au><snm>Lyngsoe</snm><fnm>R.</fnm></au>
     <au><snm>Hein</snm><fnm>J.</fnm></au>
   </aug>
   <source>Bioinformatics</source>
@@ -3116,14 +3118,16 @@ BMC Bioinformatics
 </bibl>
 
 <bibl id="B89">
-  <title><p>Efficient Inference in Phylogenetic InDel Trees</p></title>
+  <title><p>{E}fficient {I}nference in {P}hylogenetic {I}n{D}el
+  {T}rees</p></title>
   <aug>
     <au><snm>Bouchard c\^{o}t\'{e}</snm><fnm>A</fnm></au>
     <au><snm>Klein</snm><fnm>D</fnm></au>
     <au><snm>Jordan</snm><fnm>MI</fnm></au>
   </aug>
   <source>Advances in Neural Information Processing Systems 21</source>
-  <publisher>Curran Associates, Inc.</publisher>
+  <publisher>Vancouver, British Columbia, Canada: Curran Associates,
+  Inc.</publisher>
   <editor>D. Koller and D. Schuurmans and Y. Bengio and L. Bottou</editor>
   <pubdate>2009</pubdate>
   <fpage>177</fpage>
@@ -3269,7 +3273,7 @@ BMC Bioinformatics
 </bibl>
 
 <bibl id="B99">
-  <title><p>{{P}rotein family classification using sparse markov
+  <title><p>{{P}rotein family classification using sparse {M}arkov
   transducers}</p></title>
   <aug>
     <au><snm>Eskin</snm><fnm>E.</fnm></au>
@@ -3304,10 +3308,11 @@ BMC Bioinformatics
   <aug>
     <au><snm>Holmes</snm><fnm>I</fnm></au>
   </aug>
-  <source>CoRR</source>
+  <source>arXiv</source>
   <pubdate>2016</pubdate>
   <volume>abs/1606.01799</volume>
   <url>http://arxiv.org/abs/1606.01799</url>
+  <note>arXiv:1606.01799</note>
 </bibl>
 
 <bibl id="B102">
@@ -3391,7 +3396,6 @@ BMC Bioinformatics
   <issue>13</issue>
   <fpage>3423</fpage>
   <lpage>3428</lpage>
-  <note>Evaluation Studies</note>
 </bibl>
 
 <bibl id="B108">

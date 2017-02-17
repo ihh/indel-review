@@ -483,7 +483,7 @@ each of which can contain more than one residue \cite{ThorneEtal92,Metzler2003,R
 These includes the TKF92 model \cite{ThorneEtal92} which is, essentially, TKF91 with residues replaced by
 fragments (so the alphabet itself is the countably infinite set of all sequences over some other, finite alphabet).
 Other models approximate indels as a kind of substitution that temporarily hides a residue,
-by augmenting the DNA or protein alphabet with an additional gap character \cite{Rivas05,RivasEddy2008}.
+by augmenting the DNA or protein alphabet with an additional gap character \cite{McGuireEtAl2001,Rivas05,RivasEddy2008}.
 
 These models can be used to calculate some form of likelihood for a pairwise alignment of two sequences,
 but since this likelihood is not derived from an underlying instantaneous model of indels,
@@ -511,10 +511,11 @@ For indel models, this latent information must be extended to include hidden sit
 
 Another variation on TKF91 is the TKF Structure Tree, which describes the evolutionary behavior
 of RNA structures with stem and loop regions which are subject to insertion and deletion \cite{Holmes2004}.
-% This essentially describes the evolution of a graph-like structure whose
-% edges are subject to the TKF91 model
-
-% Generalization to graph grammars such as pair TAGS (Sakakibara et al, Hickey & Blanchette)
+Rather than describing the evolution of a sequence,
+this model essentially captures the time-evolution grammar of a tree-like graph whose
+individual edges are evolving according to the TKF91 model.
+Other evolutionary models have made use of graph grammars,
+for example to model pseudoknots \cite{MatsuiEtAl2005} or context-dependent indels \cite{HickeyBlanchette2011}.
 
 \subsubsection*{Finite-event trajectories and other truncated approximations}
 
@@ -541,11 +542,10 @@ Mikl\'{o}s {\em et al} \cite{MiklosLunterHolmes2004}
 make the claim that the existence of a conserved residue implies the alignment probability is factorable at that point
  (since no indel has ever crossed the boundary).
 They use a numerical sum over indel trajectories to approximate the probability distribution of observed gap lengths.
-This builds on an earlier model which allows long insertions, but only single-residue deletions \cite{MiklosEtal2001}.
+Although they used a reversible model, their approach generalizes readily to irreversible models.
+This work builds on an earlier model which allows long insertions, but only single-residue deletions \cite{MiklosEtal2001}.
 Recent work by Ezawa has put this finite-event approximation on a more solid footing
 by developing a rigorous algebraic definition of equivalence classes for event trajectories \cite{Ezawa2016a,Ezawa2016b,Ezawa2016bErratum}.
-
-% TODO: Although Miklos et al use a reversible model, nothing about their approach requires this
 
 For context-dependent substitution processes,
 such as models that include methylation-induced CpG-deamination,
@@ -556,6 +556,7 @@ Rather than truncating an event trajectory, they develop an explicit Taylor seri
 Specifically, the rate matrix for a finite-length sequence is constructed
 as a sum of rate matrices operating at individual sites, using the Kronecker sum $\oplus$
 and Kronecker product $\otimes$ to concatenate rate matrices for $k$-mers.
+% TODO: more detail here
 Commuting terms in the matrix exponential can then be reordered systematically.
 A similar approach was later used for more general motif evolution models \cite{pmid21827770,pmid26135206}.
 \color{black}
@@ -588,8 +589,8 @@ which are most efficient at modeling geometric length distributions
 (or related distributions for sums of geometric random variates, such as negative binomial distributions),
 may be fundamentally limited in their ability to fully describe indels.
 However, generalized HMMs, which can model arbitrary length distributions at the cost of some
-computational efficiency \cite{BurgeKarlin97}, may be up to the task.
-% TODO: comment that Miklos et al 2004 uses a generalized HMM
+computational efficiency \cite{BurgeKarlin97}, may be up to the task;
+for example, the abovementioned ``long indel'' model of Mikl\'{o}s {\em et al} uses a generalized Pair HMM \cite{MiklosLunterHolmes2004}.
 Rivas and Eddy report simulation studies supporting this result,
 and go on to propose several models incorporating hidden information
 (such as fragment boundaries, {\em a la} TKF92)
@@ -634,12 +635,12 @@ in common with the methods of the following section.
 
 % TODO: figure showing a Mealy transducer for TKF91 rate matrix (left) and matrix exponential (right)
 
-To ensure the rate matrix satisfies \eqref{DiagonalRates},
-we can write $\ratematrix = \offdiagratematrix - \diagmatrix{\offdiagratematrix \vectorofones}$
-where $\offdiagratematrix$ is a matrix containing the off-diagonal (and positive) elements of $\ratematrix$,
-$\vectorofones$ is a vector of 1's, and $\diagmatrix{\vec{v}}$ is the diagonal matrix whose on-diagonal
-elements are given by vector $\vec{v}$.
-(In automata theory, $\offdiagratematrix \vectorofones$ is referred to as the ``input projection'' of $\offdiagratematrix$.)
+% To ensure the rate matrix satisfies \eqref{DiagonalRates},
+% we can write $\ratematrix = \offdiagratematrix - \diagmatrix{\offdiagratematrix \vectorofones}$
+% where $\offdiagratematrix$ is a matrix containing the off-diagonal (and positive) elements of $\ratematrix$,
+% $\vectorofones$ is a vector of 1's, and $\diagmatrix{\vec{v}}$ is the diagonal matrix whose on-diagonal
+% elements are given by vector $\vec{v}$.
+% (In automata theory, $\offdiagratematrix \vectorofones$ is referred to as the ``input projection'' of $\offdiagratematrix$.)
 
 % TODO: briefly review notation of transducer theory
 
@@ -649,13 +650,17 @@ This works essentially because the TKF91 joint distribution over ancestor and de
 can be represented as a Pair HMM;
 the multiple-sequence version is a multi-sequence HMM \cite{HolmesBruno2001}.
 
-This approach can be generalized, using {\em transducer theory}.
+This approach can be generalized, using {\em finite-state transducer} theory.
 Transducers were originally developed as modular representations of sequence-transforming operations
 for use in speech recognition \cite{MohriPereiraRiley2000}.
 In bioinformatics, they offer (among other things)
 a systematic way of extending HMM-like pairwise alignment likelihoods to trees
-\cite{WestessonEtAl2012,BouchardCote2013,IndelHistorian}.   % TODO: UPDATE INDELHISTORIAN REF TO PUBLISHED CITE
-% TODO: Cite some other purposes of transducers
+\cite{pmid7584457,WestessonEtAl2012,BouchardCote2013,IndelHistorian}.
+Other applications of transducer models in bioinformatics have included
+copy number variation in tumors \cite{pmid24743184},
+protein family classification \cite{pmid12804091},
+DNA-protein alignment \cite{pmid15123596}
+and error-correcting codes for DNA storage \cite{DBLP:journals/corr/Holmes16}.
 
 A finite-state transducer is a state machine that reads an input tape and writes to an output tape \cite{Mealy55}.
 A probabilistically weighted finite-state transducer is the same, but its behavior is stochastic \cite{MohriPereiraRiley2000}.
@@ -695,7 +700,8 @@ with promising results for improved accuracy in multiple sequence alignment \cit
 More broadly, we can think of the transducer as being in a family of methods
 that combine phylogenetic trees (modeling the temporal structure of evolution)
 with automata theory, grammars, and dynamic programming on sequences (modeling the spatial structure of evolution).
-% TODO: the TKF Structure Tree can be viewed as a context-free grammar or pushdown transducer
+The TKF Structure Tree, mentioned above, is in this family too:
+it can be viewed as a context-free grammar, or as a transducer with a pushdown stack \cite{Holmes2004}.
 
 The HMM-like nature of TKF91, and the ubiquity of HMMs and dynamic programming in sequence analysis,
 has motivated numerous approaches to indel analysis based on Pair HMMs
@@ -703,9 +709,9 @@ has motivated numerous approaches to indel analysis based on Pair HMMs
 as well as many other applications of 
 phylogenetic HMMs \cite{GoldmanEtAl96,PedersenHein2003,SiepelHaussler04,SiepelHaussler04b}
 and phylogenetic grammars \cite{KnudsenHein99,KnudsenHein2003,PedersenEtAl04,PedersenEtAl2006,KlostermanEtAl2006,pmid22693624}.
-% TODO: in most of these models, an alignment is assumed fixed and the HMM or grammar used to partition it
-% However, in principle, can combine the ability of HMMs/grammars to model indels (and thus specify alignments)
-% with the ability to partition sequences into differently evolving regions
+In most of these models, an alignment is assumed fixed and the HMM or grammar used to partition it;
+however, in principle, one can combine the ability of HMMs/grammars to model indels (and thus impute alignments)
+with the ability to partition sequences into differently evolving regions.
 
 %%%%%%%%%%%%%%%%
 %% Conclusions %%

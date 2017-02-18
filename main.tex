@@ -374,7 +374,7 @@ on an infinite state space,
 but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer feasible,
 \color{red}
 except in special cases where there is explicit structure to the rate matrix that allows identification of the eigensystem by algebraic approaches
-\cite{LunterHein04,pmid21827770,pmid26135206}.
+\cite{LunterHein04,pmid21827770}.
 \color{black}
 
 It has turned out that whole-sequence evolutionary models have proved quite challenging for theorists.
@@ -599,8 +599,11 @@ The rate matrix $\ratematrix$ for a length-$L$ sequence operated on locally by a
 \[
 \ratematrix = \sum_{n=0}^{L-m} \matr{O}_n \oplus \matr{A} \oplus \matr{O}_{L-m-n}
 \]
-Commuting terms in the Taylor series for $\exp(\ratematrix t)$ can then be systematically rearranged into an explicit dynamic programming recursion.
-This approach was first used by \cite{LunterHein04} and further developed, with more in-depth discussion of the associated eigensystem, by \cite{pmid21827770,pmid26135206}.
+Commuting terms in the Taylor series for $\exp(\ratematrix t)$ can then be systematically rearranged into a quickly-converging dynamic programming recursion.
+This approach was first used by \cite{LunterHein04} and further developed
+including model-fitting algorithms \cite{Hobolth2008}
+application to phylogenetic trees \cite{BerardGueguen2012}
+and discussion of the associated eigensystem \cite{pmid21827770,pmid26135206}.
 \color{black}
 It remains to be seen to what extent such an approach offers a practical solution for general indel models.
 

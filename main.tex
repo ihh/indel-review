@@ -112,15 +112,21 @@
 \begin{abstractbox}
 
 \begin{abstract} % abstract
-%\parttitle{Background} %if any
-Despite long-heralded promise of putting sequence alignment on the same footing as statistical phylogenetics,
+\parttitle{Background}
+Despite the long-anticipated possibility of putting sequence alignment on the same footing as statistical phylogenetics,
 theorists have struggled to develop time-dependent evolutionary models for indels that are as tractable
 as the analogous models for substitution events.
 
-%\parttitle{} %if any
-We discuss progress in this area,
-in view of recent articles on the calculation of time-dependent gap length distributions in pairwise alignments
+\parttitle{Main text}
+This paper discusses progress in the area of insertion-deletion models,
+in view of recent work by Ezawa \cite{Ezawa2016b,Ezawa2016a,Ezawa2016bErratum} on the calculation of time-dependent gap length distributions in pairwise alignments,
 and current approaches for extending these approaches from ancestor-descendant pairs to phylogenetic trees.
+
+\parttitle{Conclusions}
+While approximations that use finite-state machines (Pair HMMs and transducers) currently represent the most practical approach
+to problems such as sequence alignment and phylogeny,
+more rigorous approaches that work directly with the matrix exponential of the underlying continuous-time Markov chain
+also show promise, especially in view of recent advances.
 \end{abstract}
 
 \begin{keyword}
@@ -180,7 +186,7 @@ Continuous-time Markov chains describe evolution in a state space $\statespace$,
 for example the set of nucleotides $\statespace = \{ \mbox{A,C,G,T} \}$.
 The stochastic process $\state(t)$ at any given instant of time, $t$,
 takes one of the values in $\statespace$.
-We write $\statevec(t)$ for the vector describing the marginal probability distribution of the process
+Let $\statevec(t)$ be a vector describing the marginal probability distribution of the process
 at a single point in time:
 $\statevec_i(t) = P(\state(t) = i)$.
 The time-evolution of this vector is governed by a {\em master equation}
@@ -189,9 +195,9 @@ The time-evolution of this vector is governed by a {\em master equation}
 \label{MasterEquation}
 \end{equation}
 where, for $i,j \in \statespace$ and $i \neq j$,
-$\ratematrix_{i,j}$ is the instantaneous rate of mutation from state $i$ to state $j$;
-for probabilistic normalization of \eqref{MasterEquation},
-we then require that
+$\ratematrix_{i,j}$ is the instantaneous rate of mutation from state $i$ to state $j$.
+For probabilistic normalization of \eqref{MasterEquation},
+it is then required that
 \[
 \ratematrix_{i,i} = -\sum_{j \in \statespace, j \neq i} \ratematrix_{i,j}
 \]
@@ -236,9 +242,9 @@ and \eqref{ChapmanKolmogorov} is the same equation in matrix form.
 The conditional likelihood for an ancestor-descendant pair can be converted
 into a phylogenetic likelihood for a set of extant taxon states $S$ related by a tree $T$,
 as follows.
-(We assume for convenience that $T$ is a binary tree, though relaxing this constraint is straightforward.)
+(I assume for convenience that $T$ is a binary tree, though relaxing this constraint is straightforward.)
 
-We first compute, for every node $n$ in the tree,
+To compute the likelihood requires that one first computes, for every node $n$ in the tree,
 the probability $\felsvec_i(n)$
 of all observed states at leaf nodes descended from node $n$,
 conditioned on node $n$ being in state $i$.
@@ -259,7 +265,7 @@ This is given by Felsenstein's {\em pruning recursion}:
 \label{Felsenstein}
 \end{equation}
 where $t_{mn}$ denotes the length of the branch from tree node $m$ to tree node $n$.
-We have used the notation
+I have used the notation
 $\unitvec(j)$ for the unit vector in dimension $j$,
 and the symbol
 $\pointprod$ to denote the {\em Hadamard product} (also known as the {\em pointwise product}),
@@ -268,7 +274,7 @@ $(\vec{u} \pointprod \vec{v})_i = \vec{u}_i \vec{v}_i$.
 
 Supposing that node $1$ is the root node of the tree,
 and that the distribution of states at this root node is given by $\initvec$,
-we can write the likelihood as
+the likelihood can be written as
 \begin{equation}
 P(S|T,\ratematrix,\initvec) = \initvec \scalarprod \felsvec(1)
 \label{Likelihood}
@@ -298,7 +304,6 @@ and XRate \cite{pmid22693624}.
 Many more bioinformatics tools use the Dayhoff PAM matrix or other substitution matrix
 based on an underlying master equation of the form \eqref{MasterEquation}.
 
-\color{red}
 \subsubsection*{Homogeneity, stationarity, and reversibility}
 
 There exists a deep literature on Markov chains, to which this brief survey cannot remotely do justice,
@@ -333,7 +338,7 @@ reversibility is a simplification which ignores some unreversible aspects of rea
 limits the expressiveness of the model, and makes the root node placement statistically unidentifiable.
 
 Stationarity has similar advantages and drawbacks.
-If we assume the process was started at equilibrium, that is one less set of parameters to worry about
+If one assumes the process was started at equilibrium, that is one less set of parameters to worry about
 (since the equilibrium distribution is implied by the process itself), but it also renders the model
 less expressive and makes some kinds of inference impossible.
 
@@ -346,17 +351,14 @@ These models are all, however, reversible.
 A good deal of subsequent research has gone into the problem, in various guises, of generalizing results obtained
 for reversible, homogeneous and/or stationary models to the analogous irreversible, nonhomogeneous and nonstationary models.
 For examples, see \cite{pmid9600890,pmid22644340,pmid15210317,pmid27774306}.
-\color{black}
 
 \subsubsection*{From individual residues to whole sequences}
 
 The question naturally arises: how to extend the model to describe the evolution of an entire sequence,
 not just individual sites?
-\color{red}
-In such cases, when we talk about $\condmatrix(t)_{i,j}$ ``the likelihood of an ancestor-descendant pair $(i,j)$''
+In such cases, when one talks about $\condmatrix(t)_{i,j}$ ``the likelihood of an ancestor-descendant pair $(i,j)$''
 (or, more precisely, the probability that---given the system starts in ancestral state $i$---it will after time $t$ have evolved into descendant state $j$)
-the states $i$ and $j$ now represent not just individual residues, but entire sequences.
-\color{black}
+one must bear in mind that the states $i$ and $j$ now represent not just individual residues, but entire sequences.
 
 As long as the allowed mutations are restricted to point substitutions
 and their mutation rates are independent of flanking context,
@@ -369,13 +371,11 @@ For these mutations the natural approach is to extend the state space $\statespa
 to be the set of all possible sequences over a given alphabet
 (for example, the set of all DNA or protein sequences).
 This state space is (countably) infinite;
-we can still discuss Equations~\ref{MasterEquation}-\ref{Felsenstein}
+Equations~\ref{MasterEquation}-\ref{Felsenstein} can still be used
 on an infinite state space,
 but solution by brute-force enumeration of eigenvalues and eigenvectors is no longer feasible,
-\color{red}
 except in special cases where there is explicit structure to the rate matrix that allows identification of the eigensystem by algebraic approaches
 \cite{LunterHein04,pmid21827770}.
-\color{black}
 
 It has turned out that whole-sequence evolutionary models have proved quite challenging for theorists.
 There is extensive evidence suggesting that indels, in particular, can be profoundly informative to phylogenetic studies,
@@ -384,39 +384,39 @@ The field of efforts to unify alignment and phylogeny,
 and to build a theoretical framework for the evolutionary analysis of indels,
 has been dubbed
 {\em statistical alignment} by Hein, one of its pioneers \cite{HeinEtal2000}.
+Recent publications by Ezawa \cite{Ezawa2016b,Ezawa2016a,Ezawa2016bErratum} and Rivas and Eddy \cite{RivasEddy2015} have highlighted this problem once again, directly leading to the present review.
 
 %%%%%%%%%%%%%%%%
 %% Main text %%
 %%
-\section*{Discussion}
+\section*{Main text}
 
-We focus only on ``local'' mutations: mostly indel events (which may include local duplications),
+In this paper I focus only on ``local'' mutations: mostly indel events (which may include local duplications),
 but also context-dependent substitutions.
 This is not because ``nonlocal'' events (such as rearrangements) are unimportant,
 but rather that they tend to defy phylogenetic reconstruction due to the rapid proliferation of possible histories
 after even a few such events \cite{pmid9773350}.
 
 The discussion here is separated into two parts.
-In the first part, we discuss
+In the first part, I discuss
 the master equation (\eqref{MasterEquation})
 and exact solutions thereof (Equations~\ref{MatrixExponential}),
 along with various approximations and their departure from the Chapman-Kolmogorov ideal (\eqref{ChapmanKolmogorov}).
 This is an area in which recent progress has been reported in this journal.
-In the second part, we review
+In the second part, I review
 the extension from pairwise probability distributions
 to phylogenetic likelihoods of multiple sequences,
 using analogs of Felsenstein's pruning recursion (\eqref{Felsenstein}).
 
 \subsection*{Solving the master equation}
 
-We first begin with various approaches to finding the time-dependent probability distribution
+This section begins with various approaches to finding the time-dependent probability distribution
 of gap lengths in a pairwise alignment,
 under several evolutionary models.
 
-\color{red}
 \subsubsection*{Exactly solved models on k-mer strings}
 
-As an approach to models on strings of unbounded length, we can consider short motifs of $k$ residues.
+As an approach to models on strings of unbounded length, one can consider short motifs of $k$ residues.
 These can still be considered as finite state-space models;
 for example, a $k$-nucleotide model has $4^k$ possible states.
 Several such models have been analyzed, including models on codons where $k=3$
@@ -429,7 +429,6 @@ Mostly, these models handle short sequences (motifs) and do not allow the sequen
 Some of the later models do allow the sequence length to change via insertions or deletions
 \cite{pmid26135206} though these models have not yet been analyzed in a way that would allow the
 computation of alignment likelihoods for sequences of realistic lengths.
-\color{black}
 
 \subsubsection*{Exactly solved models on strings of unbounded length}
 
@@ -466,10 +465,8 @@ which conveniently allows the joint probability $P(\state(0),\state(t))$ to be e
 as a paired-sequence Hidden Markov Model or ``Pair HMM'' \cite{HolmesBruno2001}.
 The conditional probability $P(\state(t)|\state(0))$
 can similarly be expressed as a weighted finite-state transducer \cite{Holmes2003,WestessonEtAl2012,BouchardCote2013}.
-\color{red}
 Some interesting discussion of why the TKF91 model should be solvable at all can be found in
 \cite{Metzler2003} and in \cite{pmid22644340}.
-\color{black}
 
 There are several variations on the TKF91 model.
 The case where there are no indels at all, only substitutions, can be viewed as a special case of TKF91,
@@ -477,7 +474,7 @@ and can of course be solved exactly, as is well known.
 Another variation on the TKF91 model constrains the total indel rate to be independent of sequence
 length \cite{BouchardCoteJordan2013}.
 
-In the following section we cover some variants that use different state spaces.
+In the following section I cover some variants that use different state spaces.
 
 \subsubsection*{Exactly solved models on state spaces other than strings}
 
@@ -512,10 +509,8 @@ of any correct solution to a continuous-time Markov chain.
 The above-mentioned approaches may be evolutionarily consistent if the state space
 is allowed to include the extra information that is introduced to make the model tractable,
 such as fragment boundaries.
-\color{red}
 L\`{e}bre and Michel have criticized other aspects of the Rivas-Eddy 2005 and 2008 models \cite{Rivas05,RivasEddy2008};
 in particular, incomplete separation of the indel and substitution processes \cite{pmid22644340}.
-\color{black}
 
 Models which allow for heterogeneity of indel and substitution rates along the sequence
 also fall into this category of latent variable models. The usual way of allowing for such spatial variation
@@ -577,7 +572,6 @@ such as models that include methylation-induced CpG-deamination,
 a clever approach was developed in \cite{LunterHein04}.
 Rather than considering a finite-event trajectory, they develop an explicit Taylor series for the matrix exponential
 (\eqref{MatrixExponential}) and then truncate this Taylor series.
-\color{red}
 Specifically, the rate matrix for a finite-length sequence is constructed
 as a sum of rate matrices operating locally on the sequence, using the Kronecker sum $\oplus$
 and Kronecker product $\otimes$ to concatenate rate matrices.
@@ -604,7 +598,6 @@ This approach was first used by \cite{LunterHein04} and further developed
 including model-fitting algorithms \cite{Hobolth2008}
 application to phylogenetic trees \cite{BerardGueguen2012}
 and discussion of the associated eigensystem \cite{pmid21827770,pmid26135206}.
-\color{black}
 It remains to be seen to what extent such an approach offers a practical solution for general indel models.
 
 \subsubsection*{Simulation studies}
@@ -642,11 +635,12 @@ of multiple-event trajectories to gap length distributions.
 
 \subsection*{Extending from pairs to trees}
 
-We now move to the extension of results on pairwise alignments,
-such as TKF91 and the ``long indel'' model, to multiple alignments (supported by phylogenies).
-In considering this extension,
-we can divide the approaches into two classes:
-those that use Markov Chain Monte Carlo (MCMC), and those that do not.
+Consider now the extension of these results from pairwise alignments,
+such as TKF91 and the ``long indel'' model, to multiple alignments (with associated phylogenies).
+Some of the approaches to this problem
+use Markov Chain Monte Carlo (MCMC);
+some of the approaches use finite-state automata;
+and there is also some overlap between these categories (i.e. MCMC approaches that use automata).
 
 \subsubsection*{Approaches based on MCMC sampling}
 
@@ -693,7 +687,7 @@ except where a Pair HMM's transition and emission probabilities
 have been normalized so as to describe joint probabilities,
 a transducer's probabilities are normalized so as to describe conditional probabilities
 like the entries of matrix $\condmatrix(t)$ (\eqref{MatrixExponential}).
-More specifically, if $i$ and $j$ are sequences, then we can define the matrix entry $A_{i,j}$
+More specifically, if $i$ and $j$ are sequences, then one can define the matrix entry $A_{i,j}$
 to be the Forward score for those two sequences using transducer $\trans{A}$.
 Thus, the transducer is a compact encoding for a square matrix of countably infinite rank,
 indexed by sequence states (rather than nucleotide or amino acid states).
@@ -724,7 +718,7 @@ Practically, the phylogenetic transducer can be used for alignment \cite{Redelin
 parameter estimation \cite{Redelings2014}, and ancestral reconstruction \cite{WestessonEtAl2012},
 with promising results for improved accuracy in multiple sequence alignment \cite{IndelHistorian}.
 
-More broadly, we can think of the transducer as being in a family of methods
+More broadly, one can think of the transducer as being in a family of methods
 that combine phylogenetic trees (modeling the temporal structure of evolution)
 with automata theory, grammars, and dynamic programming on sequences (modeling the spatial structure of evolution).
 The TKF Structure Tree, mentioned above, is in this family too:
@@ -797,16 +791,25 @@ sequence alignment and phylogeny truly are closely related aspects of mathematic
 
 \begin{backmatter}
 
-\section*{Competing interests}
+\section*{Declarations}
+\subsection*{Ethics approval and consent to participate}
+Not applicable.
+\subsection*{Consent to publish}
+Not applicable.
+\subsection*{Availability of data and materials}
+Not applicable.
+\subsection*{Competing interests}
   The author declares that they have no competing interests.
 
-\section*{Author's contributions}
+\subsection*{Funding}
+This work was supported by NIH/NHGRI grant HG004483.
+\subsection*{Author's contributions}
     IH wrote the article.
 
-\section*{Acknowledgements}
+\subsection*{Acknowledgements}
   The author thanks Kiyoshi Ezawa, Elena Rivas, Sean Eddy, Jeff Thorne,
   Benjamin Redelings, and Marc Suchard
-  for productive conversations that have informed the writing of this piece.
+  for productive conversations that have informed this review.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
 %%                                                         %%

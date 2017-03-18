@@ -1393,7 +1393,7 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 \bvolume{61}(\bissue{3}),
 \bfpage{510}
 (\byear{2012}).
-doi:\doiurl{10.1093/sysbio/sys024}
+\bcomment{DOI: 10.1093/sysbio/sys024}
 \end{barticle}
 \endbibitem
 
@@ -3159,6 +3159,7 @@ BMC Bioinformatics
   <volume>61</volume>
   <issue>3</issue>
   <fpage>510</fpage>
+  <note>DOI: 10.1093/sysbio/sys024</note>
 </bibl>
 
 <bibl id="B89">

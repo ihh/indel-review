@@ -532,8 +532,8 @@ for example to model pseudoknots \cite{MatsuiEtAl2005} or context-dependent inde
 In tackling indel models where the indel events can insert or delete multiple residues at once,
 several authors have used the approximation that indels never overlap,
 so that any observed gap corresponds to a single indel event.
-This approximation, which is justified if one is considering evolutionary timespans $t \ll 1/\delta$
-where $\delta$ is the indel rate per site,
+This approximation, which is justified if one is considering evolutionary timespans $t \ll 1/(\delta \ell)$
+where $\delta$ is the indel rate per site \color{red} and $\ell$ is the mean gap length \color{black},
 considerably simplifies the task of calculating gap probabilities
 \cite{KnudsenMiyamoto2003,RedelingsSuchard2005,SuchardRedelings2006,RedelingsSuchard2007,WestessonEtAlArxiv2011,WestessonEtAl2012,WestessonBarquistHolmes2012}.
 

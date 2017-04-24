@@ -533,7 +533,7 @@ In tackling indel models where the indel events can insert or delete multiple re
 several authors have used the approximation that indels never overlap,
 so that any observed gap corresponds to a single indel event.
 This approximation, which is justified if one is considering evolutionary timespans $t \ll 1/(\delta \ell)$
-where $\delta$ is the indel rate per site \color{red} and $\ell$ is the mean gap length \color{black},
+where $\delta$ is the indel rate per site and $\ell$ is the gap length,
 considerably simplifies the task of calculating gap probabilities
 \cite{KnudsenMiyamoto2003,RedelingsSuchard2005,SuchardRedelings2006,RedelingsSuchard2007,WestessonEtAlArxiv2011,WestessonEtAl2012,WestessonBarquistHolmes2012}.
 
@@ -586,9 +586,7 @@ and are specified by
   \left( \matr{A} \otimes \matr{B} \right)_{ik,jl} & = & \matr{A}_{i,j} \matr{B}_{k,l} \\
   \left( \matr{A} \oplus \matr{B} \right)_{ik,jl} & = & \delta(k=l) \matr{A}_{i,j} + \delta(i=j) \matr{B}_{k,l}
 \end{eqnarray}
-\color{red}
 where $\delta(i=j)=1$ if $i=j$ and 0 if $i \neq j$.
-\color{black}
 Furthermore, suppose $\matr{O}_n \in {\cal M}_n$ is the $N^k \times N^k$ null matrix containing only zeroes.
 Then $\matr{O}_m \oplus \matr{B}$ commutes with $\matr{A} \oplus \matr{O}_n$,
 and $\exp(\matr{A} \oplus \matr{B}) = \exp(\matr{A}) \otimes \exp(\matr{B})$.
@@ -602,9 +600,7 @@ including model-fitting algorithms \cite{Hobolth2008}
 application to phylogenetic trees \cite{BerardGueguen2012}
 and discussion of the associated eigensystem \cite{pmid21827770,pmid26135206}.
 It remains to be seen to what extent such an approach offers a practical solution for general indel models,
-\color{red}
 where the instantaneous transitions are between sequences of differing lengths.
-\color{black}
 
 
 \subsubsection*{Simulation studies}
@@ -623,7 +619,6 @@ and go on to propose several models incorporating hidden information
 (such as fragment boundaries, {\em a la} TKF92)
 which have the advantage of being good fits to HMMs for their finite-time distributions.
 
-\color{red}
 It has long been known that the lengths of empirically-observed indels are more accurately described
 by a power-law distribution than a geometric distribution \cite{pmid8445636,ChangBenner2004,ShihengTao2007,pmid1604319,pmid17110395,pmid12954770}
 and that alignment algorithms may benefit from using such length distributions, which lead to generalized convex gap penalties,
@@ -633,7 +628,6 @@ of the true lengths of natural indels \cite{pmid18073381}.
 For almost as long, it has been known that using a mixture of geometric distributions,
 or (considered in score space rather than probability space) a piecewise linear gap penalty,
 mitigates some of these problems in sequence alignment \cite{MyersMiller88,DoEtAl2005,pmid18073381}.
-\color{black}
 Taken together, these results suggest that simple HMM-like models,
 which are most efficient at modeling geometric length distributions,
 may be fundamentally limited in their ability to fully describe indels;
@@ -644,10 +638,8 @@ computational efficiency \cite{BurgeKarlin97},
 may be most appropriate.
 For example, the abovementioned ``long indel'' model of Mikl\'{o}s {\em et al} uses a generalized Pair HMM \cite{MiklosLunterHolmes2004},
 as does the HMM of \cite{KimSinha2007}.
-\color{red}
 It is even conceivable that some molecular evolution studies in the future will abandon HMMs altogether,
 although they remain very convenient for many applications.
-\color{black}
 
 The recent work of Ezawa has some parallels, but also differences,
 to the work of Rivas and Eddy \cite{Ezawa2016a,Ezawa2016b,Ezawa2016bErratum}.
@@ -656,16 +648,14 @@ He puts the intuition of Mikl\'{o}s et al \cite{MiklosLunterHolmes2004}
 on a more formal footing by introducing an explicit notation for indel trajectories
 and the concept of ``local history set equivalence classes'' for equivalent trajectories.
 Ezawa uses this concept to prove that alignment likelihoods for long-indel and related models are indeed factorable,
-and investigates, \color{red} by numerical computation and analysis (with confirmation by simulation), \color{black} the relative contribution
+and investigates, by numerical computation and analysis (with confirmation by simulation), the relative contribution
 of multiple-event trajectories to gap length distributions.
-\color{red}
 Ezawa's results also show that the effects on the observed indel lengths due to overlapping indels become more significant as the indels get larger,
 making the problem particularly acute for genomic alignments where indels can be much larger than in proteins.
 
 A number of excellent, realistic sequence simulators are available
 including DAWG \cite{Cartwright2005}, INDELible \cite{pmid19423664},
 and indel-Seq-Gen \cite{pmid19651852}.
-\color{black}
 
 \subsection*{Extending from pairs to trees}
 
@@ -692,7 +682,6 @@ and some (focused on RNA sequences) attempt prediction of secondary structure \c
 
 In practise these mostly use HMMs, or dynamic programming of some form,
 in common with the methods of the following section.
-\color{red}
 It is of course possible to use HMM-based or other MCMC approaches to propose candidate
 reconstructions, and then to accept or reject those proposals
 (in the manner of Metropolis-Hastings or importance sampling)
@@ -707,7 +696,6 @@ and applied it to some analyses of simulated MSAs \cite{Ezawa2016c}.
 Using such realistic likelihood calculations as a post-processing ``filter''
 for coarser, more rapid MCMC approaches
 that sample the space of possible reconstructions could be a promising approach.
-\color{black}
 
 \subsubsection*{Approaches based on automata theory}
 
@@ -803,15 +791,13 @@ and indeed (for simple models) have been proven impossible \cite{RivasEddy2015}.
 Further, simulation results have demonstrated that geometric distributions are not
 a good fit to the observed gap length distributions when the underlying indel model
 has geometrically-distributed lengths for its instantaneous indel events \cite{RivasEddy2015}.
-\color{red}
 If the lengths of the instantaneous indels follow biologically plausible power-law
 distributions, the evolutionary effects due to overlapping indels become larger as
 the gaps grow longer \cite{Ezawa2016a}.
-\color{black}
 
 That is the bad news (at least for automata).
 The good news is that the simulation results also suggest that,
-for short branches \color{red} and/or gaps (such that indels rarely overlap)\color{black}, the error may not be too bad to live with.
+for short branches and/or gaps (such that indels rarely overlap), the error may not be too bad to live with.
 Approximate-fit approaches that are common in Pair HMM modeling and pairwise sequence alignment---such as using a mixture
 of geometric distributions to approximate a gap length distribution (yielding a longer tail than can be modeled
 using a pure geometric distribution)---may help bridge the accuracy gap \cite{DoEtAl2005}.
@@ -827,10 +813,8 @@ Rivas and Eddy \cite{RivasEddy2015}, clearly targeting applications (particularl
 work backward from HMM-like models toward evolutionary models with embedded
 hidden information.
 These models may be somewhat mathematically contrived,
-\color{red}
 but are easier to tailor so as to model effects such as position-specific conservation,
 thus trading (in a certain sense) purism for expressiveness.
-\color{black}
 
 Whichever approach is used, these results are unambiguously good news for the theoretical study of indel processes.
 The potential benefits of modeling alignment as an aspect of statistical phylogenetics are significant.

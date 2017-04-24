@@ -1386,12 +1386,12 @@ In: \bbtitle{First Workshop on Algorithms in Bioinformatics}.
 %%% 88
 \bibitem{ShihengTao2007}
 \begin{barticle}
-\bauthor{\bsnm{Tao}, \binits{S.}},
 \bauthor{\bsnm{Fan}, \binits{Y.}},
 \bauthor{\bsnm{Wang}, \binits{W.}},
 \bauthor{\bsnm{Ma}, \binits{G.}},
 \bauthor{\bsnm{Liang}, \binits{L.}},
-\bauthor{\bsnm{Shi}, \binits{Q.}}:
+\bauthor{\bsnm{Shi}, \binits{Q.}},
+\bauthor{\bsnm{Tao}, \binits{S.}}:
 \batitle{Patterns of insertion and deletion in mammalian genomes}.
 \bjtitle{Current Genomics}
 \bvolume{8}(\bissue{6}),
@@ -3324,12 +3324,12 @@ BMC Bioinformatics
 <bibl id="B88">
   <title><p>Patterns of Insertion and Deletion in Mammalian Genomes</p></title>
   <aug>
-    <au><snm>Tao</snm><fnm>S.</fnm></au>
     <au><snm>Fan</snm><fnm>Y.</fnm></au>
     <au><snm>Wang</snm><fnm>W.</fnm></au>
     <au><snm>Ma</snm><fnm>G.</fnm></au>
     <au><snm>Liang</snm><fnm>L.</fnm></au>
     <au><snm>Shi</snm><fnm>Q.</fnm></au>
+    <au><snm>Tao</snm><fnm>S.</fnm></au>
   </aug>
   <source>Current Genomics</source>
   <pubdate>2007</pubdate>
